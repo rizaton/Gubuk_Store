@@ -12,6 +12,10 @@ class Authentifications extends BaseController
         echo "YOU're NOT SUPPOSED TO BE HERE";
     }
     //User
+    public function buyNow_auth()
+    {
+        return view('');
+    }
     public function login_auth()
     {
         return view('');
@@ -39,6 +43,11 @@ class Authentifications extends BaseController
         return view('');
     }
     public function member_auth()
+    {
+        return view('');
+    }
+    //Paymen
+    public function pay_auth()
     {
         return view('');
     }
