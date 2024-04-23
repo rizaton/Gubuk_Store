@@ -60,4 +60,9 @@ class UserModel extends Model
     {
         return $this->delete($whereData);
     }
+
+    public function findData($data)
+    {
+        return $this->doFind(true, $data);
+    }
 }
