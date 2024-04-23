@@ -16,6 +16,7 @@ class Home extends BaseController
     {
         return view('');
     }
+    // goto AUTH
     public function login()
     {
         return view('');
