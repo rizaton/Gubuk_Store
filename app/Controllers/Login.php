@@ -9,6 +9,14 @@ class Login extends BaseController
 {
     public function index()
     {
-        //
+        return view('');
+    }
+    public function register()
+    {
+        return view('');
+    }
+    public function forgot_password()
+    {
+        return view('');
     }
 }

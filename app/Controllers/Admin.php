@@ -9,8 +9,13 @@ class Admin extends BaseController
 {
     public function index()
     {
+        return view('');
     }
     public function stocks()
+    {
+        return view('');
+    }
+    public function manage_members()
     {
         return view('');
     }
