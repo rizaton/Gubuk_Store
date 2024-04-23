@@ -11,6 +11,10 @@ class Login extends BaseController
     {
         return view('');
     }
+    public function login()
+    {
+        return view('');
+    }
     public function register()
     {
         return view('');
