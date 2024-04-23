@@ -26,11 +26,13 @@ class Stocks extends Migration
             ],
             'min_qty' => [
                 'type' => 'INT',
-                'constraint' => 2
+                'constraint' => 2,
+                'default' => 10
             ],
             'max_qty' => [
                 'type' => 'INT',
-                'constraint' => 2
+                'constraint' => 2,
+                'default' => 45
             ],
             'price' => [
                 'type' => 'INT',

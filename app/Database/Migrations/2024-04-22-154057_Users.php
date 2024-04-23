@@ -33,11 +33,13 @@ class Users extends Migration
             ],
             'points' => [
                 'type' => 'INT',
-                'constraint' => 7
+                'constraint' => 7,
+                'default' => 0
             ],
             'access' => [
                 'type' => 'CHAR',
-                'constraint' => 2
+                'constraint' => 2,
+                'default' => 'mb'
             ]
         ]);
         $this->forge->addPrimaryKey('id');
