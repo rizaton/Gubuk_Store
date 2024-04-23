@@ -38,8 +38,8 @@ class Users extends Migration
             ],
             'access' => [
                 'type' => 'CHAR',
-                'constraint' => 2,
-                'default' => 'mb'
+                'constraint' => 1,
+                'default' => 'u'
             ]
         ]);
         $this->forge->addPrimaryKey('id');
