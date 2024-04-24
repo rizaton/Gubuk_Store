@@ -6,6 +6,27 @@ class Home extends BaseController
 {
     public function index()
     {
-        echo view('user/about');
+        return view('');
+    }
+    public function products()
+    {
+        return view('');
+    }
+    public function about()
+    {
+        return view('');
+    }
+    // goto AUTH
+    public function login()
+    {
+        return view('');
+    }
+    public function register()
+    {
+        return view('');
+    }
+    public function forget_password()
+    {
+        return view('');
     }
 }
