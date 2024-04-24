@@ -4,47 +4,47 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Stocks extends Migration
+class ProductTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id' => [
+            'product_id' => [
                 'type' => 'INT',
-                'contraint' => 4,
+                'contraint' => 3,
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'name' => [
+            'product_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
                 'unique' => true
             ],
-            'qty' => [
+            'product_qty' => [
                 'type' => 'INT',
-                'constraint' => 2
+                'constraint' => 3
             ],
-            'min_qty' => [
+            'product_min_qty' => [
                 'type' => 'INT',
-                'constraint' => 2,
-                'default' => 10
+                'constraint' => 3,
+                'default' => 20
             ],
-            'max_qty' => [
+            'product_max_qty' => [
                 'type' => 'INT',
-                'constraint' => 2,
-                'default' => 45
+                'constraint' => 3,
+                'default' => 40
             ],
-            'price' => [
+            'product_price_per_qty' => [
                 'type' => 'INT',
-                'constraint' => 6
+                'constraint' => 10
             ]
         ]);
-        $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('stocks');
+        $this->forge->addPrimaryKey('product_id');
+        $this->forge->createTable('product');
     }
 
     public function down()
     {
-        $this->forge->dropTable('stocks');
+        $this->forge->dropTable('product');
     }
 }
