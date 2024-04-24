@@ -10,6 +10,9 @@ module.exports = {
         202 : "202px",
         1200 : "1200px"
       },
+      borderWidth: {
+        'border-w-tipis' : '1px'
+      }
     },
   },
   plugins: [require("daisyui")],

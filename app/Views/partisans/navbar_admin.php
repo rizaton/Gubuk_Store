@@ -17,9 +17,9 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a>Home</a></li>
-            <li><a>Product</a></li>
-            <li><a>About</a></li>
+            <li><a>Dashboard</a></li>
+            <li><a>Stocks</a></li>
+            <li><a>Users Management</a></li>
             <li><a>Promo</a></li>
         </ul>
     </div>
