@@ -22,7 +22,7 @@
 
 ::before,
 ::after {
-  --tw-content: "";
+  --tw-content: '';
 }
 
 /*
@@ -44,10 +44,9 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-  tab-size: 4;
+     tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -90,7 +89,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /*
@@ -136,8 +135,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -238,9 +236,9 @@ select {
 */
 
 button,
-input:where([type="button"]),
-input:where([type="reset"]),
-input:where([type="submit"]) {
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -287,7 +285,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -380,8 +378,7 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder,
-textarea::-moz-placeholder {
+input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -451,8 +448,8 @@ video {
 
 :root,
 [data-theme] {
-  background-color: var(--fallback-b1, oklch(var(--b1) / 1));
-  color: var(--fallback-bc, oklch(var(--bc) / 1));
+  background-color: var(--fallback-b1,oklch(var(--b1)/1));
+  color: var(--fallback-bc,oklch(var(--bc)/1));
 }
 
 @supports not (color: oklch(0% 0 0)) {
@@ -514,7 +511,7 @@ html {
 :root {
   color-scheme: light;
   --in: 72.06% 0.191 231.6;
-  --su: 64.8% 0.15 160;
+  --su: 64.8% 0.150 160;
   --wa: 84.71% 0.199 83.87;
   --er: 71.76% 0.221 22.18;
   --pc: 89.824% 0.06192 275.75;
@@ -527,7 +524,7 @@ html {
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
-  --animation-input: 0.2s;
+  --animation-input: .2s;
   --btn-focus-scale: 0.95;
   --border-btn: 1px;
   --tab-border: 1px;
@@ -548,7 +545,7 @@ html {
   :root {
     color-scheme: dark;
     --in: 72.06% 0.191 231.6;
-    --su: 64.8% 0.15 160;
+    --su: 64.8% 0.150 160;
     --wa: 84.71% 0.199 83.87;
     --er: 71.76% 0.221 22.18;
     --pc: 13.138% 0.0392 275.75;
@@ -562,7 +559,7 @@ html {
     --rounded-btn: 0.5rem;
     --rounded-badge: 1.9rem;
     --animation-btn: 0.25s;
-    --animation-input: 0.2s;
+    --animation-input: .2s;
     --btn-focus-scale: 0.95;
     --border-btn: 1px;
     --tab-border: 1px;
@@ -579,10 +576,10 @@ html {
   }
 }
 
-[data-theme="light"] {
+[data-theme=light] {
   color-scheme: light;
   --in: 72.06% 0.191 231.6;
-  --su: 64.8% 0.15 160;
+  --su: 64.8% 0.150 160;
   --wa: 84.71% 0.199 83.87;
   --er: 71.76% 0.221 22.18;
   --pc: 89.824% 0.06192 275.75;
@@ -595,7 +592,7 @@ html {
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
-  --animation-input: 0.2s;
+  --animation-input: .2s;
   --btn-focus-scale: 0.95;
   --border-btn: 1px;
   --tab-border: 1px;
@@ -612,10 +609,10 @@ html {
   --bc: 27.8078% 0.029596 256.847952;
 }
 
-[data-theme="dark"] {
+[data-theme=dark] {
   color-scheme: dark;
   --in: 72.06% 0.191 231.6;
-  --su: 64.8% 0.15 160;
+  --su: 64.8% 0.150 160;
   --wa: 84.71% 0.199 83.87;
   --er: 71.76% 0.221 22.18;
   --pc: 13.138% 0.0392 275.75;
@@ -629,7 +626,7 @@ html {
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
-  --animation-input: 0.2s;
+  --animation-input: .2s;
   --btn-focus-scale: 0.95;
   --border-btn: 1px;
   --tab-border: 1px;
@@ -645,9 +642,7 @@ html {
   --bc: 74.6477% 0.0216 264.435964;
 }
 
-*,
-::before,
-::after {
+*, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -657,19 +652,19 @@ html {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x: ;
-  --tw-pan-y: ;
-  --tw-pinch-zoom: ;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position: ;
-  --tw-gradient-via-position: ;
-  --tw-gradient-to-position: ;
-  --tw-ordinal: ;
-  --tw-slashed-zero: ;
-  --tw-numeric-figure: ;
-  --tw-numeric-spacing: ;
-  --tw-numeric-fraction: ;
-  --tw-ring-inset: ;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -677,28 +672,28 @@ html {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur: ;
-  --tw-brightness: ;
-  --tw-contrast: ;
-  --tw-grayscale: ;
-  --tw-hue-rotate: ;
-  --tw-invert: ;
-  --tw-saturate: ;
-  --tw-sepia: ;
-  --tw-drop-shadow: ;
-  --tw-backdrop-blur: ;
-  --tw-backdrop-brightness: ;
-  --tw-backdrop-contrast: ;
-  --tw-backdrop-grayscale: ;
-  --tw-backdrop-hue-rotate: ;
-  --tw-backdrop-invert: ;
-  --tw-backdrop-opacity: ;
-  --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia: ;
-  --tw-contain-size: ;
-  --tw-contain-layout: ;
-  --tw-contain-paint: ;
-  --tw-contain-style: ;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 ::backdrop {
@@ -711,19 +706,19 @@ html {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x: ;
-  --tw-pan-y: ;
-  --tw-pinch-zoom: ;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position: ;
-  --tw-gradient-via-position: ;
-  --tw-gradient-to-position: ;
-  --tw-ordinal: ;
-  --tw-slashed-zero: ;
-  --tw-numeric-figure: ;
-  --tw-numeric-spacing: ;
-  --tw-numeric-fraction: ;
-  --tw-ring-inset: ;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -731,28 +726,28 @@ html {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur: ;
-  --tw-brightness: ;
-  --tw-contrast: ;
-  --tw-grayscale: ;
-  --tw-hue-rotate: ;
-  --tw-invert: ;
-  --tw-saturate: ;
-  --tw-sepia: ;
-  --tw-drop-shadow: ;
-  --tw-backdrop-blur: ;
-  --tw-backdrop-brightness: ;
-  --tw-backdrop-contrast: ;
-  --tw-backdrop-grayscale: ;
-  --tw-backdrop-hue-rotate: ;
-  --tw-backdrop-invert: ;
-  --tw-backdrop-opacity: ;
-  --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia: ;
-  --tw-contain-size: ;
-  --tw-contain-layout: ;
-  --tw-contain-paint: ;
-  --tw-contain-style: ;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 .container {
@@ -801,19 +796,19 @@ html {
   border-radius: var(--rounded-box, 1rem);
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-border-opacity)));
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
   padding: 1rem;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
-  --alert-bg: var(--fallback-b2, oklch(var(--b2) / 1));
-  --alert-bg-mix: var(--fallback-b1, oklch(var(--b1) / 1));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  --alert-bg: var(--fallback-b2,oklch(var(--b2)/1));
+  --alert-bg-mix: var(--fallback-b1,oklch(var(--b1)/1));
   background-color: var(--alert-bg);
 }
 
 @media (min-width: 640px) {
   .alert {
     grid-auto-flow: column;
-    grid-template-columns: auto minmax(auto, 1fr);
+    grid-template-columns: auto minmax(auto,1fr);
     justify-items: start;
     text-align: start;
   }
@@ -834,7 +829,7 @@ html {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
 .avatar.placeholder > div {
@@ -847,15 +842,9 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 200ms;
@@ -869,30 +858,30 @@ html {
   border-radius: var(--rounded-badge, 1.9rem);
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-border-opacity)));
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
 }
 
-@media (hover: hover) {
+@media (hover:hover) {
   .link-hover:hover {
     text-decoration-line: underline;
   }
 
   .label a:hover {
     --tw-text-opacity: 1;
-    color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   }
 
   .menu li > *:not(ul, .menu-title, details, .btn):active,
-  .menu li > *:not(ul, .menu-title, details, .btn).active,
-  .menu li > details > summary:active {
+.menu li > *:not(ul, .menu-title, details, .btn).active,
+.menu li > details > summary:active {
     --tw-bg-opacity: 1;
-    background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
     --tw-text-opacity: 1;
-    color: var(--fallback-nc, oklch(var(--nc) / var(--tw-text-opacity)));
+    color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
   }
 
   .tab:hover {
@@ -902,10 +891,7 @@ html {
   .table tr.hover:hover,
   .table tr.hover:nth-child(even):hover {
     --tw-bg-opacity: 1;
-    background-color: var(
-      --fallback-b2,
-      oklch(var(--b2) / var(--tw-bg-opacity))
-    );
+    background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
   }
 }
 
@@ -916,8 +902,8 @@ html {
   flex-shrink: 0;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -936,23 +922,21 @@ html {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   border-width: var(--border-btn, 1px);
   animation: button-pop var(--animation-btn, 0.25s) ease-out;
-  transition-property: color, background-color, border-color, opacity,
-    box-shadow, transform;
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  outline-color: var(--fallback-bc, oklch(var(--bc) / 1));
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-color: var(--fallback-bc,oklch(var(--bc)/1));
   background-color: oklch(var(--btn-color, var(--b2)) / var(--tw-bg-opacity));
   --tw-bg-opacity: 1;
   --tw-border-opacity: 1;
 }
 
 .btn-disabled,
-.btn[disabled],
-.btn:disabled {
+  .btn[disabled],
+  .btn:disabled {
   pointer-events: none;
 }
 
@@ -967,8 +951,8 @@ html {
 :where(.btn:is(input[type="radio"])) {
   width: auto;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .btn:is(input[type="checkbox"]):after,
@@ -1024,12 +1008,12 @@ html {
   z-index: 10;
   border-radius: var(--rounded-box, 1rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   opacity: 0.75;
 }
 
 .card.image-full:before,
-.card.image-full > * {
+    .card.image-full > * {
   grid-column-start: 1;
   grid-row-start: 1;
 }
@@ -1037,14 +1021,14 @@ html {
 .card.image-full > figure img {
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
 .card.image-full > .card-body {
   position: relative;
   z-index: 20;
   --tw-text-opacity: 1;
-  color: var(--fallback-nc, oklch(var(--nc) / var(--tw-text-opacity)));
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
 }
 
 .carousel {
@@ -1079,24 +1063,24 @@ html {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   -moz-column-gap: 0.75rem;
-  column-gap: 0.75rem;
+       column-gap: 0.75rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
 
 .checkbox {
   flex-shrink: 0;
-  --chkbg: var(--fallback-bc, oklch(var(--bc) / 1));
-  --chkfg: var(--fallback-b1, oklch(var(--b1) / 1));
+  --chkbg: var(--fallback-bc,oklch(var(--bc)/1));
+  --chkfg: var(--fallback-b1,oklch(var(--b1)/1));
   height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-radius: var(--rounded-btn, 0.5rem);
   border-width: 1px;
-  border-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-border-opacity)));
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
   --tw-border-opacity: 0.2;
 }
 
@@ -1118,20 +1102,12 @@ html {
   visibility: hidden;
   opacity: 0;
   transform-origin: top;
-  --tw-scale-x: 0.95;
-  --tw-scale-y: 0.95;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter, -webkit-backdrop-filter;
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 200ms;
@@ -1191,40 +1167,34 @@ html {
   }
 
   .btm-nav > *.disabled:hover,
-  .btm-nav > *[disabled]:hover {
+      .btm-nav > *[disabled]:hover {
     pointer-events: none;
     --tw-border-opacity: 0;
-    background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
     --tw-bg-opacity: 0.1;
-    color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
     --tw-text-opacity: 0.2;
   }
 
   .btn:hover {
     --tw-border-opacity: 1;
-    border-color: var(
-      --fallback-b3,
-      oklch(var(--b3) / var(--tw-border-opacity))
-    );
+    border-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-border-opacity)));
     --tw-bg-opacity: 1;
-    background-color: var(
-      --fallback-b3,
-      oklch(var(--b3) / var(--tw-bg-opacity))
-    );
+    background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
   }
 
   @supports (color: color-mix(in oklab, black, black)) {
     .btn:hover {
       background-color: color-mix(
-        in oklab,
-        oklch(var(--btn-color, var(--b2)) / var(--tw-bg-opacity, 1)) 90%,
-        black
-      );
+            in oklab,
+            oklch(var(--btn-color, var(--b2)) / var(--tw-bg-opacity, 1)) 90%,
+            black
+          );
       border-color: color-mix(
-        in oklab,
-        oklch(var(--btn-color, var(--b2)) / var(--tw-border-opacity, 1)) 90%,
-        black
-      );
+            in oklab,
+            oklch(var(--btn-color, var(--b2)) / var(--tw-border-opacity, 1)) 90%,
+            black
+          );
     }
   }
 
@@ -1246,7 +1216,7 @@ html {
 
   @supports (color: oklch(0% 0 0)) {
     .btn-ghost:hover {
-      background-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+      background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
     }
   }
 
@@ -1258,107 +1228,67 @@ html {
 
   .btn-outline.btn-primary:hover {
     --tw-text-opacity: 1;
-    color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+    color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
   }
 
   @supports (color: color-mix(in oklab, black, black)) {
     .btn-outline.btn-primary:hover {
-      background-color: color-mix(
-        in oklab,
-        var(--fallback-p, oklch(var(--p) / 1)) 90%,
-        black
-      );
-      border-color: color-mix(
-        in oklab,
-        var(--fallback-p, oklch(var(--p) / 1)) 90%,
-        black
-      );
+      background-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+      border-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
     }
   }
 
   .btn-outline.btn-secondary:hover {
     --tw-text-opacity: 1;
-    color: var(--fallback-sc, oklch(var(--sc) / var(--tw-text-opacity)));
+    color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
   }
 
   @supports (color: color-mix(in oklab, black, black)) {
     .btn-outline.btn-secondary:hover {
-      background-color: color-mix(
-        in oklab,
-        var(--fallback-s, oklch(var(--s) / 1)) 90%,
-        black
-      );
-      border-color: color-mix(
-        in oklab,
-        var(--fallback-s, oklch(var(--s) / 1)) 90%,
-        black
-      );
+      background-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
+      border-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
     }
   }
 
   .btn-disabled:hover,
-  .btn[disabled]:hover,
-  .btn:disabled:hover {
+    .btn[disabled]:hover,
+    .btn:disabled:hover {
     --tw-border-opacity: 0;
-    background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+    background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
     --tw-bg-opacity: 0.2;
-    color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
     --tw-text-opacity: 0.2;
   }
 
   @supports (color: color-mix(in oklab, black, black)) {
-    .btn:is(input[type="checkbox"]:checked):hover,
-    .btn:is(input[type="radio"]:checked):hover {
-      background-color: color-mix(
-        in oklab,
-        var(--fallback-p, oklch(var(--p) / 1)) 90%,
-        black
-      );
-      border-color: color-mix(
-        in oklab,
-        var(--fallback-p, oklch(var(--p) / 1)) 90%,
-        black
-      );
+    .btn:is(input[type="checkbox"]:checked):hover, .btn:is(input[type="radio"]:checked):hover {
+      background-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+      border-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
     }
   }
 
   .dropdown.dropdown-hover:hover .dropdown-content {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
-  :where(
-      .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-    ):not(.active, .btn):hover,
-  :where(
-      .menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-    ):not(.active, .btn):hover {
+  :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(.active, .btn):hover, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.active, .btn):hover {
     cursor: pointer;
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
 
   @supports (color: oklch(0% 0 0)) {
-    :where(
-        .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-      ):not(.active, .btn):hover,
-    :where(
-        .menu
-          li:not(.menu-title, .disabled)
-          > details
-          > summary:not(.menu-title)
-      ):not(.active, .btn):hover {
-      background-color: var(--fallback-bc, oklch(var(--bc) / 0.1));
+    :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(.active, .btn):hover, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.active, .btn):hover {
+      background-color: var(--fallback-bc,oklch(var(--bc)/0.1));
     }
   }
 
   .tab[disabled],
-  .tab[disabled]:hover {
+    .tab[disabled]:hover {
     cursor: not-allowed;
-    color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
     --tw-text-opacity: 0.2;
   }
 }
@@ -1373,7 +1303,7 @@ html {
   grid-auto-flow: row;
   place-items: start;
   -moz-column-gap: 1rem;
-  column-gap: 1rem;
+       column-gap: 1rem;
   row-gap: 2.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1412,8 +1342,8 @@ html {
 .label {
   display: flex;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 0.25rem;
@@ -1440,7 +1370,7 @@ html {
   grid-row-start: 1;
   height: 100%;
   width: 100%;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   --tw-bg-opacity: 0.5;
 }
 
@@ -1464,17 +1394,15 @@ html {
 .indicator :where(.indicator-item) {
   z-index: 1;
   position: absolute;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   white-space: nowrap;
 }
 
 .input {
   flex-shrink: 1;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   height: 3rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1485,32 +1413,7 @@ html {
   border-width: 1px;
   border-color: transparent;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
-}
-
-.input[type="number"]::-webkit-inner-spin-button,
-.input-md[type="number"]::-webkit-inner-spin-button {
-  margin-top: -1rem;
-  margin-bottom: -1rem;
-  margin-inline-end: -1rem;
-}
-
-.input {
-  flex-shrink: 1;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1rem;
-  line-height: 2;
-  line-height: 1.5rem;
-  border-radius: var(--rounded-btn, 0.5rem);
-  border-width: 1px;
-  border-color: transparent;
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .input[type="number"]::-webkit-inner-spin-button,
@@ -1534,7 +1437,7 @@ html {
 }
 
 .join .join-item:not(:first-child):not(:last-child),
-.join *:not(:first-child):not(:last-child) .join-item {
+  .join *:not(:first-child):not(:last-child) .join-item {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
   border-end-start-radius: 0;
@@ -1542,31 +1445,31 @@ html {
 }
 
 .join .join-item:first-child:not(:last-child),
-.join *:first-child:not(:last-child) .join-item {
+  .join *:first-child:not(:last-child) .join-item {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 }
 
 .join .dropdown .join-item:first-child:not(:last-child),
-.join *:first-child:not(:last-child) .dropdown .join-item {
+  .join *:first-child:not(:last-child) .dropdown .join-item {
   border-start-end-radius: inherit;
   border-end-end-radius: inherit;
 }
 
 .join :where(.join-item:first-child:not(:last-child)),
-.join :where(*:first-child:not(:last-child) .join-item) {
+  .join :where(*:first-child:not(:last-child) .join-item) {
   border-end-start-radius: inherit;
   border-start-start-radius: inherit;
 }
 
 .join .join-item:last-child:not(:first-child),
-.join *:last-child:not(:first-child) .join-item {
+  .join *:last-child:not(:first-child) .join-item {
   border-end-start-radius: 0;
   border-start-start-radius: 0;
 }
 
 .join :where(.join-item:last-child:not(:first-child)),
-.join :where(*:last-child:not(:first-child) .join-item) {
+  .join :where(*:last-child:not(:first-child) .join-item) {
   border-start-end-radius: inherit;
   border-end-end-radius: inherit;
 }
@@ -1594,11 +1497,11 @@ html {
 
 .mask {
   -webkit-mask-size: contain;
-  mask-size: contain;
+          mask-size: contain;
   -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
   -webkit-mask-position: center;
-  mask-position: center;
+          mask-position: center;
 }
 
 .menu {
@@ -1617,8 +1520,7 @@ html {
   padding-inline-start: 0.5rem;
 }
 
-.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)),
-.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
   display: grid;
   grid-auto-flow: column;
   align-content: flex-start;
@@ -1626,16 +1528,16 @@ html {
   gap: 0.5rem;
   grid-auto-columns: minmax(auto, max-content) auto max-content;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .menu li.disabled {
   cursor: not-allowed;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  color: var(--fallback-bc, oklch(var(--bc) / 0.3));
+     -moz-user-select: none;
+          user-select: none;
+  color: var(--fallback-bc,oklch(var(--bc)/0.3));
 }
 
 .menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
@@ -1682,15 +1584,120 @@ html {
   justify-content: flex-end;
 }
 
+.radio {
+  flex-shrink: 0;
+  --chkbg: var(--bc);
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  --tw-border-opacity: 0.2;
+}
+
+.select {
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 3rem;
+  min-height: 3rem;
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  line-height: 2;
+  border-radius: var(--rounded-btn, 0.5rem);
+  border-width: 1px;
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1px + 50%),
+    calc(100% - 16.1px) calc(1px + 50%);
+  background-size: 4px 4px,
+    4px 4px;
+  background-repeat: no-repeat;
+}
+
+.select[multiple] {
+  height: auto;
+}
+
+.stats {
+  display: inline-grid;
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+
+:where(.stats) {
+  grid-auto-flow: column;
+  overflow-x: auto;
+}
+
+.stat {
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  --tw-border-opacity: 0.1;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.stat-figure {
+  grid-column-start: 2;
+  grid-row: span 3 / span 3;
+  grid-row-start: 1;
+  place-self: center;
+  justify-self: end;
+}
+
+.stat-title {
+  grid-column-start: 1;
+  white-space: nowrap;
+  color: var(--fallback-bc,oklch(var(--bc)/0.6));
+}
+
+.stat-value {
+  grid-column-start: 1;
+  white-space: nowrap;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+}
+
+.stat-desc {
+  grid-column-start: 1;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--fallback-bc,oklch(var(--bc)/0.6));
+}
+
 .tabs {
   display: grid;
   align-items: flex-end;
 }
 
-.tabs-lifted:has(.tab-content[class^="rounded-"])
-  .tab:first-child:not(.tab-active),
-.tabs-lifted:has(.tab-content[class*=" rounded-"])
-  .tab:first-child:not(.tab-active) {
+.tabs-lifted:has(.tab-content[class^="rounded-"]) .tab:first-child:not(.tab-active),
+  .tabs-lifted:has(.tab-content[class*=" rounded-"]) .tab:first-child:not(.tab-active) {
   border-bottom-color: transparent;
 }
 
@@ -1701,11 +1708,11 @@ html {
   height: 2rem;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -1715,9 +1722,9 @@ html {
   line-height: 2;
   --tab-padding: 1rem;
   --tw-text-opacity: 0.5;
-  --tab-color: var(--fallback-bc, oklch(var(--bc) / 1));
-  --tab-bg: var(--fallback-b1, oklch(var(--b1) / 1));
-  --tab-border-color: var(--fallback-b3, oklch(var(--b3) / 1));
+  --tab-color: var(--fallback-bc,oklch(var(--bc)/1));
+  --tab-bg: var(--fallback-b1,oklch(var(--b1)/1));
+  --tab-border-color: var(--fallback-b3,oklch(var(--b3)/1));
   color: var(--tab-color);
   padding-inline-start: var(--tab-padding, 1rem);
   padding-inline-end: var(--tab-padding, 1rem);
@@ -1750,7 +1757,7 @@ html {
 }
 
 :checked + .tab-content:nth-child(2),
-.tab-active + .tab-content:nth-child(2) {
+  .tab-active + .tab-content:nth-child(2) {
   border-start-start-radius: 0px;
 }
 
@@ -1773,7 +1780,7 @@ input.tab:checked + .tab-content,
   top: 0px;
   z-index: 1;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .table :where(.table-pin-rows tfoot tr) {
@@ -1781,7 +1788,7 @@ input.tab:checked + .tab-content,
   bottom: 0px;
   z-index: 1;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .table :where(.table-pin-cols tr th) {
@@ -1789,7 +1796,7 @@ input.tab:checked + .tab-content,
   left: 0px;
   right: 0px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .timeline {
@@ -1856,7 +1863,7 @@ input.tab:checked + .tab-content,
 
 .toggle {
   flex-shrink: 0;
-  --tglbg: var(--fallback-b1, oklch(var(--b1) / 1));
+  --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
   --handleoffset: 1.5rem;
   --handleoffsetcalculator: calc(var(--handleoffset) * -1);
   --togglehandleborder: 0 0;
@@ -1864,16 +1871,18 @@ input.tab:checked + .tab-content,
   width: 3rem;
   cursor: pointer;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-radius: var(--rounded-badge, 1.9rem);
   border-width: 1px;
   border-color: currentColor;
   background-color: currentColor;
-  color: var(--fallback-bc, oklch(var(--bc) / 0.5));
-  transition: background, box-shadow var(--animation-input, 0.2s) ease-out;
+  color: var(--fallback-bc,oklch(var(--bc)/0.5));
+  transition: background,
+    box-shadow var(--animation-input, 0.2s) ease-out;
   box-shadow: var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset,
-    0 0 0 2px var(--tglbg) inset, var(--togglehandleborder);
+    0 0 0 2px var(--tglbg) inset,
+    var(--togglehandleborder);
 }
 
 .avatar-group :where(.avatar) {
@@ -1881,7 +1890,26 @@ input.tab:checked + .tab-content,
   border-radius: 9999px;
   border-width: 4px;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-border-opacity)));
+  border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity)));
+}
+
+.badge-ghost {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+}
+
+.btm-nav > *.disabled,
+    .btm-nav > *[disabled] {
+  pointer-events: none;
+  --tw-border-opacity: 0;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  --tw-bg-opacity: 0.1;
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  --tw-text-opacity: 0.2;
 }
 
 .btm-nav > * .label {
@@ -1890,7 +1918,7 @@ input.tab:checked + .tab-content,
 }
 
 .btn:active:hover,
-.btn:active:focus {
+  .btn:active:focus {
   animation: button-pop 0s ease-out;
   transform: scale(var(--btn-focus-scale, 0.97));
 }
@@ -1912,16 +1940,13 @@ input.tab:checked + .tab-content,
 
 @supports (color: color-mix(in oklab, black, black)) {
   .btn-outline.btn-primary.btn-active {
-    background-color: color-mix(
-      in oklab,
-      var(--fallback-p, oklch(var(--p) / 1)) 90%,
-      black
-    );
-    border-color: color-mix(
-      in oklab,
-      var(--fallback-p, oklch(var(--p) / 1)) 90%,
-      black
-    );
+    background-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+  }
+
+  .btn-outline.btn-secondary.btn-active {
+    background-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
   }
 }
 
@@ -1933,8 +1958,8 @@ input.tab:checked + .tab-content,
 
 .btn-primary {
   --tw-text-opacity: 1;
-  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
-  outline-color: var(--fallback-p, oklch(var(--p) / 1));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+  outline-color: var(--fallback-p,oklch(var(--p)/1));
 }
 
 @supports (color: oklch(0% 0 0)) {
@@ -1949,15 +1974,14 @@ input.tab:checked + .tab-content,
 
 .btn-secondary {
   --tw-text-opacity: 1;
-  color: var(--fallback-sc, oklch(var(--sc) / var(--tw-text-opacity)));
-  outline-color: var(--fallback-s, oklch(var(--s) / 1));
+  color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
+  outline-color: var(--fallback-s,oklch(var(--s)/1));
 }
 
 .btn.glass {
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline-color: currentColor;
 }
 
@@ -1973,26 +1997,24 @@ input.tab:checked + .tab-content,
   color: currentColor;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline-color: currentColor;
 }
 
 .btn-ghost.btn-active {
   border-color: transparent;
-  background-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
 }
 
 .btn-link {
   border-color: transparent;
   background-color: transparent;
   --tw-text-opacity: 1;
-  color: var(--fallback-p, oklch(var(--p) / var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
   text-decoration-line: underline;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline-color: currentColor;
 }
 
@@ -2004,37 +2026,46 @@ input.tab:checked + .tab-content,
 
 .btn-outline.btn-primary {
   --tw-text-opacity: 1;
-  color: var(--fallback-p, oklch(var(--p) / var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
 }
 
 .btn-outline.btn-primary.btn-active {
   --tw-text-opacity: 1;
-  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+}
+
+.btn-outline.btn-secondary {
+  --tw-text-opacity: 1;
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
+}
+
+.btn-outline.btn-secondary.btn-active {
+  --tw-text-opacity: 1;
+  color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
 }
 
 .btn.btn-disabled,
-.btn[disabled],
-.btn:disabled {
+  .btn[disabled],
+  .btn:disabled {
   --tw-border-opacity: 0;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   --tw-bg-opacity: 0.2;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   --tw-text-opacity: 0.2;
 }
 
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p, oklch(var(--p) / var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-p, oklch(var(--p) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
   --tw-text-opacity: 1;
-  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
 }
 
-.btn:is(input[type="checkbox"]:checked):focus-visible,
-.btn:is(input[type="radio"]:checked):focus-visible {
-  outline-color: var(--fallback-p, oklch(var(--p) / 1));
+.btn:is(input[type="checkbox"]:checked):focus-visible, .btn:is(input[type="radio"]:checked):focus-visible {
+  outline-color: var(--fallback-p,oklch(var(--p)/1));
 }
 
 @keyframes button-pop {
@@ -2075,22 +2106,13 @@ input.tab:checked + .tab-content,
 .card.bordered {
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-border-opacity)));
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
 }
 
 .card.compact .card-body {
   padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
 }
 
 .card-title {
@@ -2119,52 +2141,42 @@ input.tab:checked + .tab-content,
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: var(--fallback-bc, oklch(var(--bc) / 1));
+  outline-color: var(--fallback-bc,oklch(var(--bc)/1));
 }
 
 .checkbox:checked,
-.checkbox[aria-checked="true"] {
+  .checkbox[aria-checked="true"] {
   background-repeat: no-repeat;
   animation: checkmark var(--animation-input, 0.2s) ease-out;
   background-color: var(--chkbg);
-  background-image: linear-gradient(
-      -45deg,
-      transparent 65%,
-      var(--chkbg) 65.99%
-    ),
-    linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
-    linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
-    linear-gradient(
-      45deg,
-      var(--chkbg) 30%,
-      var(--chkfg) 30.99%,
-      var(--chkfg) 40%,
-      transparent 40.99%
-    ),
-    linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
+  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%),
+      linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
+      linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
+      linear-gradient(
+        45deg,
+        var(--chkbg) 30%,
+        var(--chkfg) 30.99%,
+        var(--chkfg) 40%,
+        transparent 40.99%
+      ),
+      linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
 }
 
 .checkbox:indeterminate {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   background-repeat: no-repeat;
   animation: checkmark var(--animation-input, 0.2s) ease-out;
   background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
-    linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
-    linear-gradient(
-      0deg,
-      var(--chkbg) 43%,
-      var(--chkfg) 43%,
-      var(--chkfg) 57%,
-      var(--chkbg) 57%
-    );
+      linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
 }
 
 .checkbox:disabled {
   cursor: not-allowed;
   border-color: transparent;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   opacity: 0.2;
 }
 
@@ -2187,28 +2199,26 @@ input.tab:checked + .tab-content,
 .dropdown:focus-within .dropdown-content {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .label-text {
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
 }
 
 .label-text-alt {
   font-size: 0.75rem;
   line-height: 1rem;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
 }
 
 .input input {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-p, oklch(var(--p) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
   background-color: transparent;
 }
 
@@ -2222,41 +2232,39 @@ input.tab:checked + .tab-content,
 }
 
 .input-bordered {
-  border-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
 }
 
 .input:focus,
-.input:focus-within {
+  .input:focus-within {
   box-shadow: none;
-  border-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
 }
 
 .input-disabled,
-.input:disabled,
-.input[disabled] {
+  .input:disabled,
+  .input[disabled] {
   cursor: not-allowed;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-border-opacity)));
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
-  color: var(--fallback-bc, oklch(var(--bc) / 0.4));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/0.4));
 }
 
-.input-disabled::-moz-placeholder,
-.input:disabled::-moz-placeholder,
-.input[disabled]::-moz-placeholder {
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-placeholder-opacity)));
+.input-disabled::-moz-placeholder, .input:disabled::-moz-placeholder, .input[disabled]::-moz-placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
   --tw-placeholder-opacity: 0.2;
 }
 
 .input-disabled::placeholder,
-.input:disabled::placeholder,
-.input[disabled]::placeholder {
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-placeholder-opacity)));
+  .input:disabled::placeholder,
+  .input[disabled]::placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
   --tw-placeholder-opacity: 0.2;
 }
 
@@ -2286,12 +2294,12 @@ input.tab:checked + .tab-content,
 
 .mask-squircle {
   -webkit-mask-image: url("data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e");
-  mask-image: url("data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e");
+          mask-image: url("data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e");
 }
 
 :where(.menu li:empty) {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   opacity: 0.1;
   margin: 0.5rem 1rem;
   height: 1px;
@@ -2304,7 +2312,7 @@ input.tab:checked + .tab-content,
   top: 0.75rem;
   width: 1px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   opacity: 0.1;
   content: "";
 }
@@ -2317,43 +2325,20 @@ input.tab:checked + .tab-content,
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: start;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 200ms;
   text-wrap: balance;
 }
 
-:where(
-    .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-  ):not(summary, .active, .btn).focus,
-:where(
-    .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-  ):not(summary, .active, .btn):focus,
-:where(
-    .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-  ):is(summary):not(.active, .btn):focus-visible,
-:where(
-    .menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-  ):not(summary, .active, .btn).focus,
-:where(
-    .menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-  ):not(summary, .active, .btn):focus,
-:where(
-    .menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-  ):is(summary):not(.active, .btn):focus-visible {
+:where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(summary, .active, .btn).focus, :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(summary, .active, .btn):focus, :where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):is(summary):not(.active, .btn):focus-visible, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(summary, .active, .btn).focus, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(summary, .active, .btn):focus, :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):is(summary):not(.active, .btn):focus-visible {
   cursor: pointer;
-  background-color: var(--fallback-bc, oklch(var(--bc) / 0.1));
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -2362,9 +2347,9 @@ input.tab:checked + .tab-content,
 .menu li > *:not(ul, .menu-title, details, .btn).active,
 .menu li > details > summary:active {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   --tw-text-opacity: 1;
-  color: var(--fallback-nc, oklch(var(--nc) / var(--tw-text-opacity)));
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
 }
 
 .menu :where(li > details > summary)::-webkit-details-marker {
@@ -2411,7 +2396,7 @@ input.tab:checked + .tab-content,
   text-overflow: ellipsis;
   white-space: nowrap;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
   padding-left: 2rem;
   direction: ltr;
 }
@@ -2424,9 +2409,7 @@ input.tab:checked + .tab-content,
   aspect-ratio: 1 / 1;
   height: 0.75rem;
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-radius: 9999px;
   border-width: 2px;
   border-color: currentColor;
@@ -2441,59 +2424,7 @@ input.tab:checked + .tab-content,
   height: 0.5rem;
   --tw-translate-y: 25%;
   --tw-rotate: -45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  border-radius: 9999px;
-  border-width: 1px;
-  border-color: currentColor;
-  opacity: 0.6;
-}
-
-.mockup-browser .mockup-browser-toolbar .input {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  height: 1.75rem;
-  width: 24rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
-  padding-left: 2rem;
-  direction: ltr;
-}
-
-.mockup-browser .mockup-browser-toolbar .input:before {
-  content: "";
-  position: absolute;
-  left: 0.5rem;
-  top: 50%;
-  aspect-ratio: 1 / 1;
-  height: 0.75rem;
-  --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  border-radius: 9999px;
-  border-width: 2px;
-  border-color: currentColor;
-  opacity: 0.6;
-}
-
-.mockup-browser .mockup-browser-toolbar .input:after {
-  content: "";
-  position: absolute;
-  left: 1.25rem;
-  top: 50%;
-  height: 0.5rem;
-  --tw-translate-y: 25%;
-  --tw-rotate: -45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-radius: 9999px;
   border-width: 1px;
   border-color: currentColor;
@@ -2520,17 +2451,17 @@ input.tab:checked + .tab-content,
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: var(--fallback-bc, oklch(var(--bc) / 1));
+  outline-color: var(--fallback-bc,oklch(var(--bc)/1));
 }
 
 .radio:checked,
-.radio[aria-checked="true"] {
+  .radio[aria-checked="true"] {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   background-image: none;
   animation: radiomark var(--animation-input, 0.2s) ease-out;
-  box-shadow: 0 0 0 4px var(--fallback-b1, oklch(var(--b1) / 1)) inset,
-    0 0 0 4px var(--fallback-b1, oklch(var(--b1) / 1)) inset;
+  box-shadow: 0 0 0 4px var(--fallback-b1,oklch(var(--b1)/1)) inset,
+      0 0 0 4px var(--fallback-b1,oklch(var(--b1)/1)) inset;
 }
 
 .radio:disabled {
@@ -2540,18 +2471,18 @@ input.tab:checked + .tab-content,
 
 @keyframes radiomark {
   0% {
-    box-shadow: 0 0 0 12px var(--fallback-b1, oklch(var(--b1) / 1)) inset,
-      0 0 0 12px var(--fallback-b1, oklch(var(--b1) / 1)) inset;
+    box-shadow: 0 0 0 12px var(--fallback-b1,oklch(var(--b1)/1)) inset,
+      0 0 0 12px var(--fallback-b1,oklch(var(--b1)/1)) inset;
   }
 
   50% {
-    box-shadow: 0 0 0 3px var(--fallback-b1, oklch(var(--b1) / 1)) inset,
-      0 0 0 3px var(--fallback-b1, oklch(var(--b1) / 1)) inset;
+    box-shadow: 0 0 0 3px var(--fallback-b1,oklch(var(--b1)/1)) inset,
+      0 0 0 3px var(--fallback-b1,oklch(var(--b1)/1)) inset;
   }
 
   100% {
-    box-shadow: 0 0 0 4px var(--fallback-b1, oklch(var(--b1) / 1)) inset,
-      0 0 0 4px var(--fallback-b1, oklch(var(--b1) / 1)) inset;
+    box-shadow: 0 0 0 4px var(--fallback-b1,oklch(var(--b1)/1)) inset,
+      0 0 0 4px var(--fallback-b1,oklch(var(--b1)/1)) inset;
   }
 }
 
@@ -2567,6 +2498,54 @@ input.tab:checked + .tab-content,
   100% {
     transform: translateY(0);
   }
+}
+
+.select-bordered {
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
+.select:focus {
+  box-shadow: none;
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
+.select-disabled,
+  .select:disabled,
+  .select[disabled] {
+  cursor: not-allowed;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/0.4));
+}
+
+.select-disabled::-moz-placeholder, .select:disabled::-moz-placeholder, .select[disabled]::-moz-placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
+  --tw-placeholder-opacity: 0.2;
+}
+
+.select-disabled::placeholder,
+  .select:disabled::placeholder,
+  .select[disabled]::placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
+  --tw-placeholder-opacity: 0.2;
+}
+
+.select-multiple,
+  .select[multiple],
+  .select[size].select:not([size="1"]) {
+  background-image: none;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .select {
+  background-position: calc(0% + 12px) calc(1px + 50%),
+    calc(0% + 16px) calc(1px + 50%);
 }
 
 @keyframes skeleton {
@@ -2598,8 +2577,8 @@ input.tab:checked + .tab-content,
 }
 
 .tab.tab-active:not(.tab-disabled):not([disabled]),
-.tab:is(input:checked) {
-  border-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-border-opacity)));
+  .tab:is(input:checked) {
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
   --tw-border-opacity: 1;
   --tw-text-opacity: 1;
 }
@@ -2615,14 +2594,14 @@ input.tab:checked + .tab-content,
 }
 
 .tab-disabled,
-.tab[disabled] {
+  .tab[disabled] {
   cursor: not-allowed;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   --tw-text-opacity: 0.2;
 }
 
 .tabs-bordered > .tab {
-  border-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-border-opacity)));
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
   --tw-border-opacity: 0.2;
   border-style: solid;
   border-bottom-width: calc(var(--tab-border, 1px) + 1px);
@@ -2640,10 +2619,9 @@ input.tab:checked + .tab-content,
 }
 
 .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]),
-.tabs-lifted > .tab:is(input:checked) {
+  .tabs-lifted > .tab:is(input:checked) {
   background-color: var(--tab-bg);
-  border-width: var(--tab-border, 1px) var(--tab-border, 1px) 0
-    var(--tab-border, 1px);
+  border-width: var(--tab-border, 1px) var(--tab-border, 1px) 0 var(--tab-border, 1px);
   border-inline-start-color: var(--tab-border-color);
   border-inline-end-color: var(--tab-border-color);
   border-top-color: var(--tab-border-color);
@@ -2653,8 +2631,7 @@ input.tab:checked + .tab-content,
   padding-top: 0;
 }
 
-.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):before,
-.tabs-lifted > .tab:is(input:checked):before {
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked):before {
   z-index: 1;
   content: "";
   display: block;
@@ -2663,52 +2640,43 @@ input.tab:checked + .tab-content,
   height: var(--tab-radius, 0.5rem);
   bottom: 0;
   background-size: var(--tab-radius, 0.5rem);
-  background-position: top left, top right;
+  background-position: top left,
+        top right;
   background-repeat: no-repeat;
   --tab-grad: calc(69% - var(--tab-border, 1px));
   --radius-start: radial-gradient(
-    circle at top left,
-    transparent var(--tab-grad),
-    var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
-    var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
-    var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
-  );
+        circle at top left,
+        transparent var(--tab-grad),
+        var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+        var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+        var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
+      );
   --radius-end: radial-gradient(
-    circle at top right,
-    transparent var(--tab-grad),
-    var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
-    var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
-    var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
-  );
+        circle at top right,
+        transparent var(--tab-grad),
+        var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+        var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+        var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
+      );
   background-image: var(--radius-start), var(--radius-end);
 }
 
-.tabs-lifted
-  > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,
-.tabs-lifted > .tab:is(input:checked):first-child:before {
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, .tabs-lifted > .tab:is(input:checked):first-child:before {
   background-image: var(--radius-end);
   background-position: top right;
 }
 
-[dir="rtl"]
-  .tabs-lifted
-  > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,
-[dir="rtl"] .tabs-lifted > .tab:is(input:checked):first-child:before {
+[dir="rtl"] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, [dir="rtl"] .tabs-lifted > .tab:is(input:checked):first-child:before {
   background-image: var(--radius-start);
   background-position: top left;
 }
 
-.tabs-lifted
-  > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,
-.tabs-lifted > .tab:is(input:checked):last-child:before {
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, .tabs-lifted > .tab:is(input:checked):last-child:before {
   background-image: var(--radius-start);
   background-position: top left;
 }
 
-[dir="rtl"]
-  .tabs-lifted
-  > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,
-[dir="rtl"] .tabs-lifted > .tab:is(input:checked):last-child:before {
+[dir="rtl"] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, [dir="rtl"] .tabs-lifted > .tab:is(input:checked):last-child:before {
   background-image: var(--radius-end);
   background-position: top right;
 }
@@ -2716,11 +2684,7 @@ input.tab:checked + .tab-content,
 .tabs-lifted
   > .tab-active:not(.tab-disabled):not([disabled])
   + .tabs-lifted
-  .tab-active:not(.tab-disabled):not([disabled]):before,
-.tabs-lifted
-  > .tab:is(input:checked)
-  + .tabs-lifted
-  .tab:is(input:checked):before {
+  .tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked) + .tabs-lifted .tab:is(input:checked):before {
   background-image: var(--radius-end);
   background-position: top right;
 }
@@ -2742,20 +2706,16 @@ input.tab:checked + .tab-content,
 }
 
 .table tr.active,
-.table tr.active:nth-child(even),
-.table-zebra tbody tr:nth-child(even) {
+  .table tr.active:nth-child(even),
+  .table-zebra tbody tr:nth-child(even) {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
 }
 
-.table
-  :where(thead tr, tbody tr:not(:last-child), tbody tr:first-child:last-child) {
+.table :where(thead tr, tbody tr:not(:last-child),tbody tr:first-child:last-child) {
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
-  border-bottom-color: var(
-    --fallback-b2,
-    oklch(var(--b2) / var(--tw-border-opacity))
-  );
+  border-bottom-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
 }
 
 .table :where(thead, tfoot) {
@@ -2763,16 +2723,13 @@ input.tab:checked + .tab-content,
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
-  color: var(--fallback-bc, oklch(var(--bc) / 0.6));
+  color: var(--fallback-bc,oklch(var(--bc)/0.6));
 }
 
 .table :where(tfoot) {
   border-top-width: 1px;
   --tw-border-opacity: 1;
-  border-top-color: var(
-    --fallback-b2,
-    oklch(var(--b2) / var(--tw-border-opacity))
-  );
+  border-top-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
 }
 
 .timeline hr {
@@ -2781,7 +2738,7 @@ input.tab:checked + .tab-content,
 
 :where(.timeline hr) {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
 }
 
 :where(.timeline:has(.timeline-middle) hr):first-child {
@@ -2832,7 +2789,7 @@ input.tab:checked + .tab-content,
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
 }
 
 .toggle:hover {
@@ -2840,41 +2797,39 @@ input.tab:checked + .tab-content,
 }
 
 .toggle:checked,
-.toggle[aria-checked="true"] {
+  .toggle[aria-checked="true"] {
   background-image: none;
   --handleoffsetcalculator: var(--handleoffset);
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
 }
 
-[dir="rtl"] .toggle:checked,
-[dir="rtl"] .toggle[aria-checked="true"] {
+[dir="rtl"] .toggle:checked, [dir="rtl"] .toggle[aria-checked="true"] {
   --handleoffsetcalculator: calc(var(--handleoffset) * -1);
 }
 
 .toggle:indeterminate {
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-    calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-    0 0 0 2px var(--tglbg) inset;
+      calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+      0 0 0 2px var(--tglbg) inset;
 }
 
 [dir="rtl"] .toggle:indeterminate {
   box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-    calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-    0 0 0 2px var(--tglbg) inset;
+        calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+        0 0 0 2px var(--tglbg) inset;
 }
 
 .toggle:disabled {
   cursor: not-allowed;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-border-opacity)));
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
   background-color: transparent;
   opacity: 0.3;
-  --togglehandleborder: 0 0 0 3px var(--fallback-bc, oklch(var(--bc) / 1)) inset,
-    var(--handleoffsetcalculator) 0 0 3px
-      var(--fallback-bc, oklch(var(--bc) / 1)) inset;
+  --togglehandleborder: 0 0 0 3px var(--fallback-bc,oklch(var(--bc)/1)) inset,
+      var(--handleoffsetcalculator) 0 0 3px var(--fallback-bc,oklch(var(--bc)/1)) inset;
 }
 
 .badge-sm {
@@ -2938,91 +2893,69 @@ input.tab:checked + .tab-content,
   top: 0px;
   --tw-translate-y: -50%;
   --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 :is([dir="rtl"] .indicator :where(.indicator-item)) {
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-start) {
   inset-inline-end: auto;
   inset-inline-start: 0px;
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 :is([dir="rtl"] .indicator :where(.indicator-item.indicator-start)) {
   --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-center) {
   inset-inline-end: 50%;
   inset-inline-start: 50%;
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 :is([dir="rtl"] .indicator :where(.indicator-item.indicator-center)) {
   --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-end) {
   inset-inline-end: 0px;
   inset-inline-start: auto;
   --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 :is([dir="rtl"] .indicator :where(.indicator-item.indicator-end)) {
   --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-bottom) {
   bottom: 0px;
   top: auto;
   --tw-translate-y: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-middle) {
   bottom: 50%;
   top: 50%;
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .indicator :where(.indicator-item.indicator-top) {
   bottom: auto;
   top: 0px;
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .join.join-vertical {
@@ -3030,7 +2963,7 @@ input.tab:checked + .tab-content,
 }
 
 .join.join-vertical .join-item:first-child:not(:last-child),
-.join.join-vertical *:first-child:not(:last-child) .join-item {
+  .join.join-vertical *:first-child:not(:last-child) .join-item {
   border-end-start-radius: 0;
   border-end-end-radius: 0;
   border-start-start-radius: inherit;
@@ -3038,7 +2971,7 @@ input.tab:checked + .tab-content,
 }
 
 .join.join-vertical .join-item:last-child:not(:first-child),
-.join.join-vertical *:last-child:not(:first-child) .join-item {
+  .join.join-vertical *:last-child:not(:first-child) .join-item {
   border-start-start-radius: 0;
   border-start-end-radius: 0;
   border-end-start-radius: inherit;
@@ -3050,7 +2983,7 @@ input.tab:checked + .tab-content,
 }
 
 .join.join-horizontal .join-item:first-child:not(:last-child),
-.join.join-horizontal *:first-child:not(:last-child) .join-item {
+  .join.join-horizontal *:first-child:not(:last-child) .join-item {
   border-end-end-radius: 0;
   border-start-end-radius: 0;
   border-end-start-radius: inherit;
@@ -3058,7 +2991,7 @@ input.tab:checked + .tab-content,
 }
 
 .join.join-horizontal .join-item:last-child:not(:first-child),
-.join.join-horizontal *:last-child:not(:first-child) .join-item {
+  .join.join-horizontal *:last-child:not(:first-child) .join-item {
   border-end-start-radius: 0;
   border-start-start-radius: 0;
   border-end-end-radius: inherit;
@@ -3093,14 +3026,14 @@ input.tab:checked + .tab-content,
 .tabs-sm :where(.tab) {
   height: 1.5rem;
   font-size: 0.875rem;
-  line-height: 0.75rem;
+  line-height: .75rem;
   --tab-padding: 0.75rem;
 }
 
 .tabs-xs :where(.tab) {
   height: 1.25rem;
   font-size: 0.75rem;
-  line-height: 0.75rem;
+  line-height: .75rem;
   --tab-padding: 0.5rem;
 }
 
@@ -3108,8 +3041,7 @@ input.tab:checked + .tab-content,
   flex-direction: column;
 }
 
-.timeline-compact .timeline-start,
-.timeline-horizontal.timeline-compact .timeline-start {
+.timeline-compact .timeline-start, .timeline-horizontal.timeline-compact .timeline-start {
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 3;
@@ -3119,8 +3051,7 @@ input.tab:checked + .tab-content,
   justify-self: center;
 }
 
-.timeline-compact li:has(.timeline-start) .timeline-end,
-.timeline-horizontal.timeline-compact li:has(.timeline-start) .timeline-end {
+.timeline-compact li:has(.timeline-start) .timeline-end, .timeline-horizontal.timeline-compact li:has(.timeline-start) .timeline-end {
   grid-column-start: none;
   grid-row-start: auto;
 }
@@ -3219,10 +3150,10 @@ input.tab:checked + .tab-content,
   display: block;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su, oklch(var(--su) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
   outline-style: solid;
   outline-width: 2px;
-  outline-color: var(--fallback-b1, oklch(var(--b1) / 1));
+  outline-color: var(--fallback-b1,oklch(var(--b1)/1));
   width: 15%;
   height: 15%;
   top: 7%;
@@ -3236,10 +3167,10 @@ input.tab:checked + .tab-content,
   display: block;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
   outline-style: solid;
   outline-width: 2px;
-  outline-color: var(--fallback-b1, oklch(var(--b1) / 1));
+  outline-color: var(--fallback-b1,oklch(var(--b1)/1));
   width: 15%;
   height: 15%;
   top: 7%;
@@ -3260,10 +3191,6 @@ input.tab:checked + .tab-content,
   padding: var(--padding-card, 2rem);
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.card-normal .card-title {
-  margin-bottom: 0.75rem;
 }
 
 .card-normal .card-title {
@@ -3297,17 +3224,13 @@ input.tab:checked + .tab-content,
 :where(.menu-horizontal > li:not(.menu-title) > details > ul) {
   border-radius: var(--rounded-box, 1rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
-    0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.menu-sm :where(li:not(.menu-title) > *:not(ul, details, .menu-title)),
-.menu-sm :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+.menu-sm :where(li:not(.menu-title) > *:not(ul, details, .menu-title)), .menu-sm :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
   border-radius: var(--rounded-btn, 0.5rem);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3354,18 +3277,14 @@ input.tab:checked + .tab-content,
   border-bottom-left-radius: 0px;
 }
 
-:where(
-    .timeline-vertical:not(:has(.timeline-middle)) :first-child > hr:last-child
-  ) {
+:where(.timeline-vertical:not(:has(.timeline-middle)) :first-child > hr:last-child) {
   border-top-left-radius: var(--rounded-badge, 1.9rem);
   border-top-right-radius: var(--rounded-badge, 1.9rem);
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
-:where(
-    .timeline-vertical:not(:has(.timeline-middle)) :last-child > hr:first-child
-  ) {
+:where(.timeline-vertical:not(:has(.timeline-middle)) :last-child > hr:first-child) {
   border-bottom-right-radius: var(--rounded-badge, 1.9rem);
   border-bottom-left-radius: var(--rounded-badge, 1.9rem);
   border-top-left-radius: 0px;
@@ -3434,14 +3353,6 @@ input.tab:checked + .tab-content,
   display: flex;
 }
 
-.inline-block {
-  display: inline-block;
-}
-
-.flex {
-  display: flex;
-}
-
 .table {
   display: table;
 }
@@ -3462,16 +3373,20 @@ input.tab:checked + .tab-content,
   height: 1.25rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
+.min-h-96 {
+  min-height: 24rem;
+}
+
 .min-h-\[80vh\] {
   min-height: 80vh;
 }
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-96 {
-  min-height: 24rem;
 }
 
 .w-10 {
@@ -3490,6 +3405,14 @@ input.tab:checked + .tab-content,
   width: 13rem;
 }
 
+.w-8 {
+  width: 2rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -3506,24 +3429,40 @@ input.tab:checked + .tab-content,
   max-width: 100%;
 }
 
-.max-w-sm {
-  max-width: 24rem;
-}
-
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-screen-sm {
+  max-width: 640px;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .shrink-0 {
   flex-shrink: 0;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .grid-flow-col {
   grid-auto-flow: column;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -3532,6 +3471,10 @@ input.tab:checked + .tab-content,
 
 .justify-end {
   justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -3546,10 +3489,18 @@ input.tab:checked + .tab-content,
   gap: 1rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .rounded-box {
@@ -3568,14 +3519,33 @@ input.tab:checked + .tab-content,
   border-width: 1px;
 }
 
+.border-x-border-w-tipis {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .bg-base-100 {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .bg-base-200 {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2, oklch(var(--b2) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+}
+
+.bg-base-300 {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
 }
 
 .bg-green-800 {
@@ -3585,12 +3555,12 @@ input.tab:checked + .tab-content,
 
 .bg-neutral {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-n, oklch(var(--n) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
 }
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-p, oklch(var(--p) / var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
 }
 
 .bg-opacity-60 {
@@ -3599,6 +3569,10 @@ input.tab:checked + .tab-content,
 
 .fill-current {
   fill: currentColor;
+}
+
+.stroke-current {
+  stroke: currentColor;
 }
 
 .p-10 {
@@ -3631,6 +3605,11 @@ input.tab:checked + .tab-content,
   padding-right: 2.5rem;
 }
 
+.px-11 {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -3639,6 +3618,11 @@ input.tab:checked + .tab-content,
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .py-6 {
@@ -3652,6 +3636,10 @@ input.tab:checked + .tab-content,
 
 .pl-10 {
   padding-left: 2.5rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-left {
@@ -3711,22 +3699,22 @@ input.tab:checked + .tab-content,
 
 .text-info {
   --tw-text-opacity: 1;
-  color: var(--fallback-in, oklch(var(--in) / var(--tw-text-opacity)));
+  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity)));
 }
 
 .text-neutral-content {
   --tw-text-opacity: 1;
-  color: var(--fallback-nc, oklch(var(--nc) / var(--tw-text-opacity)));
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
 }
 
 .text-primary-content {
   --tw-text-opacity: 1;
-  color: var(--fallback-pc, oklch(var(--pc) / var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
 }
 
 .text-secondary {
   --tw-text-opacity: 1;
-  color: var(--fallback-s, oklch(var(--s) / var(--tw-text-opacity)));
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
 }
 
 .antialiased {
@@ -3740,26 +3728,20 @@ input.tab:checked + .tab-content,
 
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
-    0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
-    0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .outline {
@@ -3768,50 +3750,33 @@ input.tab:checked + .tab-content,
 
 .grayscale {
   --tw-grayscale: grayscale(100%);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
-    var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.\*\:focus
-  > *:where(
-    .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
-  ):not(summary, .active, .btn),
-.\*\:focus
-  > *
-  :where(
-    .menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-  ):not(summary, .active, .btn) {
+.\*\:focus > *:where(.menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)):not(summary, .active, .btn),.\*\:focus > * :where(.menu li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(summary, .active, .btn) {
   cursor: pointer;
-  background-color: var(--fallback-bc, oklch(var(--bc) / 0.1));
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
 @media not all and (min-width: 768px) {
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3821,13 +3786,12 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3837,13 +3801,12 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3853,22 +3816,17 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,
-  .max-md\:timeline-compact
-    .timeline-horizontal
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,.max-md\:timeline-compact .timeline-horizontal li:has(.timeline-start) .timeline-end {
     grid-column-start: none;
     grid-row-start: auto;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3878,22 +3836,17 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,
-  .max-md\:timeline-compact
-    .timeline-horizontal
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,.max-md\:timeline-compact .timeline-horizontal li:has(.timeline-start) .timeline-end {
     grid-column-start: none;
     grid-row-start: auto;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3903,11 +3856,7 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,
-  .max-md\:timeline-compact
-    .timeline-horizontal
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,.max-md\:timeline-compact .timeline-horizontal li:has(.timeline-start) .timeline-end {
     grid-column-start: none;
     grid-row-start: auto;
   }
@@ -3916,13 +3865,12 @@ input.tab:checked + .tab-content,
     --timeline-col-start: 0;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3932,11 +3880,7 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,
-  .max-md\:timeline-compact
-    .timeline-horizontal
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,.max-md\:timeline-compact .timeline-horizontal li:has(.timeline-start) .timeline-end {
     grid-column-start: none;
     grid-row-start: auto;
   }
@@ -3954,13 +3898,12 @@ input.tab:checked + .tab-content,
     justify-self: start;
   }
 
-  .max-md\:timeline-compact,
-  .max-md\:timeline-compact .timeline-horizontal {
+  .max-md\:timeline-compact,.max-md\:timeline-compact
+.timeline-horizontal {
     --timeline-row-start: 0;
   }
 
-  .max-md\:timeline-compact .timeline-start,
-  .max-md\:timeline-compact .timeline-horizontal .timeline-start {
+  .max-md\:timeline-compact .timeline-start,.max-md\:timeline-compact .timeline-horizontal .timeline-start {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -3970,11 +3913,7 @@ input.tab:checked + .tab-content,
     justify-self: center;
   }
 
-  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,
-  .max-md\:timeline-compact
-    .timeline-horizontal
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact li:has(.timeline-start) .timeline-end,.max-md\:timeline-compact .timeline-horizontal li:has(.timeline-start) .timeline-end {
     grid-column-start: none;
     grid-row-start: auto;
   }
@@ -3992,9 +3931,7 @@ input.tab:checked + .tab-content,
     justify-self: start;
   }
 
-  .max-md\:timeline-compact.timeline-vertical
-    li:has(.timeline-start)
-    .timeline-end {
+  .max-md\:timeline-compact.timeline-vertical li:has(.timeline-start) .timeline-end {
     grid-column-start: auto;
     grid-row-start: none;
   }
@@ -4021,6 +3958,10 @@ input.tab:checked + .tab-content,
 
   .lg\:flex-row-reverse {
     flex-direction: row-reverse;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
   }
 
   .lg\:text-left {
