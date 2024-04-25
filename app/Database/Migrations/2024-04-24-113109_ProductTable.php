@@ -40,7 +40,8 @@ class ProductTable extends Migration
             ],
             'imageUrl' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 255,
+                'null' => true
             ]
         ]);
         $this->forge->addPrimaryKey('product_id');
