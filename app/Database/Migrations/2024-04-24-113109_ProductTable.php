@@ -37,6 +37,10 @@ class ProductTable extends Migration
             'product_price_per_qty' => [
                 'type' => 'INT',
                 'constraint' => 10
+            ],
+            'imageUrl' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
             ]
         ]);
         $this->forge->addPrimaryKey('product_id');
