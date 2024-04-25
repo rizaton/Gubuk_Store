@@ -7,10 +7,6 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Member extends BaseController
 {
-    public function index()
-    {
-        return view('');
-    }
     public function points()
     {
         return view('');

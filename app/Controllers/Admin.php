@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Admin extends BaseController
 {
-    public function index()
+    public function dashboard()
     {
         return view('');
     }
@@ -16,6 +16,10 @@ class Admin extends BaseController
         return view('');
     }
     public function manage_members()
+    {
+        return view('');
+    }
+    public function promos()
     {
         return view('');
     }
