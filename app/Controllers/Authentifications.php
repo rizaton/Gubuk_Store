@@ -46,7 +46,7 @@ class Authentifications extends BaseController
     {
         return view('');
     }
-    //Paymen
+    //Payment
     public function pay_auth()
     {
         return view('');
