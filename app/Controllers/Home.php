@@ -6,9 +6,9 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('user/forgot_password', [
+        return view('user/products', [
             'templates' => 'main_user',
-            'title' => 'About'
+            'title' => 'Landing'
         ]);
     }
     public function products()
