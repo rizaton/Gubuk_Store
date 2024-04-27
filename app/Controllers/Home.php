@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
+helper('custom');
+
 class Home extends BaseController
 {
-    protected $helpers = ['helper_custom', 'form'];
     private function check_user()
     {
         if (!log_status()) {
@@ -20,7 +21,6 @@ class Home extends BaseController
     // goto view
     public function index()
     {
-        dd(testing());
         $user_status = $this->check_user();
         return view('user/landing', [
             'templates' => $this->check_user(),
