@@ -3,13 +3,10 @@
 namespace App\Controllers;
 
 use function App\Helpers\log_status;
-use function App\Helpers\set_login;
 use function App\Helpers\user_access;
 
 class Home extends BaseController
 {
-    protected $helpers = ['custom'];
-
     private function check_user()
     {
         if (!log_status()) {
@@ -25,23 +22,27 @@ class Home extends BaseController
     // goto view
     public function index()
     {
-
+        $user_status = $this->check_user();
         return view('user/landing', [
-            ''
-        ]);
-        return view('user/products', [
-            'templates' => 'main_user',
-            'title' => 'Landing'
+            'templates' => $this->check_user(),
+            'title' => 'Beranda',
         ]);
     }
     public function products()
     {
-        return view('');
+        $user_status = $this->check_user();
+        return view('user/products', [
+            'templates' => $this->check_user(),
+            'title' => 'Produk',
+        ]);
     }
     public function about()
     {
-        session()->get('log_status');
-        return view('');
+        $user_status = $this->check_user();
+        return view('user/landing', [
+            'templates' => $this->check_user(),
+            'title' => 'Tentang Kami',
+        ]);
     }
     public function login()
     {

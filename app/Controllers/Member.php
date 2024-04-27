@@ -9,10 +9,14 @@ class Member extends BaseController
 {
     public function points()
     {
-        return view('');
+        return view('member/points');
     }
     public function cart()
     {
-        return view('');
+        return view('member/cart');
+    }
+    public function payments()
+    {
+        return view('member/payments');
     }
 }
