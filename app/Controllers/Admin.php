@@ -2,29 +2,58 @@
 
 namespace App\Controllers;
 
+helper('custom');
+
 use App\Controllers\BaseController;
 
 class Admin extends BaseController
 {
-    protected $helpers = ['helper_custom'];
-    public function __construct()
-    {
-        logged_check();
-    }
     public function dashboard()
     {
-        return view('admin/index');
+        session()->setFlashdata('user_data', ['access' => 'a']);
+        if (session()->getFlashdata('user_data')['access'] == 'a') {
+            return view('admin/index', [
+                'title' => 'Dashboard',
+                'data' => ''
+            ]);
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
     }
     public function stocks()
     {
-        return view('admin/stocks');
+        session()->setFlashdata('user_data', ['access' => 'a']);
+        if (session()->getFlashdata('user_data')['access'] == 'a') {
+            return view('admin/stocks', [
+                'title' => 'Stock',
+                'data' => ''
+            ]);
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
     }
     public function manage_members()
     {
-        return view('admin/members_management');
+        session()->setFlashdata('user_data', ['access' => 'a']);
+        if (session()->getFlashdata('user_data')['access'] == 'a') {
+            return view('admin/members_management', [
+                'title' => 'Manage Members',
+                'data' => ''
+            ]);
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
     }
     public function promos()
     {
-        return view('admin/promos');
+        session()->setFlashdata('user_data', ['access' => 'a']);
+        if (session()->getFlashdata('user_data')['access'] == 'a') {
+            return view('admin/promos', [
+                'title' => 'Promo Table',
+                'data' => ''
+            ]);
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
     }
 }
