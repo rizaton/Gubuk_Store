@@ -1,4 +1,4 @@
-<?= $this->extend('templates/' . $templates);  ?>
+<?= $this->extend('templates/main_member');  ?>
 
 <?= $this->section('content');  ?>
 <div>
