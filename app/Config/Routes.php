@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 // HOME
 $routes->get('/', 'Home::index');
-$routes->get('/product', 'Home::products');
+$routes->get('/products', 'Home::products');
 $routes->get('/about', 'Home::about');
 $routes->post('/buy', 'Authentifications::buyNow_auth');
 $routes->post('/pay', 'Authentifications::pay_auth');
