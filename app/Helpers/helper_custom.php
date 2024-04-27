@@ -1,7 +1,5 @@
 <?php
 
-use CodeIgniter\HTTP\RedirectResponse;
-
 function logged_check()
 {
     if (!session()->get('user_data')) {
@@ -32,13 +30,17 @@ function user_access(): string
 {
     return session()->getFlashdata('user_data')['access'];
 }
-function logout(): RedirectResponse
-{
-    session()->remove('login');
-    return redirect()->to(base_url(session()->getFlashdata('page')));
-}
+// function logout(): RedirectResponse
+// {
+//     session()->remove('login');
+//     return redirect()->to(base_url(session()->getFlashdata('page')));
+// }
 function set_user(array $data = null): string
 {
     session()->setFlashdata('user_data', $data);
+    return '';
+}
+function testing(): string
+{
     return '';
 }

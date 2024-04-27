@@ -3,12 +3,10 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\HTTP\ResponseInterface;
-
-use function App\Helpers\logged_check;
 
 class Admin extends BaseController
 {
+    protected $helpers = ['helper_custom'];
     public function __construct()
     {
         logged_check();
