@@ -25,6 +25,7 @@ class Home extends BaseController
     // goto view
     public function index()
     {
+        return view('member/cart', ['templates' => 'main_user', "title" => 'About']);
 
         return view('user/landing', [
             ''
