@@ -1,3 +1,4 @@
+<?php session()->setFlashdata('page', 'products'); ?>
 <?= $this->extend('templates/main_' . $templates);  ?>
 
 <?= $this->section('content');  ?>

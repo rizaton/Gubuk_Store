@@ -1,3 +1,4 @@
+<?php session()->setFlashdata('page', 'promo'); ?>
 <?= $this->extend('templates/main_' . $templates);  ?>
 
 <?= $this->section('content');  ?>
