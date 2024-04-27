@@ -2,11 +2,9 @@
 
 namespace App\Controllers;
 
-use function App\Helpers\log_status;
-use function App\Helpers\user_access;
-
 class Home extends BaseController
 {
+    protected $helpers = ['helper_custom'];
     private function check_user()
     {
         if (!log_status()) {

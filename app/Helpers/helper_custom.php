@@ -1,32 +1,30 @@
 <?php
 
-namespace App\Helpers;
-
 use CodeIgniter\HTTP\RedirectResponse;
 
-function logged_check(): RedirectResponse
+function logged_check()
 {
     if (!session()->get('user_data')) {
         session()->setFlashdata('log_message', 'Harap lakukan login terlebih dahulu');
-        return redirect()->to(base_url('l_auth'));
+        redirect()->to(base_url('l_auth'));
     }
     if (session()->get('user_data')['access'] == 'm') {
         session()->setFlashdata('log_message', 'Selamat datang kembali');
-        return redirect()->to(base_url(session()->getFlashdata('page')));
+        redirect()->to(base_url(session()->getFlashdata('page')));
     }
     if (session()->get('user_data')['access'] == 'a') {
         session()->setFlashdata('log_message', 'Selamat datang');
-        return redirect()->to(base_url('a/dashboard'));
+        redirect()->to(base_url('a/dashboard'));
     }
-    session()->setFlashdata('log_message', 'Gagal Login');
-    return redirect()->to(base_url(session()->getFlashdata('page')));
+    session()->setFlashdata('log_message', 'Error Occured');
+    redirect()->to(base_url(session()->getFlashdata('page')));
 }
 function set_login(bool $data = null)
 {
     session()->setFlashdata('login', $data);
     return session()->getFlashdata('login');
 }
-function log_status(): bool
+function log_status()
 {
     return session()->get('login');
 }
@@ -38,4 +36,9 @@ function logout(): RedirectResponse
 {
     session()->remove('login');
     return redirect()->to(base_url(session()->getFlashdata('page')));
+}
+function set_user(array $data = null): string
+{
+    session()->setFlashdata('user_data', $data);
+    return '';
 }
