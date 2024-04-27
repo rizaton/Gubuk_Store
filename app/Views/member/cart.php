@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-<?= $this->extend('templates/' . $templates);  ?>
-<?= session()->setFlashdata('page', 'nama_page'); ?>
-=======
+<?php session()->setFlashdata('page', 'nama_page'); ?>
 <?= $this->extend('templates/main_member');  ?>
->>>>>>> f3e7054e75034018242750b39c9538c6f03de07f
 
 <?= $this->section('content');  ?>
 <div>
