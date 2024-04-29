@@ -2,12 +2,12 @@
 
 namespace App\Validation;
 
-class StockValidate
+class ProductValidate
 {
-    public function stocksValidate(): array
+    public function productValidate(): array
     {
         return [
-            'stock_name' => [
+            'product_name' => [
                 'label' => 'Stock Name',
                 'rules' => 'required|trim',
                 'errors' => [

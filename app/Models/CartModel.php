@@ -43,21 +43,4 @@ class CartModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function createData($whereData)
-    {
-        return $this->insert($whereData);
-    }
-    public function readData()
-    {
-        return $this->findAll();
-    }
-    public function updateData($whereData, $data)
-    {
-        return $this->where($whereData)->update($data);
-    }
-    public function deleteData($whereData)
-    {
-        return $this->delete($whereData);
-    }
 }
