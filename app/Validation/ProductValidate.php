@@ -7,8 +7,16 @@ class ProductValidate
     public function productValidate(): array
     {
         return [
+
+            'product_id' => [
+                'label' => 'Product ID',
+                'rules' => 'required|trim',
+                'errors' => [
+                    'required' => 'Prodct ID required',
+                ]
+            ],
             'product_name' => [
-                'label' => 'Stock Name',
+                'label' => 'Product Name',
                 'rules' => 'required|trim',
                 'errors' => [
                     'required' => 'Stock required',

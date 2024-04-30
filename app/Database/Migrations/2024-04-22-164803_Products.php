@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Stocks extends Migration
+class Products extends Migration
 {
     public function up()
     {
@@ -40,11 +40,11 @@ class Stocks extends Migration
             ]
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('stocks');
+        $this->forge->createTable('products');
     }
 
     public function down()
     {
-        $this->forge->dropTable('stocks');
+        $this->forge->dropTable('products');
     }
 }

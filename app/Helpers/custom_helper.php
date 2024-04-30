@@ -42,10 +42,13 @@ function user_access(): string
 //     session()->remove('login');
 //     return redirect()->to(base_url(session()->getFlashdata('page')));
 // }
-function set_user(array $data = null): string
+function set_user(array $data = null)
 {
     session()->setFlashdata('user_data', $data);
-    return '';
+}
+function get_user(): array
+{
+    return session()->getFlashdata('user_data');
 }
 function testing(): string
 {
