@@ -1,75 +1,131 @@
-<?php session()->setFlashdata('page', 'nama_page'); ?>
+<?php session()->setFlashdata('page', 'cart'); ?>
 <?= $this->extend('templates/main_member');  ?>
 
 <?= $this->section('content');  ?>
 <div>
     <div class="text-4xl font-bold p-10">Keranjang</div>
-    <div class="flex justify-between">
+    <div class="flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-between">
         <!-- DETAIL CART PRODUCT -->
-        <div class="w-2/3 flex flex-col gap-5 pl-10 pb-10">
+        <div class="px-5 lg:w-2/3 flex flex-col gap-5 lg:pl-10 pb-10 text-xs lg:text-sm">
             <!-- TITLE CART PRODUCT -->
-            <div class="grid grid-cols-5 justify-items-center justify-self-center">
-                <div>Select</div>
-                <div>Produk</div>
-                <div>Harga</div>
-                <div>Jumlah Barang</div>
-                <div>Jumlah Harga</div>
+            <div class="grid grid-cols-6 justify-items-center justify-self-center items-center">
+                <div class="flex gap-3 items-center">
+                    <input type="checkbox" class="checkbox" />
+                    <div>Pilih Semua</div>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <button class="btn btn-primary btn-xs lg:btn-sm">Hapus</button>
             </div>
             <!-- END TITLE CART PRODUCT -->
             <!-- LIST CART PRODUCT -->
-            <div class="grid grid-cols-5 justify-items-center items-center">
+            <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
-                <div class="w-36 h-36 bg-red-500"></div>
+                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-square">+</button>
-                    <div>3</div>
-                    <button class="btn btn-square">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
+                    <div class="p-1 lg:p-3">3</div>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
-            <div class="grid grid-cols-5 justify-items-center items-center">
+            <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
-                <div class="w-36 h-36 bg-red-500"></div>
+                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-square">+</button>
-                    <div>3</div>
-                    <button class="btn btn-square">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
+                    <div class="p-1 lg:p-3">3</div>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
-            <div class="grid grid-cols-5 justify-items-center items-center">
+            <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
-                <div class="w-36 h-36 bg-red-500"></div>
+                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-square">+</button>
-                    <div>3</div>
-                    <button class="btn btn-square">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
+                    <div class="p-1 lg:p-3">3</div>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
-            <div class="grid grid-cols-5 justify-items-center items-center">
+            <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
-                <div class="w-36 h-36 bg-red-500"></div>
+                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-square">+</button>
-                    <div>3</div>
-                    <button class="btn btn-square">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
+                    <div class="p-1 lg:p-3">3</div>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
             <!-- END LIST CART PRODUCT -->
         </div>
         <!-- END DETAIL CART PRODUCT -->
 
-        <div class="pr-10 flex flex-col gap-8">
+        <div class="flex flex-col gap-8 sticky top-0 lg:pr-10">
             <!-- PROMO SECTION -->
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
