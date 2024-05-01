@@ -27,12 +27,24 @@
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-xs lg:btn-sm">+</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
                     <div class="p-1 lg:p-3">3</div>
-                    <button class="btn btn-xs lg:btn-sm">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
-                <button class="btn btn-primary btn-sm">X</button>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
             <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
@@ -40,12 +52,24 @@
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-xs lg:btn-sm">+</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
                     <div class="p-1 lg:p-3">3</div>
-                    <button class="btn btn-xs lg:btn-sm">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
-                <button class="btn btn-primary btn-sm">X</button>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
             <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
@@ -53,12 +77,24 @@
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-xs lg:btn-sm">+</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
                     <div class="p-1 lg:p-3">3</div>
-                    <button class="btn btn-xs lg:btn-sm">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
-                <button class="btn btn-primary btn-sm">X</button>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
             <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                 <input type="checkbox" class="checkbox" />
@@ -66,12 +102,24 @@
                 <!-- <img src="" alt="" /> -->
                 <div>Rp.12000</div>
                 <div class="flex items-center">
-                    <button class="btn btn-xs lg:btn-sm">+</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </button>
                     <div class="p-1 lg:p-3">3</div>
-                    <button class="btn btn-xs lg:btn-sm">-</button>
+                    <button class="btn btn-xs btn-square lg:btn-sm">
+                        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                        </svg>
+                    </button>
                 </div>
                 <div>Rp.36000</div>
-                <button class="btn btn-primary btn-sm">X</button>
+                <button class="btn btn-sm btn-square">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                    </svg>
+                </button>
             </div>
             <!-- END LIST CART PRODUCT -->
         </div>
