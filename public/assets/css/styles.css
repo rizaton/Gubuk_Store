@@ -2879,6 +2879,14 @@ input.tab:checked + .tab-content,
   font-size: 0.75rem;
 }
 
+.btn-sm {
+  height: 2rem;
+  min-height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+}
+
 .btn-block {
   width: 100%;
 }
@@ -3370,6 +3378,14 @@ input.tab:checked + .tab-content,
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
+.top-0 {
+  top: 0px;
+}
+
 .z-\[1\] {
   z-index: 1;
 }
@@ -3422,16 +3438,28 @@ input.tab:checked + .tab-content,
   height: 3rem;
 }
 
-.h-36 {
-  height: 9rem;
+.h-20 {
+  height: 5rem;
 }
 
 .h-5 {
   height: 1.25rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-8 {
   height: 2rem;
+}
+
+.h-\[12px\] {
+  height: 12px;
+}
+
+.h-36 {
+  height: 9rem;
 }
 
 .min-h-96 {
@@ -3454,12 +3482,8 @@ input.tab:checked + .tab-content,
   width: 3rem;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.w-36 {
-  width: 9rem;
+.w-20 {
+  width: 5rem;
 }
 
 .w-5 {
@@ -3468,6 +3492,10 @@ input.tab:checked + .tab-content,
 
 .w-52 {
   width: 13rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .w-8 {
@@ -3482,12 +3510,24 @@ input.tab:checked + .tab-content,
   width: 24rem;
 }
 
+.w-\[12px\] {
+  width: 12px;
+}
+
 .w-\[500px\] {
   width: 500px;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
+.w-36 {
+  width: 9rem;
 }
 
 .max-w-2xl {
@@ -3534,6 +3574,10 @@ input.tab:checked + .tab-content,
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
@@ -3568,6 +3612,10 @@ input.tab:checked + .tab-content,
 
 .justify-items-center {
   justify-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-3 {
@@ -3681,6 +3729,10 @@ input.tab:checked + .tab-content,
   stroke: currentColor;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -3716,6 +3768,11 @@ input.tab:checked + .tab-content,
   padding-right: 2.75rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -3744,12 +3801,12 @@ input.tab:checked + .tab-content,
   padding-left: 2.5rem;
 }
 
-.pr-10 {
-  padding-right: 2.5rem;
-}
-
 .pt-10 {
   padding-top: 2.5rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .text-left {
@@ -3795,6 +3852,11 @@ input.tab:checked + .tab-content,
   line-height: 1.75rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -3805,6 +3867,11 @@ input.tab:checked + .tab-content,
 
 .font-semibold {
   font-weight: 600;
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .text-info {
@@ -4047,6 +4114,29 @@ input.tab:checked + .tab-content,
   }
 }
 
+@media (min-width: 1024px) {
+  .lg\:btn-sm {
+    height: 2rem;
+    min-height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-square:where(.lg\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.lg\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:text-end {
     text-align: end;
@@ -4056,6 +4146,10 @@ input.tab:checked + .tab-content,
 @media (min-width: 1024px) {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:mr-10 {
+    margin-right: 2.5rem;
   }
 
   .lg\:mr-32 {
@@ -4070,8 +4164,24 @@ input.tab:checked + .tab-content,
     display: none;
   }
 
+  .lg\:h-36 {
+    height: 9rem;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .lg\:w-36 {
+    width: 9rem;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 
   .lg\:flex-row-reverse {
@@ -4082,7 +4192,39 @@ input.tab:checked + .tab-content,
     flex-direction: column;
   }
 
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+
+  .lg\:p-3 {
+    padding: 0.75rem;
+  }
+
+  .lg\:pl-10 {
+    padding-left: 2.5rem;
+  }
+
+  .lg\:pr-10 {
+    padding-right: 2.5rem;
+  }
+
   .lg\:text-left {
     text-align: left;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }

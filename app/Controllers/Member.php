@@ -46,8 +46,13 @@ class Member extends BaseController
     }
     public function payments()
     {
-        return view('member/payments', [
-            'title' => 'Pay'
-        ]);
+        session()->setFlashdata('user_data', ['access' => 'm']);
+        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+            return view('member/payments', [
+                'title' => 'Payment',
+            ]);
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
     }
 }

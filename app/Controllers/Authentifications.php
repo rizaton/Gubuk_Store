@@ -170,8 +170,67 @@ class Authentifications extends BaseController
     }
 
     //MEMBER MANAGEMENT
-    public function member_auth()
+    public function member_add_auth()
     {
+        $validation = new \App\Validation\MembersValidate;
+        if (!$this->check_admin()) {
+            return redirect()->to(base_url(session()->getFlashdata('page')));
+        }
+        if (!$this->validate($validation->membersValidate())) {
+            session()->setFlashdata('data_form', [validation_list_errors()]);
+            return redirect()->to(base_url('a/members'));
+        }
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'name' => $this->request->getVar('name'),
+            'phone' => $this->request->getVar('phone'),
+            'city' => $this->request->getVar('city'),
+            'province' => $this->request->getVar('province'),
+            'points' => $this->request->getVar('points'),
+            'access' => $this->request->getVar('access'),
+        ];
+        $user_model = new \App\Models\UserManagementModel();
+        $user_model = $user_model->insert(['key' => $data]);
+        return view('');
+    }
+    public function member_update_auth()
+    {
+        $validation = new \App\Validation\MembersValidate;
+        if (!$this->check_admin()) {
+            return redirect()->to(base_url(session()->getFlashdata('page')));
+        }
+        if (!$this->validate($validation->membersValidate())) {
+            session()->setFlashdata('data_form', [validation_list_errors()]);
+            return redirect()->to(base_url('a/members'));
+        }
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'name' => $this->request->getVar('name'),
+            'phone' => $this->request->getVar('phone'),
+            'city' => $this->request->getVar('city'),
+            'province' => $this->request->getVar('province'),
+            'points' => $this->request->getVar('points'),
+            'access' => $this->request->getVar('access'),
+        ];
+        $user_model = new \App\Models\UserManagementModel();
+        $user_model = $user_model->update(['id' => $data['id']], $data);
+        return view('');
+    }
+    public function member_delete_auth()
+    {
+        $validation = new \App\Validation\MembersValidate;
+        if (!$this->check_admin()) {
+            return redirect()->to(base_url(session()->getFlashdata('page')));
+        }
+        if (!$this->validate($validation->membersValidate())) {
+            session()->setFlashdata('data_form', [validation_list_errors()]);
+            return redirect()->to(base_url('a/members'));
+        }
+        $data = [
+            'id' => $this->request->getVar('id'),
+        ];
+        $user_model = new \App\Models\UserManagementModel();
+        $user_model = $user_model->delete($data);
         return view('');
     }
 
@@ -214,7 +273,7 @@ class Authentifications extends BaseController
             'price' => $this->request->getVar('price'),
         ];
         $promo_model = new \App\Models\PromoModel;
-        $promo_model = $promo_model->update(['key' => ''], ['data' => '']);
+        $promo_model = $promo_model->update(['id' => $data['id']], $data);
         return view('');
     }
     public function promo_delete_auth()
