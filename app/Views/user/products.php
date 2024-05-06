@@ -55,7 +55,7 @@
                     <h2 class="card-title">Shoes!</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div class="card-actions">
-                        <button class="btn btn-primary">Beli Sekarang</button>
+                        <a role="button" href="/m/cart" class="btn btn-primary">Beli Sekarang</a>
                         <button class="btn btn-secondary">Tambah ke Keranjang</button>
                     </div>
                 </div>

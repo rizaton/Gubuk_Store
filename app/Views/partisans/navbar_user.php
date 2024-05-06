@@ -7,24 +7,24 @@
         </svg>
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Home</a></li>
-        <li><a>Product</a></li>
-        <li><a>About</a></li>
-        <li><a>Promo</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Product</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/promo">Promo</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Gubuk Store</a>
+    <a href="/" class="btn btn-ghost text-xl">Gubuk Store</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li><a>Product</a></li>
-      <li><a>About</a></li>
-      <li><a>Promo</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products">Product</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/promo">Promo</a></li>
     </ul>
   </div>
   <div class="navbar-end gap-3">
-    <a class="btn">Login</a>
-    <a class="btn">Register</a>
+    <a role="button" href="/login" class="btn">Login</a>
+    <a role="button" href="/register" class="btn">Daftar</a>
   </div>
 </div>

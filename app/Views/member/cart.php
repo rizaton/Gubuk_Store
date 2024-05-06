@@ -155,7 +155,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary">Bayar Sekarang</button>
+                    <a role="button" href="/m/payment" class="btn btn-primary">Bayar Sekarang</a>
                 </div>
             </div>
         </div>
