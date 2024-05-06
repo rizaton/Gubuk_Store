@@ -7,20 +7,20 @@
         </svg>
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a href="/">Home</a></li>
-        <li><a href="/products">Product</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/promo">Promo</a></li>
+        <li><a href=<?= base_url("/") ?>>Home</a></li>
+        <li><a href=<?= base_url("/products") ?>>Product</a></li>
+        <li><a href=<?= base_url("/about") ?>>About</a></li>
+        <li><a href=<?= base_url("/promo") ?>>Promo</a></li>
       </ul>
     </div>
-    <a href="/" class="btn btn-ghost text-xl">Gubuk Store</a>
+    <a href=<?= base_url("/") ?> class="btn btn-ghost text-xl">Gubuk Store</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a href="/">Home</a></li>
-      <li><a href="/products">Product</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/promo">Promo</a></li>
+      <li><a href=<?= base_url("/") ?>>Home</a></li>
+      <li><a href=<?= base_url("/products") ?>>Product</a></li>
+      <li><a href=<?= base_url("/about") ?>>About</a></li>
+      <li><a href=<?= base_url("/promo") ?>>Promo</a></li>
     </ul>
   </div>
   <div class="navbar-end gap-3">
@@ -38,7 +38,7 @@
           <span class="font-bold text-lg">8 Items</span>
           <span class="text-info">Subtotal: $999</span>
           <div class="card-actions">
-            <a role="button" href="/m/cart" class="btn btn-primary">View Cart</a>
+            <a role="button" href=<?= base_url("/m/cart") ?> class="btn btn-primary">View Cart</a>
           </div>
         </div>
       </div>
