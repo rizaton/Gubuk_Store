@@ -11,9 +11,9 @@ class PeopleSeed extends Seeder
     {
         // $data = json_decode(file_get_contents(''));
         // $this->db->table('people')->truncate();
-        for ($i=0; $i < 100; $i++) { 
+        for ($i = 0; $i < 100; $i++) {
             // $faker = \Faker\Factory::create('id_ID');
-            $faker = \Faker\Factory::create('ja_JP');
+            $faker = \Faker\Factory::create();
             $data = [
                 'people_name' => $faker->name(),
                 'people_phone' => $faker->phoneNumber(),
