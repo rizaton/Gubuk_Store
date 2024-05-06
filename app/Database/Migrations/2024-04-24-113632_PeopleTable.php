@@ -4,50 +4,54 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Users extends Migration
+class PeopleTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id' => [
+            'people_id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                'constraint' => 3,
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'name' => [
+            'people_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 50,
             ],
-            'phone' => [
+            'people_phone' => [
                 'type' => 'VARCHAR',
                 'constraint' => 15
             ],
-            'city' => [
+            'people_email' => [
                 'type' => 'VARCHAR',
-                'constraint' => 20
+                'constraint' => 100
             ],
-            'province' => [
+            'people_password' => [
                 'type' => 'VARCHAR',
-                'constraint' => 15
+                'constraint' => 255
             ],
-            'points' => [
+            'people_city' => [
+                'type' => 'VARCHAR',
+                'constraint' => 25
+            ],
+            'people_points' => [
                 'type' => 'INT',
                 'constraint' => 7,
                 'default' => 0
             ],
-            'access' => [
+            'people_access' => [
                 'type' => 'CHAR',
                 'constraint' => 1,
-                'default' => 'u'
+                'default' => 'm'
             ]
         ]);
-        $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');
+        $this->forge->addPrimaryKey('people_id');
+        $this->forge->createTable('people');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('people');
     }
 }
