@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/products', 'Home::products');
 $routes->get('/about', 'Home::about');
+$routes->get('/promo', 'Home::promo');
 
 //Authentifications
 $routes->post('/buy', 'Authentifications::buyNow_auth');
@@ -54,4 +55,4 @@ $routes->get('/a/stocks', 'Admin::stocks');
 $routes->get('/a/members', 'Admin::manage_members');
 $routes->get('/a/promos', 'Admin::promos');
 
-// $routes->setAutoRoute(true);
+$routes->setAutoRoute(true);

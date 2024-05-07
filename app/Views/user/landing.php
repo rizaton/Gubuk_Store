@@ -19,7 +19,7 @@
         <div>
           <h1 class="text-5xl font-bold">Gubuk Store</h1>
           <p class="py-6">Temukan segala kebutuhan sembako Anda dengan mudah dan praktis di sini. Dari beras hingga minyak goreng, kami menyediakan berbagai produk berkualitas dengan harga terjangkau. Nikmati kemudahan berbelanja online tanpa repot dan antre.</p>
-          <a role="button" href="/products" class="btn btn-primary">Beli Sekarang</a>
+          <a role="button" href=<?= base_url("/products") ?> class="btn btn-primary">Beli Sekarang</a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
   <div class="w-full py-14">
     <div class="flex justify-between items-center pb-10 px-10">
       <div class="text-3xl font-bold">Produk Kami</div>
-      <a role="button" href="/products" class="btn btn-link text-lg">Lihat Semua</a>
+      <a role="button" href=<?= base_url("/products") ?> class="btn btn-link text-lg">Lihat Semua</a>
     </div>
     <div class="carousel carousel-center max-w-full p-4 space-x-4 bg-neutral rounded-box">
       <div class="carousel-item">
@@ -39,7 +39,7 @@
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end">
-              <a role="button" href="/products" class="btn btn-primary">Beli Sekarang</a>
+              <a role="button" href=<?= base_url("/products") ?> class="btn btn-primary">Beli Sekarang</a>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end">
-              <a role="button" href="/products" class="btn btn-primary">Beli Sekarang</a>
+              <a role="button" href=<?= base_url("/products") ?> class="btn btn-primary">Beli Sekarang</a>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end">
-              <a role="button" href="/products" class="btn btn-primary">Beli Sekarang</a>
+              <a role="button" href=<?= base_url("/products") ?> class="btn btn-primary">Beli Sekarang</a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
             <h2 class="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-end">
-              <a role="button" href="/products" class="btn btn-primary">Beli Sekarang</a>
+              <a role="button" href=<?= base_url("/products") ?> class="btn btn-primary">Beli Sekarang</a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@
         <div class="max-w-2xl p-10">
           <h1 class="mb-5 text-5xl font-bold">Dapatkan Promo Tiap Belanja</h1>
           <p class="mb-5">Kumpulkan point - point yang bisa anda tukarkan untuk promo/diskon. Untuk penjelasan lebih lanjut silahkan cek pada laman promo.</p>
-          <a role="button" href="/promo" class="btn btn-primary">Lihat Detail Promo</a>
+          <a role="button" href=<?= base_url("/promo") ?> class="btn btn-primary">Lihat Detail Promo</a>
         </div>
       </div>
     </div>

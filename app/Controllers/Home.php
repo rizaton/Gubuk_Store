@@ -32,27 +32,41 @@ class Home extends BaseController
         $user_status = $this->check_user();
         return view('user/products', [
             'templates' => $this->check_user(),
-            'title' => 'Produk',
+            'title' => 'Product',
         ]);
     }
     public function about()
     {
         $user_status = $this->check_user();
-        return view('user/landing', [
+        return view('user/about', [
+            'templates' => $this->check_user(),
+            'title' => 'Tentang Kami',
+        ]);
+    }
+    public function Promo()
+    {
+        $user_status = $this->check_user();
+        return view('user/promo', [
             'templates' => $this->check_user(),
             'title' => 'Tentang Kami',
         ]);
     }
     public function login()
     {
-        return view('user/login');
+        return view('user/login', [
+            'title' => 'Login',
+        ]);
     }
     public function register()
     {
-        return view('user/register');
+        return view('user/register', [
+            'title' => 'Daftar',
+        ]);
     }
-    public function forget_password()
+    public function forgot_password()
     {
-        return view('user/forgot_password');
+        return view('user/forgot_password', [
+            'title' => 'Verifikasi Akun',
+        ]);
     }
 }
