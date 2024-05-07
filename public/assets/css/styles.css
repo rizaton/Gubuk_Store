@@ -2887,10 +2887,6 @@ input.tab:checked + .tab-content,
   font-size: 0.875rem;
 }
 
-.btn-block {
-  width: 100%;
-}
-
 .btn-square:where(.btn-xs) {
   height: 1.5rem;
   width: 1.5rem;
@@ -3458,10 +3454,6 @@ input.tab:checked + .tab-content,
   height: 12px;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
 .min-h-96 {
   min-height: 24rem;
 }
@@ -3522,14 +3514,6 @@ input.tab:checked + .tab-content,
   width: 100%;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.w-36 {
-  width: 9rem;
-}
-
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -3576,10 +3560,6 @@ input.tab:checked + .tab-content,
 
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -3803,10 +3783,6 @@ input.tab:checked + .tab-content,
 
 .pt-10 {
   padding-top: 2.5rem;
-}
-
-.pr-10 {
-  padding-right: 2.5rem;
 }
 
 .text-left {
