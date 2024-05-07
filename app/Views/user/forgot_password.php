@@ -1,35 +1,13 @@
 <?= $this->extend('templates/main_user');  ?>
 
 <?= $this->section('content');  ?>
-<div>
-    <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-            <div class="text-center lg:text-left">
-                <h1 class="text-5xl font-bold">Login now!</h1>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            </div>
-            <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  lg:mr-32">
-                <form class="card-body">
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Email</span>
-                        </label>
-                        <input type="email" placeholder="email" class="input input-bordered" required />
-                    </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Password</span>
-                        </label>
-                        <input type="password" placeholder="password" class="input input-bordered" required />
-                        <label class="label">
-                            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
-                    </div>
-                    <div class="form-control mt-6">
-                        <button class="btn btn-primary">Login</button>
-                    </div>
-                </form>
-            </div>
+<div class="flex justify-center py-10">
+    <div class="card w-96 bg-base-100 shadow-xl p-10 gap-5">
+        <h1 class="text-lg font-bold">Verifikasi Akun</h1>
+        <input type="text" placeholder="Masukkan Email Anda" class="input input-bordered w-full max-w-xs" />
+        <input type="text" placeholder="Masukkan Nomor Telepon Anda" class="input input-bordered w-full max-w-xs" />
+        <div class="card-actions justify-end">
+            <button class="btn btn-primary">Check Account</button>
         </div>
     </div>
 </div>

@@ -7,20 +7,20 @@
                 </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a href="/a/dashboard">Home</a></li>
-                <li><a href="/a/stocks">Stocks</a></li>
-                <li><a href="/a/members">Users Management</a></li>
-                <li><a href="/a/promos">Promo</a></li>
+                <li><a href=<?= base_url("/a/dashboard") ?>>Home</a></li>
+                <li><a href=<?= base_url("/a/stocks") ?>>Stocks</a></li>
+                <li><a href=<?= base_url("/a/members") ?>>Users Management</a></li>
+                <li><a href=<?= base_url("/a/promos") ?>>Promo</a></li>
             </ul>
         </div>
         <a class="btn btn-ghost text-xl">Gubuk Store</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a href="/a/dashboard">Home</a></li>
-            <li><a href="/a/stocks">Stocks</a></li>
-            <li><a href="/a/members">Users Management</a></li>
-            <li><a href="/a/promos">Promo</a></li>
+            <li><a href=<?= base_url("/a/dashboard") ?>>Home</a></li>
+            <li><a href=<?= base_url("/a/stocks") ?>>Stocks</a></li>
+            <li><a href=<?= base_url("/a/members") ?>>Users Management</a></li>
+            <li><a href=<?= base_url("/a/promos") ?>>Promo</a></li>
         </ul>
     </div>
     <div class="navbar-end gap-3">
