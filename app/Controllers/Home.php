@@ -32,13 +32,21 @@ class Home extends BaseController
         $user_status = $this->check_user();
         return view('user/products', [
             'templates' => $this->check_user(),
-            'title' => 'Produk',
+            'title' => 'Product',
         ]);
     }
     public function about()
     {
         $user_status = $this->check_user();
         return view('user/about', [
+            'templates' => $this->check_user(),
+            'title' => 'Tentang Kami',
+        ]);
+    }
+    public function Promo()
+    {
+        $user_status = $this->check_user();
+        return view('user/promo', [
             'templates' => $this->check_user(),
             'title' => 'Tentang Kami',
         ]);
