@@ -6,6 +6,11 @@ helper('custom');
 
 class Home extends BaseController
 {
+    public $productsModel;
+    public function __construct()
+    {
+        $this->productsModel = new \App\Models\ProductsModel;
+    }
     private function check_user()
     {
         if (!log_status()) {
@@ -29,10 +34,11 @@ class Home extends BaseController
     }
     public function products()
     {
-        $user_status = $this->check_user();
+        $data = $this->productsModel->findAll();
         return view('user/products', [
             'templates' => $this->check_user(),
             'title' => 'Product',
+            'products' => $data,
         ]);
     }
     public function about()
