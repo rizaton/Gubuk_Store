@@ -7,39 +7,45 @@ class RegisterValidate
     public function registerValidate(): array
     {
         return [
-            'name' => [
+            'fullname' => [
                 'label' => 'Name',
-                'rules' => 'required|trim',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Name required',
                 ]
             ],
+            'city' => [
+                'label' => 'Kota',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kota required',
+                ]
+            ],
+            'phone' => [
+                'label' => 'Phone',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nomor Telefon required',
+                ]
+            ],
             'email' => [
                 'label' => 'Email',
-                'rules' => 'required|trim|valid_email',
+                'rules' => 'required|valid_email',
                 'errors' => [
                     'required' => 'Email required',
                     'valid_email' => 'Please input valid email',
                 ]
             ],
-            'second_email' => [
-                'label' => 'Second Email',
-                'rules' => 'required|trim|valid_email',
-                'errors' => [
-                    'required' => 'Email Required',
-                    'valid_email' => 'Please input valid email',
-                ]
-            ],
             'password' => [
                 'label' => 'Password',
-                'rules' => 'required|trim',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Required field!',
                 ]
             ],
-            'second_password' => [
+            'reenterpassword' => [
                 'label' => 'Second Password',
-                'rules' => 'required|trim',
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Required field!',
                 ]

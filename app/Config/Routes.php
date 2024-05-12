@@ -16,7 +16,7 @@ $routes->post('/buy', 'Authentifications::buyNow_auth');
 $routes->post('/pay', 'Authentifications::pay_auth');
 $routes->post('/forgot_auth', 'Authentifications::forgot_auth');
 $routes->post('/login_auth', 'Authentifications::login_auth');
-$routes->post('/register_auth', 'Authentifications::register_auth');
+$routes->post('/register_auth', 'Authentifications::regist_auth');
 //Auth Carts
 $routes->post('/m/cart_add', 'Authentifications::cart_add_auth');
 $routes->post('/m/cart_up', 'Authentifications::cart_update_auth');

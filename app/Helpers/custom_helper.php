@@ -58,5 +58,5 @@ function get_user(): array
 }
 function get_page(): string
 {
-    return session()->getFlashdata('page') ?? 'landing';
+    return session()->getFlashdata('page') ?? '/';
 }

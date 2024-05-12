@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class PeopleModel extends Model
 {
-    protected $table            = 'users';
-    protected $primaryKey       = 'id';
+    protected $table            = 'people';
+    protected $primaryKey       = 'people_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;
@@ -43,26 +43,4 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function createData($whereData)
-    {
-        return $this->insert($whereData);
-    }
-    public function readData()
-    {
-        return $this->findAll();
-    }
-    public function updateData($whereData, $data)
-    {
-        return $this->where($whereData)->update($data);
-    }
-    public function deleteData($whereData)
-    {
-        return $this->delete($whereData);
-    }
-
-    public function findData($data)
-    {
-        return $this->doFind(true, $data);
-    }
 }
