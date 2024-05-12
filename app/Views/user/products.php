@@ -3,7 +3,7 @@
 
 <?= $this->section('content');  ?>
 <div>
-    <div class="search flex items-center justify-center w-full max-w-full">
+    <div class="search flex items-center justify-center w-full max-w-full pt-10">
         <form action="#" method="post" class="search flex items-center justify-center">
             <div class="join">
                 <div class="w-96 max-w-screen-sm">
@@ -16,12 +16,12 @@
                     <option>Terlaris</option>
                 </select>
                 <div class="indicator">
-                    <button class="btn join-item" type="submit">Cari</button>
+                    <button class="btn btn-primary join-item" type="submit">Cari</button>
                 </div>
             </div>
         </form>
     </div>
-    <div class="products flex flex-row flex-wrap gap-6 justify-between px-11">
+    <div class="products flex flex-row flex-wrap gap-6 justify-between p-10">
         <?php
         foreach ($products as $product) {
         ?>
