@@ -155,7 +155,7 @@
                         </div>
                     </div>
 
-                    <a role="button" href=<?= base_url("/m/payment") ?> class="btn btn-primary">Bayar Sekarang</a>
+                    <a role="button" href=<?= base_url("/m/payments") ?> class="btn btn-primary">Bayar Sekarang</a>
                 </div>
             </div>
         </div>

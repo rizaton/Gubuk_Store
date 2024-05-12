@@ -1,4 +1,4 @@
-<html>
+<html data-theme="nord">
 
 <head>
     <meta charset="UTF-8">

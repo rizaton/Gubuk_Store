@@ -23,8 +23,8 @@
       <li><a href=<?= base_url("/promo") ?>>Promo</a></li>
     </ul>
   </div>
-  <div class="navbar-end gap-3">
-    <a role="button" href=<?= base_url("/login") ?> class="btn">Login</a>
+  <div class="navbar-end gap-3 pr-3">
+    <a role="button" href=<?= base_url("/login") ?> class="btn btn-primary">Login</a>
     <a role="button" href=<?= base_url("/register") ?> class="btn">Daftar</a>
   </div>
 </div>

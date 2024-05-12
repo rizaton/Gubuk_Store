@@ -23,7 +23,6 @@ class Authentifications extends BaseController
         }
         return false;
     }
-
     public function index()
     {
         return redirect()->to(base_url('/'));
@@ -35,13 +34,27 @@ class Authentifications extends BaseController
             session()->setFlashdata('data_form', [validation_list_errors()]);
             return redirect()->to(base_url('/login'));
         }
-        return view('');
+        $userModel = new \App\Models\UserModel();
+        $data = [
+            'people_email' => $this->request->getVar('email'),
+            'people_password' => $this->request->getVar('password'),
+        ];
+        try {
+            $userData = $userModel->findData($data['people_email']);
+        } catch (\Throwable $th) {
+            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => $th]);
+            return redirect()->to(base_url('/login'));
+        }
+        if (password_verify($data['people_password'], $userData['people_password'])) {
+            set_user($userData);
+            set_login(true);
+            return redirect()->to(base_url(get_page()));
+        } else {
+            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => null]);
+            return redirect()->to(base_url('/login'));
+        }
     }
     //User
-    public function buyNow_auth()
-    {
-        return view('');
-    }
     public function regist_auth()
     {
         $validation = new \App\Validation\RegisterValidate;
@@ -49,6 +62,26 @@ class Authentifications extends BaseController
             session()->setFlashdata('data_form', [validation_list_errors()]);
             return redirect()->to(base_url('register'));
         }
+        $userModel = new \App\Models\UserModel();
+        $data = [
+            'people_name' => $this->request->getVar('name'),
+            'people_phone' => $this->request->getVar('phone'),
+            'people_email' => $this->request->getVar('email'),
+            'people_password' => $this->request->getVar('password'),
+            'people_city' => $this->request->getVar('city'),
+            'people_points' => 0,
+            'people_access' => 'm',
+        ];
+        try {
+            $userModel->insert($data);
+            session()->setFlashdata('data_form', ['message' => 'Data berhasil Ditambahkan', 'err' => null]);
+        } catch (\Throwable $th) {
+            session()->setFlashdata('data_form', ['message' => 'Terjadi kesalahan', 'err' => $th]);
+            return redirect()->to(base_url(get_page()));
+        }
+    }
+    public function buyNow_auth()
+    {
         return view('');
     }
     public function forgot_auth()
@@ -119,11 +152,11 @@ class Authentifications extends BaseController
             return redirect()->to(base_url('a/stock'));
         }
         $data = [
-            'name' => $this->request->getVar('name'),
-            'qty' => $this->request->getVar('qty'),
-            'min_qty' => $this->request->getVar('min_qty'),
-            'max_qty' => $this->request->getVar('max_qty'),
-            'price' => $this->request->getVar('price'),
+            'product_name' => $this->request->getVar('name'),
+            'product_qty' => $this->request->getVar('qty'),
+            'product_min_qty' => $this->request->getVar('min_qty'),
+            'product_max_qty' => $this->request->getVar('max_qty'),
+            'product_price_per_qty' => $this->request->getVar('price'),
         ];
         $stock_model = new \App\Models\ProductsModel;
         $stock_model = $stock_model->insert($data);
