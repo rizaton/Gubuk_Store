@@ -27,8 +27,7 @@
         ?>
             <div class="grow card w-80 bg-base-300 shadow-xl">
                 <figure class="px-10 pt-10">
-                    <img src="<?php //echo $product['image_url']  
-                                ?>" alt="<?= $product['product_name'];  ?>" class="rounded-xl" />
+                    <img src="<?= $product['imageUrl'] ?>" alt="<?= $product['product_name'];  ?>" class="rounded-xl" />
                 </figure>
                 <div class="card-body items-center text-left">
                     <h2 class="card-title"><?= $product['product_name'];  ?></h2>
