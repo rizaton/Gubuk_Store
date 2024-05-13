@@ -7,26 +7,19 @@ class LoginValidate
     public function loginValidate(): array
     {
         return [
-            'name' => [
-                'label' => 'Name',
-                'rules' => 'required|trim',
-                'errors' => [
-                    'required' => 'Name required',
-                ]
-            ],
             'email' => [
                 'label' => 'Email',
-                'rules' => 'required|trim|valid_email',
+                'rules' => 'required|valid_email',
                 'errors' => [
-                    'required' => 'Email required',
-                    'valid_email' => 'Please input valid email',
+                    'required' => 'Email required!',
+                    'valid_email' => 'Please input valid email!',
                 ]
             ],
             'password' => [
                 'label' => 'Password',
-                'rules' => 'required|trim',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => 'Required field!',
+                    'required' => 'Password required!',
                 ]
             ],
         ];

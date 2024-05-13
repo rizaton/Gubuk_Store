@@ -52,7 +52,7 @@
                         <input name="reenterpassword" type="password" placeholder="password" class="input input-bordered" required />
                     </div>
                     <div class="form-control mt-6">
-                        <button onclick="" type="submit" class="btn btn-primary">Daftar</button>
+                        <button type="submit" class="btn btn-primary">Daftar</button>
                     </div>
                 </form>
             </div>

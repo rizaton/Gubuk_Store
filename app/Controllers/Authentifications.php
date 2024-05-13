@@ -9,6 +9,13 @@ helper('custom');
 
 class Authentifications extends BaseController
 {
+    private $userModel;
+    private $productModel;
+    public function __construct()
+    {
+        $this->userModel = new \App\Models\PeopleModel();
+        $this->productModel = new \App\Models\ProductsModel();
+    }
     protected $helpers = ['url', 'form'];
     private function check_admin(): bool
     {
@@ -24,6 +31,14 @@ class Authentifications extends BaseController
         }
         return false;
     }
+    private function check_email($data): bool
+    {
+        return ($this->userModel->where('people_email', $data['people_email'])->first()['people_email'] ?? '' == $data['people_email']) ? true : false;
+    }
+    private function check_product($data): bool
+    {
+        return ($this->productModel->where('product_name', $data['product_name'])->first()['product_name'] ?? '' == $data['product_name']) ? true : false;
+    }
     public function index()
     {
         return redirect()->to(base_url('/'));
@@ -35,15 +50,13 @@ class Authentifications extends BaseController
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('/login'));
         }
-        $userModel = new \App\Models\PeopleModel();
         $data = [
             'people_email' => $this->request->getPost('email'),
             'people_password' => $this->request->getPost('password') ?? '',
         ];
-        try {
-            $userData = $userModel->findData($data['people_email']);
-        } catch (\Throwable $th) {
-            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => $th]);
+        $userData = $this->userModel->where('people_email', $data['people_email'])->first();
+        if (!$this->check_email(['people_email' => $data['people_email']])) {
+            session()->setFlashdata('data_form', ['message' => 'Email atau Password salah!']);
             return redirect()->to(base_url('/login'));
         }
         if (password_verify($data['people_password'], $userData['people_password'])) {
@@ -51,7 +64,7 @@ class Authentifications extends BaseController
             set_login(true);
             return redirect()->to(base_url(get_page()));
         } else {
-            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => null]);
+            session()->setFlashdata('data_form', ['message' => 'Email atau Password salah!']);
             return redirect()->to(base_url('/login'));
         }
     }
@@ -60,7 +73,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\RegisterValidate;
         if (!$this->validate($validation->registerValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors()]);
             return redirect()->to(base_url('register'));
         }
         if ($this->request->getPost('password') != $this->request->getPost('reenterpassword')) {
@@ -76,17 +89,12 @@ class Authentifications extends BaseController
             'people_points' => 0,
             'people_access' => 'm',
         ];
-        $userModel = new \App\Models\PeopleModel();
-        try {
-            $userModel->insert($data);
-            session()->setFlashdata('data_form', ['message' => 'Data berhasil Ditambahkan', 'err' => null]);
-            // dd($userModel->insert($data));
-            return redirect()->to(base_url(get_page()));
-        } catch (\Throwable $th) {
-            session()->setFlashdata('data_form', ['message' => 'Terjadi kesalahan', 'err' => $th]);
-            // dd($th);
-            return redirect()->to(base_url(get_page()));
+        if ($this->check_email(['people_email' => $data['people_email']])) {
+            session()->setFlashdata('data_form', ['message' => 'User sudah Terdaftar silahkan untuk melakukan login']);
+            return redirect()->to(base_url('/login'));
         }
+        $this->userModel->insert($data);
+        return redirect()->to(base_url(get_page()));
     }
     public function buyNow_auth()
     {
