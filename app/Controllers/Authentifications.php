@@ -11,6 +11,7 @@ class Authentifications extends BaseController
 {
     private $userModel;
     private $productModel;
+    private $userForgot;
     public function __construct()
     {
         $this->userModel = new \App\Models\PeopleModel();
@@ -33,7 +34,7 @@ class Authentifications extends BaseController
     }
     private function check_email($data): bool
     {
-        return ($this->userModel->where('people_email', $data['people_email'])->first()['people_email'] ?? '' == $data['people_email']) ? true : false;
+        return ($this->userModel->where('people_email', $data)->first()['people_email'] ?? '' == $data) ? true : false;
     }
     private function check_product($data): bool
     {
@@ -42,6 +43,10 @@ class Authentifications extends BaseController
     public function index()
     {
         return redirect()->to(base_url('/'));
+    }
+    public function buyNow_auth()
+    {
+        return redirect()->to(base_url(get_page()));
     }
     public function login_auth()
     {
@@ -54,18 +59,19 @@ class Authentifications extends BaseController
             'people_email' => $this->request->getPost('email'),
             'people_password' => $this->request->getPost('password') ?? '',
         ];
-        $userData = $this->userModel->where('people_email', $data['people_email'])->first();
-        if (!$this->check_email(['people_email' => $data['people_email']])) {
+        if (!$this->check_email($data['people_email'])) {
             session()->setFlashdata('data_form', ['message' => 'Email atau Password salah!']);
             return redirect()->to(base_url('/login'));
         }
-        if (password_verify($data['people_password'], $userData['people_password'])) {
-            set_user($userData);
-            set_login(true);
-            return redirect()->to(base_url(get_page()));
-        } else {
+        $userData = $this->userModel->where('people_email', $data['people_email'])->first();
+        if (!password_verify($data['people_password'], $userData['people_password'])) {
             session()->setFlashdata('data_form', ['message' => 'Email atau Password salah!']);
             return redirect()->to(base_url('/login'));
+        } else {
+            set_user($userData);
+            set_login(true);
+            log_status();
+            return redirect()->to(base_url(get_page()));
         }
     }
     //User
@@ -74,10 +80,6 @@ class Authentifications extends BaseController
         $validation = new \App\Validation\RegisterValidate;
         if (!$this->validate($validation->registerValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors()]);
-            return redirect()->to(base_url('register'));
-        }
-        if ($this->request->getPost('password') != $this->request->getPost('reenterpassword')) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => 'Kedua Password tidak sama']);
             return redirect()->to(base_url('register'));
         }
         $data = [
@@ -96,10 +98,6 @@ class Authentifications extends BaseController
         $this->userModel->insert($data);
         return redirect()->to(base_url(get_page()));
     }
-    public function buyNow_auth()
-    {
-        return view('');
-    }
     public function forgot_auth()
     {
         $validation = new \App\Validation\ForgotPasswordValidate;
@@ -107,7 +105,43 @@ class Authentifications extends BaseController
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('forgot'));
         }
-        return view('');
+        $data = [
+            'people_city' => $this->request->getPost('city'),
+            'people_phone' => $this->request->getPost('phone'),
+            'people_email' => $this->request->getPost('email'),
+        ];
+        if (!$this->check_email($data['people_email'])) {
+            session()->setFlashdata('data_form', ['message' => 'Data tidak ditemukan']);
+            return redirect()->to(base_url('forgot'));
+        }
+        $userData = $this->userModel->where('people_email', $data['people_email'])->first();
+        if (!$userData[$data['people_city']]) {
+            session()->setFlashdata('data_form', ['message' => 'Data tidak ditemukan']);
+            return redirect()->to(base_url('forgot'));
+        }
+        if (!$userData[$data['people_phone']]) {
+            session()->setFlashdata('data_form', ['message' => 'Data tidak ditemukan']);
+            return redirect()->to(base_url('forgot'));
+        }
+        $this->userForgot = $userData;
+        return view('user/forgot_auth');
+    }
+    public function forgot_auth_reset()
+    {
+        $validation = new \App\Validation\ForgotAuthValidate;
+        if (!$this->userForgot) {
+            return redirect()->to(base_url('forgot'));
+        }
+        if (!$this->validate($validation->forgotAuthValidate())) {
+            $this->userForgot = $this->userForgot;
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
+            return view('user/forgot_auth');
+        }
+        $this->userForgot['password'] = password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT);
+        $this->userModel->update($this->userForgot['id'], $this->userForgot);
+        session()->setFlashdata('data_form', ['message' => 'Password berhasil diperbaharui, silahkan melakukan login']);
+        $this->userForgot = [];
+        return redirect()->to(base_url());
     }
     //Member
     //CART
@@ -121,8 +155,7 @@ class Authentifications extends BaseController
             'name' => get_user()['id'],
         ];
         $cart_model = new \App\Models\CartModel;
-        $cart_model = $cart_model->insert(['data' => '']);
-        return view('');
+        $cart_model = $cart_model->insert(['data' => $data]);
     }
     public function cart_update_auth()
     {

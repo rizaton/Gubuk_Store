@@ -21,6 +21,7 @@ class Home extends BaseController
     }
     public function products()
     {
+        // dd(check_user());
         $data = $this->productsModel->findAll();
         return view('user/products', [
             'templates' => check_user(),

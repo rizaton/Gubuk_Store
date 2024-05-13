@@ -44,7 +44,7 @@ class RegisterValidate
                 ]
             ],
             'reenterpassword' => [
-                'label' => 'Second Password',
+                'label' => 'Second Password|match[password]',
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Required field!',
