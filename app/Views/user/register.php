@@ -6,7 +6,7 @@
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left">
                 <h1 class="text-5xl font-bold">Daftar Member Sekarang!</h1>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <p class="py-6">Mulailah berbelanja sekarang! Lengkapi pendaftaran untuk membuat akun Anda.</p>
             </div>
             <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  lg:mr-32">
                 <form method="post" action="<?= base_url('/register_auth');  ?>" class="card-body">
@@ -29,9 +29,9 @@
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Nomor Telefon</span>
+                            <span class="label-text">Nomor Telepon</span>
                         </label>
-                        <input name="phone" type="text" placeholder="nomor telefon" class="input input-bordered" required />
+                        <input name="phone" type="text" placeholder="nomor telepon" class="input input-bordered" required />
                     </div>
                     <div class="form-control">
                         <label class="label">
