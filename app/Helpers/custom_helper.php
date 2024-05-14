@@ -23,7 +23,18 @@ function logged_check(string $view = null, string $title = null)
     session()->setFlashdata('log_message', 'Error Occured');
     return redirect()->to(base_url(session()->getFlashdata('page')));
 }
-
+function check_user()
+{
+    if (!log_status()) {
+        session()->setFlashdata('login');
+        session()->setFlashdata('user_data', ['access' => 'u']);
+        return 'user';
+    } else if (!log_status() && user_access() == 'm') {
+        return 'member';
+    } else if (!log_status() && user_access() == 'a') {
+        return 'admin';
+    }
+}
 function set_login(bool $data = null)
 {
     session()->setFlashdata('login', $data);
@@ -37,11 +48,6 @@ function user_access(): string
 {
     return session()->getFlashdata('user_data')['access'];
 }
-// function logout(): RedirectResponse
-// {
-//     session()->remove('login');
-//     return redirect()->to(base_url(session()->getFlashdata('page')));
-// }
 function set_user(array $data = null)
 {
     session()->setFlashdata('user_data', $data);
@@ -50,7 +56,7 @@ function get_user(): array
 {
     return session()->getFlashdata('user_data');
 }
-function testing(): string
+function get_page(): string
 {
-    return '';
+    return session()->getFlashdata('page') ?? '/';
 }

@@ -9,6 +9,7 @@ helper('custom');
 
 class Authentifications extends BaseController
 {
+    protected $helpers = ['url', 'form'];
     private function check_admin(): bool
     {
         if (session()->getFlashdata('user_data')['access'] == 'a') {
@@ -23,7 +24,6 @@ class Authentifications extends BaseController
         }
         return false;
     }
-
     public function index()
     {
         return redirect()->to(base_url('/'));
@@ -32,30 +32,71 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\LoginValidate;
         if (!$this->validate($validation->loginValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('/login'));
         }
-        return view('');
+        $userModel = new \App\Models\PeopleModel();
+        $data = [
+            'people_email' => $this->request->getPost('email'),
+            'people_password' => $this->request->getPost('password') ?? '',
+        ];
+        try {
+            $userData = $userModel->findData($data['people_email']);
+        } catch (\Throwable $th) {
+            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => $th]);
+            return redirect()->to(base_url('/login'));
+        }
+        if (password_verify($data['people_password'], $userData['people_password'])) {
+            set_user($userData);
+            set_login(true);
+            return redirect()->to(base_url(get_page()));
+        } else {
+            session()->setFlashdata('data_form', ['message' => 'Data Input Salah', 'err' => null]);
+            return redirect()->to(base_url('/login'));
+        }
     }
     //User
-    public function buyNow_auth()
-    {
-        return view('');
-    }
     public function regist_auth()
     {
         $validation = new \App\Validation\RegisterValidate;
         if (!$this->validate($validation->registerValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('register'));
         }
+        if ($this->request->getPost('password') != $this->request->getPost('reenterpassword')) {
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => 'Kedua Password tidak sama']);
+            return redirect()->to(base_url('register'));
+        }
+        $data = [
+            'people_name' => $this->request->getPost('fullname'),
+            'people_city' => $this->request->getPost('city'),
+            'people_phone' => $this->request->getPost('phone'),
+            'people_email' => $this->request->getPost('email'),
+            'people_password' => password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT),
+            'people_points' => 0,
+            'people_access' => 'm',
+        ];
+        $userModel = new \App\Models\PeopleModel();
+        try {
+            $userModel->insert($data);
+            session()->setFlashdata('data_form', ['message' => 'Data berhasil Ditambahkan', 'err' => null]);
+            // dd($userModel->insert($data));
+            return redirect()->to(base_url(get_page()));
+        } catch (\Throwable $th) {
+            session()->setFlashdata('data_form', ['message' => 'Terjadi kesalahan', 'err' => $th]);
+            // dd($th);
+            return redirect()->to(base_url(get_page()));
+        }
+    }
+    public function buyNow_auth()
+    {
         return view('');
     }
     public function forgot_auth()
     {
         $validation = new \App\Validation\ForgotPasswordValidate;
         if (!$this->validate($validation->forgotPasswordValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('forgot'));
         }
         return view('');
@@ -68,7 +109,7 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         $data = [
-            'product_id' => $this->request->getVar('product_id'),
+            'product_id' => $this->request->getPost('product_id'),
             'name' => get_user()['id'],
         ];
         $cart_model = new \App\Models\CartModel;
@@ -81,8 +122,8 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         $data = [
-            'cart_id' => $this->request->getVar('cart_id'),
-            'product_id' => $this->request->getVar('product_id'),
+            'cart_id' => $this->request->getPost('cart_id'),
+            'product_id' => $this->request->getPost('product_id'),
             'name' => get_user()['id'],
         ];
         $cart_model = new \App\Models\CartModel;
@@ -95,7 +136,7 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         $data = [
-            'cart_id' => $this->request->getVar('cart_id'),
+            'cart_id' => $this->request->getPost('cart_id'),
         ];
         $cart_model = new \App\Models\CartModel;
         $cart_model = $cart_model->delete($data);
@@ -115,15 +156,15 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->productValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/stock'));
         }
         $data = [
-            'name' => $this->request->getVar('name'),
-            'qty' => $this->request->getVar('qty'),
-            'min_qty' => $this->request->getVar('min_qty'),
-            'max_qty' => $this->request->getVar('max_qty'),
-            'price' => $this->request->getVar('price'),
+            'product_name' => $this->request->getPost('name'),
+            'product_qty' => $this->request->getPost('qty'),
+            'product_min_qty' => $this->request->getPost('min_qty'),
+            'product_max_qty' => $this->request->getPost('max_qty'),
+            'product_price_per_qty' => $this->request->getPost('price'),
         ];
         $stock_model = new \App\Models\ProductsModel;
         $stock_model = $stock_model->insert($data);
@@ -136,16 +177,16 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->productValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/stock'));
         }
         $data = [
-            'id' => $this->request->getVar('id'),
-            'name' => $this->request->getVar('name'),
-            'qty' => $this->request->getVar('qty'),
-            'min_qty' => $this->request->getVar('min_qty'),
-            'max_qty' => $this->request->getVar('max_qty'),
-            'price' => $this->request->getVar('price'),
+            'id' => $this->request->getPost('id'),
+            'name' => $this->request->getPost('name'),
+            'qty' => $this->request->getPost('qty'),
+            'min_qty' => $this->request->getPost('min_qty'),
+            'max_qty' => $this->request->getPost('max_qty'),
+            'price' => $this->request->getPost('price'),
         ];
         $stock_model = new \App\Models\ProductsModel();
         $stock_model = $stock_model->update(['id' => $data['id']], $data);
@@ -158,11 +199,11 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->productValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/stock'));
         }
         $data = [
-            'id' => $this->request->getVar('id'),
+            'id' => $this->request->getPost('id'),
         ];
         $stock_model = new \App\Models\ProductsModel();
         $stock_model = $stock_model->delete(['key' => $data]);
@@ -177,17 +218,17 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/members'));
         }
         $data = [
-            'id' => $this->request->getVar('id'),
-            'name' => $this->request->getVar('name'),
-            'phone' => $this->request->getVar('phone'),
-            'city' => $this->request->getVar('city'),
-            'province' => $this->request->getVar('province'),
-            'points' => $this->request->getVar('points'),
-            'access' => $this->request->getVar('access'),
+            'id' => $this->request->getPost('id'),
+            'name' => $this->request->getPost('name'),
+            'phone' => $this->request->getPost('phone'),
+            'city' => $this->request->getPost('city'),
+            'province' => $this->request->getPost('province'),
+            'points' => $this->request->getPost('points'),
+            'access' => $this->request->getPost('access'),
         ];
         $user_model = new \App\Models\UserManagementModel();
         $user_model = $user_model->insert(['key' => $data]);
@@ -200,17 +241,17 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/members'));
         }
         $data = [
-            'id' => $this->request->getVar('id'),
-            'name' => $this->request->getVar('name'),
-            'phone' => $this->request->getVar('phone'),
-            'city' => $this->request->getVar('city'),
-            'province' => $this->request->getVar('province'),
-            'points' => $this->request->getVar('points'),
-            'access' => $this->request->getVar('access'),
+            'id' => $this->request->getPost('id'),
+            'name' => $this->request->getPost('name'),
+            'phone' => $this->request->getPost('phone'),
+            'city' => $this->request->getPost('city'),
+            'province' => $this->request->getPost('province'),
+            'points' => $this->request->getPost('points'),
+            'access' => $this->request->getPost('access'),
         ];
         $user_model = new \App\Models\UserManagementModel();
         $user_model = $user_model->update(['id' => $data['id']], $data);
@@ -223,11 +264,11 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/members'));
         }
         $data = [
-            'id' => $this->request->getVar('id'),
+            'id' => $this->request->getPost('id'),
         ];
         $user_model = new \App\Models\UserManagementModel();
         $user_model = $user_model->delete($data);
@@ -242,14 +283,14 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/promo'));
         }
         $data = [
-            'name' => $this->request->getVar('name'),
-            'sold' => $this->request->getVar('sold'),
-            'active' => $this->request->getVar('active'),
-            'price' => $this->request->getVar('price'),
+            'name' => $this->request->getPost('name'),
+            'sold' => $this->request->getPost('sold'),
+            'active' => $this->request->getPost('active'),
+            'price' => $this->request->getPost('price'),
         ];
         $promo_model = new \App\Models\PromoModel;
         $promo_model = $promo_model->insert($data);
@@ -262,15 +303,15 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/promo'));
         }
         $data = [
-            'id' => $this->request->getVar('promo_id'),
-            'name' => $this->request->getVar('name'),
-            'sold' => $this->request->getVar('sold'),
-            'active' => $this->request->getVar('active'),
-            'price' => $this->request->getVar('price'),
+            'id' => $this->request->getPost('promo_id'),
+            'name' => $this->request->getPost('name'),
+            'sold' => $this->request->getPost('sold'),
+            'active' => $this->request->getPost('active'),
+            'price' => $this->request->getPost('price'),
         ];
         $promo_model = new \App\Models\PromoModel;
         $promo_model = $promo_model->update(['id' => $data['id']], $data);
@@ -283,11 +324,11 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->getFlashdata('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', [validation_list_errors()]);
+            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return redirect()->to(base_url('a/promo'));
         }
         $data = [
-            'id' => $this->request->getVar('promo_id'),
+            'id' => $this->request->getPost('promo_id'),
         ];
         $promo_model = new \App\Models\PromoModel;
         $promo_model = $promo_model->delete($data);
