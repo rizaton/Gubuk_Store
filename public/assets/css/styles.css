@@ -3417,6 +3417,10 @@ input.tab:checked + .tab-content,
   width: 100%;
 }
 
+.w-550 {
+  width: 550px;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }

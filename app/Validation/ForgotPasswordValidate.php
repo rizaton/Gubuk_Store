@@ -7,16 +7,23 @@ class ForgotPasswordValidate
     public function forgotPasswordValidate(): array
     {
         return [
-            'name' => [
-                'label' => 'Name',
-                'rules' => 'required|trim',
+            'city' => [
+                'label' => 'City',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => 'Name required',
+                    'required' => 'City required',
+                ]
+            ],
+            'phone' => [
+                'label' => 'Phone',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Phone required',
                 ]
             ],
             'email' => [
                 'label' => 'Email',
-                'rules' => 'required|trim|valid_email',
+                'rules' => 'required|valid_email',
                 'errors' => [
                     'required' => 'Email required',
                     'valid_email' => 'Please input valid email',
