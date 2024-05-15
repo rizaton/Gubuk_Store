@@ -33,7 +33,7 @@
                     <h2 class="card-title"><?= $product['product_name'];  ?></h2>
                     <p>Rp.<?= number_format($product['product_price_per_qty']); ?></p>
                     <div class="card-actions">
-                        <button class="btn btn-primary action=" <?php echo base_url('b_now' . $product['product_id']); ?>">Beli Sekarang</button>
+                        <button class="btn btn-primary" action=" <?php echo base_url('b_now' . $product['product_id']); ?>">Beli Sekarang</button>
                         <button class="btn btn-secondary" action="<?php echo base_url('c_add' . $product['product_id']); ?>">Tambah ke Keranjang</button>
                     </div>
                 </div>
