@@ -20,14 +20,14 @@ class Authentifications extends BaseController
     protected $helpers = ['url', 'form'];
     private function check_admin(): bool
     {
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
+        if (session()->get('user_data')['access'] == 'a') {
             return true;
         }
         return false;
     }
     private function check_member(): bool
     {
-        if (session()->getFlashdata('user_data')['access'] == 'm') {
+        if (session()->get('user_data')['access'] == 'm') {
             return true;
         }
         return false;
@@ -148,7 +148,7 @@ class Authentifications extends BaseController
     public function cart_add_auth()
     {
         if (!$this->check_member()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         $data = [
             'product_id' => $this->request->getPost('product_id'),
@@ -160,7 +160,7 @@ class Authentifications extends BaseController
     public function cart_update_auth()
     {
         if (!$this->check_member()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         $data = [
             'cart_id' => $this->request->getPost('cart_id'),
@@ -174,7 +174,7 @@ class Authentifications extends BaseController
     public function cart_delete_auth()
     {
         if (!$this->check_member()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         $data = [
             'cart_id' => $this->request->getPost('cart_id'),
@@ -194,7 +194,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\ProductValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->productValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -215,7 +215,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\ProductValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->productValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -237,7 +237,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\ProductValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->productValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -256,7 +256,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\MembersValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -279,7 +279,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\MembersValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -302,7 +302,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\MembersValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->membersValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -321,7 +321,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\PromoValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -341,7 +341,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\PromoValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
@@ -362,7 +362,7 @@ class Authentifications extends BaseController
     {
         $validation = new \App\Validation\PromoValidate;
         if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->getFlashdata('page')));
+            return redirect()->to(base_url(session()->get('page')));
         }
         if (!$this->validate($validation->promoValidate())) {
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
