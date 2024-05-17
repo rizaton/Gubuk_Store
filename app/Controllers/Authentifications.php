@@ -71,7 +71,7 @@ class Authentifications extends BaseController
             set_user($userData);
             set_login(true);
             log_status();
-            return redirect()->to(base_url(get_page()));
+            return redirect()->to(base_url());
         }
     }
     //User
