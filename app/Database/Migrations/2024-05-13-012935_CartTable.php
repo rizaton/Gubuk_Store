@@ -23,6 +23,10 @@ class CartTable extends Migration
                 'type' => 'INT',
                 'constraint' => 3,
             ],
+            'cart_qty' => [
+                'type' => 'INT',
+                'constraint' => 3,
+            ],
         ]);
         $this->forge->addPrimaryKey('cart_id');
         $this->forge->createTable('cart');
