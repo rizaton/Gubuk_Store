@@ -34,12 +34,11 @@ class Member extends BaseController
     public function cart()
     {
         try {
-            $productCart = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
+            $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
         } catch (\Throwable $th) {
-            $productCart = [''];
+            $productCarts = [$th];
         }
-        $productCart = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
-        dd($productCart);
+        $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
         $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
         // return logged_check('cart', 'Cart');
         session()->setFlashdata('user_data', ['access' => 'm']);
@@ -47,7 +46,7 @@ class Member extends BaseController
             return view('member/cart', [
                 'title' => 'Cart',
                 'carts' => $userCart,
-                'products' => $productCart
+                'productCarts' => $productCarts
             ]);
         } else {
             return redirect()->to(base_url('l_auth'));
