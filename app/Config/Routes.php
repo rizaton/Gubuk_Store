@@ -55,4 +55,4 @@ $routes->get('/a/stocks', 'Admin::stocks');
 $routes->get('/a/members', 'Admin::manage_members');
 $routes->get('/a/promos', 'Admin::promos');
 
-$routes->setAutoRoute(true);
+// $routes->setAutoRoute(true);

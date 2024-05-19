@@ -33,15 +33,20 @@ class Member extends BaseController
     }
     public function cart()
     {
-        $userCart = $this->cartModel->select('cart_product_id')->select('cart_qty')->where('cart_people_id', 1) ?? [];
-        $products = $this->productModel->findAll();
+        try {
+            $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
+        } catch (\Throwable $th) {
+            $productCarts = [$th];
+        }
+        $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
+        $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
         // return logged_check('cart', 'Cart');
         session()->setFlashdata('user_data', ['access' => 'm']);
         if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
             return view('member/cart', [
                 'title' => 'Cart',
                 'carts' => $userCart,
-                'products' => $products
+                'productCarts' => $productCarts
             ]);
         } else {
             return redirect()->to(base_url('l_auth'));
