@@ -23,12 +23,12 @@ class Member extends BaseController
     public function points()
     {
         session()->setFlashdata('user_data', ['access' => 'm']);
-        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+        if (session()->get('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
             return view('member/points', [
                 'title' => 'Points',
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login_auth'));
         }
     }
     public function cart()
@@ -41,8 +41,8 @@ class Member extends BaseController
         $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
         $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
         // return logged_check('cart', 'Cart');
-        session()->setFlashdata('user_data', ['access' => 'm']);
-        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+        session()->set('user_data', ['access' => 'm']);
+        if (session()->get('user_data')['access'] == 'm') {
             return view('member/cart', [
                 'title' => 'Cart',
                 'carts' => $userCart,
@@ -54,8 +54,8 @@ class Member extends BaseController
     }
     public function payments()
     {
-        session()->setFlashdata('user_data', ['access' => 'm']);
-        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+        session()->set('user_data', ['access' => 'm']);
+        if (session()->get('user_data')['access'] == 'm') {
             return view('member/payments', [
                 'title' => 'Payment',
             ]);

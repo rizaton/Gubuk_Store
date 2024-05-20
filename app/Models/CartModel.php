@@ -43,4 +43,9 @@ class CartModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function updateData($where, $data)
+    {
+        return $this->db->table('kategori')->update($data, $where);
+    }
 }

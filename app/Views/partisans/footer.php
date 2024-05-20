@@ -22,6 +22,140 @@
     </div>
   </nav>
 </footer>
+<script>
+  $(document).ready(function() {
+    $('.test').click(function() {
+      $('.div-test').text('<?= base_url('/m/cart_add');  ?>');
+    })
+    // Menambahkan item ke keranjang
+    $(".addToCard").click(function() {
+      var productId = $(this).data('productId');
+      var quantity = $(this).attr('id');
+
+      $.ajax({
+        url: "/m/cart_new",
+        method: "POST",
+        data: {
+          productId: productId,
+        },
+        success: function(response) {
+          if (response['success'] == 'success') {
+            updateCart();
+          } else {
+            alert('Gagal menambahkan item ke keranjang');
+          }
+        }
+      });
+    });
+
+    // // Memperbarui jumlah item di keranjang
+    // $(".updateCartItemQuantity").change(function() {
+    //   var cartItemId = $(this).data('cartItemId');
+    //   var quantity = $(this).val();
+
+    //   $.ajax({
+    //     url: "/m/cart_up",
+    //     method: "POST",
+    //     data: {
+    //       cart_id: cartItemId,
+    //     },
+    //     success: function(response) {
+    //       if (response.success) {
+    //         updateCart();
+    //         alert('Jumlah item berhasil diperbarui');
+    //       } else {
+    //         alert('Gagal memperbarui jumlah item');
+    //       }
+    //     }
+    //   });
+    // });
+
+    // Menambah atau mengurangi jumlah produk stock
+    $(".addStockProduct").click(function() {
+      var cartItemId = $(this).attr('id');
+      alert(cartItemId);
+      $.ajax({
+        url: '<?= base_url('/m/cart_add'); ?>',
+        type: "post",
+        dataType: 'json',
+        data: {
+          'cart_id': cartItemId,
+        },
+        success: function(response) {
+          alert(response);
+          // if (response['success'] == 'success') {
+          //   updateCartStock(response['body']);
+          // } else {
+          //   alert('Gagal memperbarui jumlah item');
+          // }
+        },
+        error: function(jquery, text, error) {
+          alert(jquery['status']);
+          alert(text);
+          alert(error);
+        }
+      });
+    });
+
+    $(".subStockProduct").click(function() {
+      var cartItemId = $(this).attr('id');
+
+      $.ajax({
+        url: "<?= base_url('/m/cart_sub'); ?>",
+        method: "POST",
+        data: {
+          'cart_id': cartItemId,
+        },
+        success: function(response) {
+          if (response.success) {
+            updateCartStock(response);
+          } else {
+            alert('Gagal memperbarui jumlah item');
+          }
+        }
+      });
+    });
+
+    // Menghapus item dari keranjang
+    $(".delStockProduct").click(function() {
+      var cartItemId = $(this).attr('id');
+
+      $.ajax({
+        url: "/m/cart_del",
+        method: "POST",
+        data: {
+          cart_id: cartItemId
+        },
+        success: function(response) {
+          if (response.success) {
+            updateCart();
+            alert('Item berhasil dihapus dari keranjang');
+          } else {
+            alert('Gagal menghapus item dari keranjang');
+          }
+        }
+      });
+    });
+
+    // Memuat ulang keranjang
+    function updateCartStock(cart) {
+      var quantityCartId = '#cartQtyId' + cart['id'];
+      var totalCartId = '#cartTotalId' + cart['id'];
+      $(quantityCartId).text(cart['qty']);
+      $(totalCartId).text('Rp.' + cart['total']);
+    }
+
+    // function updateCart() {
+    //   $.ajax({
+    //     url: "/m/cart_get",
+    //     method: "GET",
+    //     success: function(response) {
+    //       $("#cartTable").html(response);
+    //     }
+    //   });
+    // }
+  });
+</script>
 </body>
 
 </html>

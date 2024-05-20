@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\ResponseInterface;
 
 helper('custom');
@@ -145,26 +146,129 @@ class Authentifications extends BaseController
     }
     //Member
     //CART
-    public function cart_add_auth()
+    public function cart_get_auth(IncomingRequest $request)
     {
+        if ($request->isAJAX()) {
+            return redirect()->to(base_url('/'));
+        }
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
+        $cart_model = new \App\Models\CartModel;
+        $responseData = [
+            'status' => 'success',
+            'productCarts' => $cart_model->join('product', 'cart_product_id = product.product_id')->findAll(),
+        ];
+        return $this->response->setJSON($responseData);
+    }
+    public function cart_new_auth(IncomingRequest $request)
+    {
+        if ($request->isAJAX()) {
+            return redirect()->to(base_url());
+        }
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
         $data = [
             'product_id' => $this->request->getPost('product_id'),
             'name' => get_user()['id'],
         ];
         $cart_model = new \App\Models\CartModel;
         $cart_model = $cart_model->insert(['data' => $data]);
+        $responseData = [
+            'status' => 'success',
+        ];
+        $response = service('response');
+        return $response->setJSON($responseData);
+    }
+    public function cart_add_auth()
+    {
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
+        $cart_model = new \App\Models\CartModel;
+
+        if ($this->request->isAJAX()) {
+            $query = $this->request->getPost('cart_id');
+            $cart_data = $cart_model->find($query);
+            $data = [
+                'cart_qty' => '4',
+            ];
+            // $cart_model->updateData($query, $data);
+            // // dd($cart_model->update($query, $data));
+            // $responseData = [
+            //     'status' => 'success',
+            //     'body' => $cart_data,
+            // ];
+            if ($cart_model->updateData($query, $data)) {
+                $responseData = [
+                    'status' => 'success',
+                    'body' => $cart_data,
+                ];
+            } else {
+                $responseData = [
+                    'status' => 'error',
+                    'message' => 'Update failed', // Provide a more specific message
+                ];
+            }
+            $response = service('response');
+            return $response->setJSON($responseData);
+
+            // $cart_data = $cart_model->find($query);
+
+            // $cart_model->update($query, ['cart_qty' => ($cart_data['cart_qty'] + 1)]);
+
+            // $cart_newData = $cart_model->find($query);
+            // $cart_productData = $cart_model->join('product', 'cart_product_id = product.product_id')->find(1);
+            // $body = [
+            //     'id' => $query,
+            //     'qty' => $cart_newData['cart_qty'],
+            //     'total' => number_format(($cart_productData['product_price_per_qty'] * $cart_newData['cart_qty'])),
+            // ];
+            // $responseData = [
+            //     'status' => 'success',
+            //     'body' => $body,
+            // ];
+            // $response = service('response');
+            // return $response->setJSON($responseData);
+        }
+    }
+    public function cart_sub_auth()
+    {
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
+        if ($this->request->isAJAX()) {
+            $query = $this->request->getPost('cart_id');
+            $cart_model = new \App\Models\CartModel;
+
+            $cart_data = $cart_model->find($query);
+
+            $cart_model->update($query, ['cart_qty' => ($cart_data['cart_qty'] - 1)]);
+
+            $cart_newData = $cart_model->find($query);
+            $cart_productData = $cart_model->join('product', 'cart_product_id = product.product_id')->find(1);
+            $body = [
+                'id' => $query,
+                'qty' => $cart_newData['cart_qty'],
+                'total' => number_format(($cart_productData['product_price_per_qty'] * $cart_newData['cart_qty'])),
+            ];
+            $responseData = [
+                'status' => 'success',
+                'body' => $body,
+            ];
+            $response = service('response');
+            return $response->setJSON($responseData);
+        }
     }
     public function cart_update_auth()
     {
-        if (!$this->check_member()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
         $data = [
             'cart_id' => $this->request->getPost('cart_id'),
-            'product_id' => $this->request->getPost('product_id'),
+            'cart_product_id' => $this->request->getPost('product_id'),
             'name' => get_user()['id'],
         ];
         $cart_model = new \App\Models\CartModel;
@@ -173,9 +277,9 @@ class Authentifications extends BaseController
     }
     public function cart_delete_auth()
     {
-        if (!$this->check_member()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
         $data = [
             'cart_id' => $this->request->getPost('cart_id'),
         ];

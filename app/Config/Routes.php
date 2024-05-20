@@ -18,7 +18,10 @@ $routes->post('/forgot_auth', 'Authentifications::forgot_auth');
 $routes->post('/login_auth', 'Authentifications::login_auth');
 $routes->post('/register_auth', 'Authentifications::regist_auth');
 //Auth Carts
+$routes->get('/m/cart_get', 'Authentifications::cart_get_auth');
+$routes->post('/m/cart_new', 'Authentifications::cart_new_auth');
 $routes->post('/m/cart_add', 'Authentifications::cart_add_auth');
+$routes->post('/m/cart_sub', 'Authentifications::cart_sub_auth');
 $routes->post('/m/cart_up', 'Authentifications::cart_update_auth');
 $routes->post('/m/cart_del', 'Authentifications::cart_delete_auth');
 //Auth Admin Products

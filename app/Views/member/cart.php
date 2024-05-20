@@ -2,6 +2,10 @@
 <?= $this->extend('templates/main_member');  ?>
 
 <?= $this->section('content');  ?>
+<div style="width: 5rem;">
+    <button class="test"> THIS IS BUTTON</button>
+    <div class="div-test"></div>
+</div>
 <div>
     <div class="text-4xl font-bold p-10">Keranjang</div>
     <div class="flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-between">
@@ -31,23 +35,22 @@
                             <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                             <div><?= $productCart['product_name'] ?></div>
                         </div>
-
                         <!-- <img src="" alt="" /> -->
-                        <div>Rp. <?= number_format($productCart['product_price_per_qty']) ?></div>
+                        <div>Rp.<?= number_format($productCart['product_price_per_qty']) ?></div>
                         <div class="flex items-center">
-                            <button class="btn btn-xs btn-square lg:btn-sm">
+                            <button id="<?= $productCart['cart_id']; ?>" class="addStockProduct btn btn-xs btn-square lg:btn-sm">
                                 <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
                                 </svg>
                             </button>
-                            <div class="p-1 lg:p-3"><?= $productCart['cart_qty'] ?></div>
-                            <button class="btn btn-xs btn-square lg:btn-sm">
+                            <div id="cartQtyId<?= $productCart['cart_id']; ?>" class="p-1 lg:p-3"><?= $productCart['cart_qty'] ?></div>
+                            <button id="<?= $productCart['cart_id']; ?>" class="subStockProduct btn btn-xs btn-square lg:btn-sm">
                                 <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
                                 </svg>
                             </button>
                         </div>
-                        <div>Rp. <?= number_format(($productCart['cart_qty'] * $productCart['product_price_per_qty'])) ?></div>
+                        <div id="cartTotalId<?= $productCart['cart_id']; ?>">Rp.<?= number_format(($productCart['cart_qty'] * $productCart['product_price_per_qty'])) ?></div>
                         <a href="/hdhdh">
                             <button class="btn btn-sm btn-square">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
