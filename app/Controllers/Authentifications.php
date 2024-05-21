@@ -192,32 +192,23 @@ class Authentifications extends BaseController
             $query = $this->request->getPost('cart_id');
             $cart_data = $cart_model->find($query);
             $data = [
-                'cart_qty' => '4',
+                'cart_id' => $cart_data['cart_id'],
+                'cart_people_id' => $cart_data['cart_people_id'],
+                'cart_product_id' => $cart_data['cart_product_id'],
+                'cart_qty' => (((int) $cart_data['cart_qty']) + 1),
             ];
-            // $cart_model->updateData($query, $data);
-            // // dd($cart_model->update($query, $data));
-            // $responseData = [
-            //     'status' => 'success',
-            //     'body' => $cart_data,
-            // ];
-            if ($cart_model->updateData($query, $data)) {
-                $responseData = [
-                    'status' => 'success',
-                    'body' => $cart_data,
-                ];
-            } else {
-                $responseData = [
-                    'status' => 'error',
-                    'message' => 'Update failed', // Provide a more specific message
-                ];
-            }
+            $cart_model->delete('$query');
+            $cart_model->insert($data);
+            $cart_new_data = $cart_model->find($query);
+            $responseData = [
+                'status' => 'success',
+                'body' => $cart_new_data,
+            ];
             $response = service('response');
             return $response->setJSON($responseData);
 
             // $cart_data = $cart_model->find($query);
-
             // $cart_model->update($query, ['cart_qty' => ($cart_data['cart_qty'] + 1)]);
-
             // $cart_newData = $cart_model->find($query);
             // $cart_productData = $cart_model->join('product', 'cart_product_id = product.product_id')->find(1);
             // $body = [

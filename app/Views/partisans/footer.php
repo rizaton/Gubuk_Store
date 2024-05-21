@@ -24,9 +24,9 @@
 </footer>
 <script>
   $(document).ready(function() {
-    $('.test').click(function() {
-      $('.div-test').text('<?= base_url('/m/cart_add');  ?>');
-    })
+    // $('.test').click(function() {
+    //   $('.div-test').text('<?= base_url('/m/cart_add');  ?>');
+    // });
     // Menambahkan item ke keranjang
     $(".addToCard").click(function() {
       var productId = $(this).data('productId');
@@ -81,14 +81,15 @@
         data: {
           'cart_id': cartItemId,
         },
-        success: function(response) {
-          alert(response);
+        success: async function(response) {
+          await alert(response.body.cart_qty);
           // if (response['success'] == 'success') {
           //   updateCartStock(response['body']);
           // } else {
           //   alert('Gagal memperbarui jumlah item');
           // }
         },
+
         error: function(jquery, text, error) {
           alert(jquery['status']);
           alert(text);
@@ -99,7 +100,6 @@
 
     $(".subStockProduct").click(function() {
       var cartItemId = $(this).attr('id');
-
       $.ajax({
         url: "<?= base_url('/m/cart_sub'); ?>",
         method: "POST",
@@ -154,6 +154,14 @@
     //     }
     //   });
     // }
+
+    $("#allChecked").click(function() {
+      if ($('#allChecked').is(':checked')) {
+        $(".allchecked").prop('checked', true);
+      } else {
+        $(".allchecked").prop('checked', false);
+      }
+    });
   });
 </script>
 </body>

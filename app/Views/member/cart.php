@@ -2,10 +2,6 @@
 <?= $this->extend('templates/main_member');  ?>
 
 <?= $this->section('content');  ?>
-<div style="width: 5rem;">
-    <button class="test"> THIS IS BUTTON</button>
-    <div class="div-test"></div>
-</div>
 <div>
     <div class="text-4xl font-bold p-10">Keranjang</div>
     <div class="flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-between">
@@ -14,8 +10,9 @@
             <!-- TITLE CART PRODUCT -->
             <div class="grid grid-cols-6 justify-items-center justify-self-center items-center">
                 <div class="flex gap-3 items-center">
-                    <input type="checkbox" class="checkbox" />
+                    <input id="allChecked" type="checkbox" class="checkbox" />
                     <div>Pilih Semua</div>
+
                 </div>
                 <div></div>
                 <div></div>
@@ -30,9 +27,11 @@
                 foreach ($productCarts as $productCart) {
             ?>
                     <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
-                        <input type="checkbox" class="checkbox" />
+                        <input id="checkBox<?= $productCart['cart_id']; ?>" type="checkbox" class="checkbox allChecked" />
                         <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
+                            <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500">
+                                <img src="<?= $productCart['imageUrl']  ?>" alt="">
+                            </div>
                             <div><?= $productCart['product_name'] ?></div>
                         </div>
                         <!-- <img src="" alt="" /> -->
@@ -56,7 +55,6 @@
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
                                 </svg>
-
                             </button>
                         </a>
                     </div>
