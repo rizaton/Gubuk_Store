@@ -33,19 +33,28 @@ class Member extends BaseController
     }
     public function cart()
     {
+        $data = [
+            'people_name' => 'Tony Afriza',
+            'people_city' => 'Kota Tangerang',
+            'people_phone' => '081234567891',
+            'people_email' => 'tonyafriza@gmail.com',
+            'people_password' => password_hash('member123', PASSWORD_DEFAULT),
+            'people_points' => 0,
+            'people_access' => 'm',
+        ];
+        session()->set('user_data', $data);
+
         try {
             $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
         } catch (\Throwable $th) {
             $productCarts = [$th];
         }
-        $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
-        $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
+        // $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
         // return logged_check('cart', 'Cart');
-        session()->setFlashdata('user_data', ['access' => 'm']);
-        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+        if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
             return view('member/cart', [
                 'title' => 'Cart',
-                'carts' => $userCart,
+                // 'carts' => $userCart,
                 'productCarts' => $productCarts
             ]);
         } else {

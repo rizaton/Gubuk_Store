@@ -9,25 +9,27 @@ helper('custom');
 
 class Authentifications extends BaseController
 {
+    private $cartModel;
     private $userModel;
     private $productModel;
-    private $userForgot;
+
     public function __construct()
     {
+        $this->cartModel = new \App\Models\CartModel();
         $this->userModel = new \App\Models\PeopleModel();
         $this->productModel = new \App\Models\ProductsModel();
     }
     protected $helpers = ['url', 'form'];
     private function check_admin(): bool
     {
-        if (session()->get('user_data')['access'] == 'a') {
+        if (session()->get('user_data')['people_access'] == 'a') {
             return true;
         }
         return false;
     }
     private function check_member(): bool
     {
-        if (session()->get('user_data')['access'] == 'm') {
+        if (session()->get('user_data')['people_access'] == 'm') {
             return true;
         }
         return false;
@@ -71,7 +73,7 @@ class Authentifications extends BaseController
             set_user($userData);
             set_login(true);
             log_status();
-            return redirect()->to(base_url(get_page()));
+            return redirect()->to(base_url('/'));
         }
     }
     //User
@@ -96,7 +98,7 @@ class Authentifications extends BaseController
             return redirect()->to(base_url('/login'));
         }
         $this->userModel->insert($data);
-        return redirect()->to(base_url(get_page()));
+        return redirect()->to(base_url('/'));
     }
     public function forgot_auth()
     {
@@ -123,25 +125,26 @@ class Authentifications extends BaseController
             session()->setFlashdata('data_form', ['message' => 'Data tidak ditemukan']);
             return redirect()->to(base_url('forgot'));
         }
-        $this->userForgot = $userData;
+        session()->set('forgot_data', $userData);
         return view('user/forgot_auth');
     }
     public function forgot_auth_reset()
     {
+        $userData = session()->get('forgot_data');
         $validation = new \App\Validation\ForgotAuthValidate;
-        if (!$this->userForgot) {
+        if (!session()->get('forgot_data')) {
             return redirect()->to(base_url('forgot'));
         }
         if (!$this->validate($validation->forgotAuthValidate())) {
-            $this->userForgot = $this->userForgot;
+            // session()->get('forgot_data') = session()->get('forgot_data');
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return view('user/forgot_auth');
         }
-        $this->userForgot['password'] = password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT);
-        $this->userModel->update($this->userForgot['id'], $this->userForgot);
+        session()->get('forgot_data')['password'] = password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT);
+        $this->userModel->update($userData['id'], $userData);
         session()->setFlashdata('data_form', ['message' => 'Password berhasil diperbaharui, silahkan melakukan login']);
-        $this->userForgot = [];
-        return redirect()->to(base_url());
+        session()->set('forgot_data', []);
+        return redirect()->to(base_url('/'));
     }
     //Member
     //CART
@@ -157,31 +160,66 @@ class Authentifications extends BaseController
         $cart_model = new \App\Models\CartModel;
         $cart_model = $cart_model->insert(['data' => $data]);
     }
-    public function cart_update_auth()
+    public function cart_update_add_auth()
+    {
+        // if (!$this->check_member()) {
+        //     return redirect()->to(base_url(session()->get('page')));
+        // }
+        // if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+        // } else {
+        //     return redirect()->to(base_url('l_auth'));
+        // }
+        $cart_model = new \App\Models\CartModel;
+        $cart_id = (string) $this->request->getPost('cart_id');
+        // $cart_id = '1';
+        $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
+        $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
+
+        $new_cart_data = $cart_data;
+        $new_cart_data['0']['cart_qty'] = (string) ($cart_qty + 1);
+
+        dd($cart_id, $cart_data, $cart_qty, $new_cart_data);
+        $cart_model = $cart_model
+            ->whereIn('cart_id', $cart_data)
+            ->set($new_cart_data)
+            ->update();
+
+        try {
+            $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
+        } catch (\Throwable $th) {
+            $productCarts = [$th];
+        }
+
+        return view('member/cart', [
+            'title' => 'Cart',
+            'productCarts' => $productCarts
+        ]);
+    }
+    public function cart_update_sub_auth()
     {
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
-        $data = [
-            'cart_id' => $this->request->getPost('cart_id'),
-            'product_id' => $this->request->getPost('product_id'),
-            'name' => get_user()['id'],
-        ];
         $cart_model = new \App\Models\CartModel;
-        $cart_model = $cart_model->update(['key' => $data['cart_id']], $data);
-        return view('');
+        $cart_id = $this->request->getPost('cart_id');
+        $cart_qty = (int) $cart_model->find($cart_id);
+        $data = [
+            'cart_qty' => ($cart_qty - 1),
+            // 'product_id' => $this->request->getPost('product_id'),
+            // 'name' => get_user()['id'],
+        ];
+        $cart_model = $cart_model->update($cart_id, $data);
+        return redirect()->to(base_url('/m/cart'));
     }
     public function cart_delete_auth()
     {
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
-        $data = [
-            'cart_id' => $this->request->getPost('cart_id'),
-        ];
         $cart_model = new \App\Models\CartModel;
-        $cart_model = $cart_model->delete($data);
-        return view('');
+        $cart_id = $this->request->getPost('cart_id');
+        $cart_model = $cart_model->delete($cart_id);
+        return redirect()->to(base_url('/m/cart'));
     }
 
     public function points_auth()
@@ -209,7 +247,7 @@ class Authentifications extends BaseController
         ];
         $stock_model = new \App\Models\ProductsModel;
         $stock_model = $stock_model->insert($data);
-        return view('');
+        return redirect()->to(base_url('/a/stocks'));
     }
     public function stock_update_auth()
     {
@@ -231,7 +269,7 @@ class Authentifications extends BaseController
         ];
         $stock_model = new \App\Models\ProductsModel();
         $stock_model = $stock_model->update(['id' => $data['id']], $data);
-        return view('');
+        return redirect()->to(base_url('/a/stocks'));
     }
     public function stock_delete_auth()
     {
@@ -248,7 +286,7 @@ class Authentifications extends BaseController
         ];
         $stock_model = new \App\Models\ProductsModel();
         $stock_model = $stock_model->delete(['key' => $data]);
-        return view('');
+        return redirect()->to(base_url('/a/stocks'));
     }
 
     //MEMBER MANAGEMENT
@@ -296,7 +334,7 @@ class Authentifications extends BaseController
         ];
         $user_model = new \App\Models\UserManagementModel();
         $user_model = $user_model->update(['id' => $data['id']], $data);
-        return view('');
+        return redirect()->to(base_url('/a/members'));
     }
     public function member_delete_auth()
     {

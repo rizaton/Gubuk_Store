@@ -20,10 +20,13 @@ $routes->post('/register_auth', 'Authentifications::regist_auth');
 //Auth Carts
 $routes->post('/m/cart_add', 'Authentifications::cart_add_auth');
 $routes->post('/m/cart_up', 'Authentifications::cart_update_auth');
+$routes->post('/m/cart_up_add', 'Authentifications::cart_update_add_auth');
+$routes->post('/m/cart_up_sub', 'Authentifications::cart_update_sub_auth');
 $routes->post('/m/cart_del', 'Authentifications::cart_delete_auth');
 //Auth Admin Products
 $routes->post('/a/stock_add', 'Authentifications::stock_add_auth');
-$routes->post('/a/stock_up', 'Authentifications::stock_update_auth');
+$routes->post('/a/stock_up_add', 'Authentifications::stock_update_add_auth');
+$routes->post('/a/stock_up_sub', 'Authentifications::stock_update_sub_auth');
 $routes->post('/a/stock_del', 'Authentifications::stock_delete_auth');
 //Auth Admin Promo
 $routes->post('/a/promo_add', 'Authentifications::promo_add_auth');
@@ -35,6 +38,12 @@ $routes->post('/a/member_up', 'Authentifications::member_update_auth');
 $routes->post('/a/member_del', 'Authentifications::member_delete_auth');
 
 // Views
+// ADMIN
+$routes->get('/a/dashboard', 'Admin::dashboard');
+$routes->get('/a/stocks', 'Admin::stocks');
+$routes->get('/a/members', 'Admin::manage_members');
+$routes->get('/a/promos', 'Admin::promos');
+
 // FORGOT
 $routes->get('/forgot', 'Home::forgot_password');
 
@@ -48,11 +57,5 @@ $routes->get('/register', 'Home::register');
 $routes->get('/m/cart', 'Member::cart');
 $routes->get('/m/points', 'Member::points');
 $routes->get('/m/payments', 'Member::payments');
-
-// ADMIN
-$routes->get('/a/dashboard', 'Admin::dashboard');
-$routes->get('/a/stocks', 'Admin::stocks');
-$routes->get('/a/members', 'Admin::manage_members');
-$routes->get('/a/promos', 'Admin::promos');
 
 // $routes->setAutoRoute(true);
