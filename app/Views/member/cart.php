@@ -27,7 +27,6 @@
                 foreach ($productCarts as $productCart) {
             ?>
                     <form method="post">
-                        <input id="cart_id" name="cart_id" class="cart_id" type="text" disabled hidden value="<?= $productCart['cart_id'] ?>">
                         <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                             <input type="checkbox" class="checkbox" />
                             <div class="flex flex-col items-center">
@@ -37,13 +36,14 @@
                             <!-- <img src="" alt="" /> -->
                             <div>Rp. <?= number_format($productCart['product_price_per_qty']) ?></div>
                             <div class="flex items-center">
-                                <button formmethod="post" formaction="<?= base_url('/m/cart_up_add');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
+                                <input id="cart_id" name="cart_id" class="cart_id" type="text" hidden value="<?= $productCart['cart_id'] ?>">
+                                <button formaction="<?= base_url('/m/cart_up_add');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
                                     <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
                                     </svg>
                                 </button>
                                 <div class="p-1 lg:p-3"><?= $productCart['cart_qty'] ?></div>
-                                <button formaction="<?= base_url('/m/cart_sub_sub');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
+                                <button formaction="<?= base_url('/m/cart_up_sub');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
                                     <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
                                     </svg>

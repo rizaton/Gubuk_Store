@@ -12,6 +12,7 @@ class Authentifications extends BaseController
     private $cartModel;
     private $userModel;
     private $productModel;
+    protected $helpers = ['url', 'form'];
 
     public function __construct()
     {
@@ -19,7 +20,6 @@ class Authentifications extends BaseController
         $this->userModel = new \App\Models\PeopleModel();
         $this->productModel = new \App\Models\ProductsModel();
     }
-    protected $helpers = ['url', 'form'];
     private function check_admin(): bool
     {
         if (session()->get('user_data')['people_access'] == 'a') {
@@ -162,57 +162,52 @@ class Authentifications extends BaseController
     }
     public function cart_update_add_auth()
     {
-        // if (!$this->check_member()) {
-        //     return redirect()->to(base_url(session()->get('page')));
-        // }
-        // if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
-        // } else {
-        //     return redirect()->to(base_url('l_auth'));
-        // }
+        if (!$this->check_member()) {
+            return redirect()->to(base_url(session()->get('page')));
+        }
+        if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
         $cart_model = new \App\Models\CartModel;
         $cart_id = (string) $this->request->getPost('cart_id');
-        // $cart_id = '1';
         $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
         $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
 
         $new_cart_data = $cart_data;
         $new_cart_data['0']['cart_qty'] = (string) ($cart_qty + 1);
-
-        dd($cart_id, $cart_data, $cart_qty, $new_cart_data);
         $cart_model = $cart_model
-            ->whereIn('cart_id', $cart_data)
-            ->set($new_cart_data)
+            ->whereIn('cart_id', $cart_data['0'])
+            ->set($new_cart_data['0'])
             ->update();
-
-        try {
-            $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
-        } catch (\Throwable $th) {
-            $productCarts = [$th];
-        }
-
-        return view('member/cart', [
-            'title' => 'Cart',
-            'productCarts' => $productCarts
-        ]);
+        return redirect()->to(base_url('/m/cart'));
     }
     public function cart_update_sub_auth()
     {
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
+        if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+        } else {
+            return redirect()->to(base_url('l_auth'));
+        }
         $cart_model = new \App\Models\CartModel;
-        $cart_id = $this->request->getPost('cart_id');
-        $cart_qty = (int) $cart_model->find($cart_id);
-        $data = [
-            'cart_qty' => ($cart_qty - 1),
-            // 'product_id' => $this->request->getPost('product_id'),
-            // 'name' => get_user()['id'],
-        ];
-        $cart_model = $cart_model->update($cart_id, $data);
+        $cart_id = (string) $this->request->getPost('cart_id');
+        $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
+        $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
+
+        $new_cart_data = $cart_data;
+        $new_cart_data['0']['cart_qty'] = (string) ($cart_qty - 1);
+        $cart_model = $cart_model
+            ->whereIn('cart_id', $cart_data['0'])
+            ->set($new_cart_data['0'])
+            ->update();
         return redirect()->to(base_url('/m/cart'));
     }
     public function cart_delete_auth()
     {
+        $request = $this->request->getPost('cart_id');
+        dd($request, $this->request->getPost());
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
