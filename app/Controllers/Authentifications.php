@@ -174,11 +174,12 @@ class Authentifications extends BaseController
         $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
         $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
 
-        $new_cart_data = $cart_data;
-        $new_cart_data['0']['cart_qty'] = (string) ($cart_qty + 1);
+        $new_cart_data = $cart_data['0'];
+        $new_cart_data['cart_qty'] = (string) ($cart_qty + 1);
+        unset($new_cart_data['cart_id']);
         $cart_model = $cart_model
-            ->whereIn('cart_id', $cart_data['0'])
-            ->set($new_cart_data['0'])
+            ->where('cart_id', $cart_data['0']['cart_id'])
+            ->set($new_cart_data)
             ->update();
         return redirect()->to(base_url('/m/cart'));
     }
@@ -196,11 +197,12 @@ class Authentifications extends BaseController
         $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
         $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
 
-        $new_cart_data = $cart_data;
-        $new_cart_data['0']['cart_qty'] = (string) ($cart_qty - 1);
+        $new_cart_data = $cart_data['0'];
+        $new_cart_data['cart_qty'] = (string) ($cart_qty - 1);
+        unset($new_cart_data['cart_id']);
         $cart_model = $cart_model
-            ->whereIn('cart_id', $cart_data['0'])
-            ->set($new_cart_data['0'])
+            ->where('cart_id', $cart_data['0']['cart_id'])
+            ->set($new_cart_data)
             ->update();
         return redirect()->to(base_url('/m/cart'));
     }

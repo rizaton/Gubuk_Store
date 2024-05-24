@@ -10,7 +10,7 @@
             <!-- TITLE CART PRODUCT -->
             <div class="grid grid-cols-6 justify-items-center justify-self-center items-center">
                 <div class="flex gap-3 items-center">
-                    <input type="checkbox" class="checkbox" />
+                    <input id="allChecked" type="checkbox" class="checkbox" />
                     <div>Pilih Semua</div>
                 </div>
                 <div></div>
@@ -28,7 +28,7 @@
             ?>
                     <form method="post">
                         <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
-                            <input type="checkbox" class="checkbox" />
+                            <input id="checkBox<?= $productCart['cart_id']; ?>" type="checkbox" class="checkbox allChecked" />
                             <div class="flex flex-col items-center">
                                 <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
                                 <div><?= $productCart['product_name'] ?></div>
