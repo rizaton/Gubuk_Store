@@ -30,10 +30,11 @@
                         <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
                             <input id="checkBox<?= $productCart['cart_id']; ?>" type="checkbox" class="checkbox allChecked" />
                             <div class="flex flex-col items-center">
-                                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
+                                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500">
+                                    <img src="<?= $productCart['imageUrl'] ?>" alt="<?= $productCart['product_name'] ?>" />
+                                </div>
                                 <div><?= $productCart['product_name'] ?></div>
                             </div>
-                            <!-- <img src="" alt="" /> -->
                             <div>Rp. <?= number_format($productCart['product_price_per_qty']) ?></div>
                             <div class="flex items-center">
                                 <input id="cart_id" name="cart_id" class="cart_id" type="text" hidden value="<?= $productCart['cart_id'] ?>">

@@ -136,7 +136,6 @@ class Authentifications extends BaseController
             return redirect()->to(base_url('forgot'));
         }
         if (!$this->validate($validation->forgotAuthValidate())) {
-            // session()->get('forgot_data') = session()->get('forgot_data');
             session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
             return view('user/forgot_auth');
         }
@@ -154,11 +153,14 @@ class Authentifications extends BaseController
             return redirect()->to(base_url(session()->get('page')));
         }
         $data = [
-            'product_id' => $this->request->getPost('product_id'),
-            'name' => get_user()['id'],
+            'cart_product_id' => $this->request->getPost('product_id'),
+            'cart_people_id' => session()->get('user_data')['people_id'],
+            'cart_qty' => '1',
         ];
         $cart_model = new \App\Models\CartModel;
-        $cart_model = $cart_model->insert(['data' => $data]);
+        $cart_model = $cart_model->insert($data);
+        session()->setFlashdata('message', 'Produk berhasil ditambahkan');
+        return redirect()->to(base_url('/products'));
     }
     public function cart_update_add_auth()
     {
