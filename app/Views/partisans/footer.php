@@ -81,8 +81,10 @@
         data: {
           'cart_id': cartItemId,
         },
-        success: async function(response) {
-          await alert(response.body.cart_qty);
+        success: function(response) {
+          response['err'].forEach(element => {
+            alert(element);
+          });
           // if (response['success'] == 'success') {
           //   updateCartStock(response['body']);
           // } else {

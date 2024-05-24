@@ -192,19 +192,22 @@ class Authentifications extends BaseController
             $query = $this->request->getPost('cart_id');
             $cart_data = $cart_model->find($query);
             $data = [
-                'cart_id' => $cart_data['cart_id'],
-                'cart_people_id' => $cart_data['cart_people_id'],
-                'cart_product_id' => $cart_data['cart_product_id'],
                 'cart_qty' => (((int) $cart_data['cart_qty']) + 1),
             ];
-            $cart_model->delete('$query');
-            $cart_model->insert($data);
+            try {
+                $cart_model->update($query, $data);
+                $err = '';
+            } catch (\Throwable $th) {
+                $err = $th;
+            }
             $cart_new_data = $cart_model->find($query);
             $responseData = [
                 'status' => 'success',
                 'body' => $cart_new_data,
+                'err' => $err,
             ];
             $response = service('response');
+
             return $response->setJSON($responseData);
 
             // $cart_data = $cart_model->find($query);
