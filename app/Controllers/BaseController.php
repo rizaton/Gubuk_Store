@@ -54,5 +54,16 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $data = [
+            'people_id' => '1',
+            'people_name' => 'Tony Afriza',
+            'people_city' => 'Kota Tangerang',
+            'people_phone' => '081234567891',
+            'people_email' => 'tonyafriza@gmail.com',
+            'people_password' => password_hash('asdasdasd', PASSWORD_DEFAULT),
+            'people_points' => 0,
+            'people_access' => 'm',
+        ];
+        session()->set('user_data', $data);
     }
 }

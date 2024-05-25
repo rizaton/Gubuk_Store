@@ -33,29 +33,17 @@ class Member extends BaseController
     }
     public function cart()
     {
-        $data = [
-            'people_id' => '1',
-            'people_name' => 'Tony Afriza',
-            'people_city' => 'Kota Tangerang',
-            'people_phone' => '081234567891',
-            'people_email' => 'tonyafriza@gmail.com',
-            'people_password' => password_hash('asdasdasd', PASSWORD_DEFAULT),
-            'people_points' => 0,
-            'people_access' => 'm',
-        ];
-        session()->set('user_data', $data);
-
-        try {
-            $productCarts = $this->cartModel->join('product', 'cart_product_id = product.product_id')->findAll();
-        } catch (\Throwable $th) {
-            $productCarts = [$th];
-        }
-        // $userCart = $this->cartModel->select('cart_product_id, cart_qty')->where('cart_people_id', 1) ?? [''];
-        // return logged_check('cart', 'Cart');
         if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+            try {
+                $productCarts = $this->cartModel
+                    ->join('product', 'cart_product_id = product.product_id')
+                    ->where('cart_people_id', session()->get('user_data')['people_id'])
+                    ->find();
+            } catch (\Throwable $th) {
+                $productCarts = [$th];
+            }
             return view('member/cart', [
                 'title' => 'Cart',
-                // 'carts' => $userCart,
                 'productCarts' => $productCarts
             ]);
         } else {
