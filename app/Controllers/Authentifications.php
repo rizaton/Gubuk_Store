@@ -157,8 +157,7 @@ class Authentifications extends BaseController
             'cart_people_id' => session()->get('user_data')['people_id'],
             'cart_qty' => '1',
         ];
-        $cart_model = new \App\Models\CartModel;
-        $cart_model = $cart_model->insert($data);
+        $this->cartModel->insert($data);
         session()->setFlashdata('message', 'Produk berhasil ditambahkan');
         return redirect()->to(base_url('/products'));
     }
@@ -171,15 +170,22 @@ class Authentifications extends BaseController
         } else {
             return redirect()->to(base_url('l_auth'));
         }
-        $cart_model = new \App\Models\CartModel;
-        $cart_id = (string) $this->request->getPost('cart_id');
-        $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
-        $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
+        $cart_id = (string) $this
+            ->request
+            ->getPost('cart_id');
+        $cart_data = $this
+            ->cartModel
+            ->where('cart_id', $cart_id)->findAll();
+        $cart_qty = (int) $this
+            ->cartModel
+            ->where('cart_id', $cart_id)
+            ->first()['cart_qty'];
 
         $new_cart_data = $cart_data['0'];
         $new_cart_data['cart_qty'] = (string) ($cart_qty + 1);
         unset($new_cart_data['cart_id']);
-        $cart_model = $cart_model
+        $this
+            ->cartModel
             ->where('cart_id', $cart_data['0']['cart_id'])
             ->set($new_cart_data)
             ->update();
@@ -194,15 +200,22 @@ class Authentifications extends BaseController
         } else {
             return redirect()->to(base_url('l_auth'));
         }
-        $cart_model = new \App\Models\CartModel;
-        $cart_id = (string) $this->request->getPost('cart_id');
-        $cart_data = $cart_model->where('cart_id', $cart_id)->findAll();
-        $cart_qty = (int) $cart_model->where('cart_id', $cart_id)->first()['cart_qty'];
+        $cart_id = (string) $this
+            ->request
+            ->getPost('cart_id');
+        $cart_data = $this
+            ->cartModel
+            ->where('cart_id', $cart_id)->findAll();
+        $cart_qty = (int) $this
+            ->cartModel
+            ->where('cart_id', $cart_id)
+            ->first()['cart_qty'];
 
         $new_cart_data = $cart_data['0'];
         $new_cart_data['cart_qty'] = (string) ($cart_qty - 1);
         unset($new_cart_data['cart_id']);
-        $cart_model = $cart_model
+        $this
+            ->cartModel
             ->where('cart_id', $cart_data['0']['cart_id'])
             ->set($new_cart_data)
             ->update();
@@ -215,9 +228,8 @@ class Authentifications extends BaseController
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
-        $cart_model = new \App\Models\CartModel;
         $cart_id = $this->request->getPost('cart_id');
-        $cart_model = $cart_model->delete($cart_id);
+        $this->cartModel->delete($cart_id);
         return redirect()->to(base_url('/m/cart'));
     }
 
