@@ -22,6 +22,26 @@
     </div>
   </nav>
 </footer>
+<script>
+  $(document).ready(function() {
+    $("#allChecked").click(function() {
+      // $(".allChecked").(':checked');
+      if ($('#allChecked').is(':checked')) {
+        $(".allChecked").prop('checked', true);
+      } else {
+        $(".allChecked").prop('checked', false);
+      }
+    });
+    // $(".allChecked").prop('checked', true, function() {
+    //   $("#allchecked").toggle(':checked');
+    //   // if ($('#allChecked').is(':checked')) {
+    //   //   $(".allchecked").prop('checked', true);
+    //   // } else {
+    //   //   $(".allchecked").prop('checked', false);
+    //   // }
+    // });
+  });
+</script>
 </body>
 
 </html>

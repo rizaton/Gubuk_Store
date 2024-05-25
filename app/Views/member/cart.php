@@ -10,7 +10,7 @@
             <!-- TITLE CART PRODUCT -->
             <div class="grid grid-cols-6 justify-items-center justify-self-center items-center">
                 <div class="flex gap-3 items-center">
-                    <input type="checkbox" class="checkbox" />
+                    <input id="allChecked" type="checkbox" class="checkbox" />
                     <div>Pilih Semua</div>
                 </div>
                 <div></div>
@@ -21,42 +21,43 @@
             </div>
             <!-- END TITLE CART PRODUCT -->
             <!-- LIST CART PRODUCT -->
+
             <?php
             if ([] != $productCarts) {
                 foreach ($productCarts as $productCart) {
             ?>
-                    <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
-                        <input type="checkbox" class="checkbox" />
-                        <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500"></div>
-                            <div><?= $productCart['product_name'] ?></div>
-                        </div>
-
-                        <!-- <img src="" alt="" /> -->
-                        <div>Rp. <?= number_format($productCart['product_price_per_qty']) ?></div>
-                        <div class="flex items-center">
-                            <button class="btn btn-xs btn-square lg:btn-sm">
-                                <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
-                                </svg>
-                            </button>
-                            <div class="p-1 lg:p-3"><?= $productCart['cart_qty'] ?></div>
-                            <button class="btn btn-xs btn-square lg:btn-sm">
-                                <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div>Rp. <?= number_format(($productCart['cart_qty'] * $productCart['product_price_per_qty'])) ?></div>
-                        <a href="/hdhdh">
-                            <button class="btn btn-sm btn-square">
+                    <form method="post">
+                        <div class="grid grid-cols-6 justify-items-center items-center shadow-xl">
+                            <input id="checkBox<?= $productCart['cart_id']; ?>" type="checkbox" class="checkbox allChecked" />
+                            <div class="flex flex-col items-center">
+                                <div class="w-20 h-20 lg:w-36 lg:h-36 bg-red-500">
+                                    <img src="<?= $productCart['imageUrl'] ?>" alt="<?= $productCart['product_name'] ?>" />
+                                </div>
+                                <div><?= $productCart['product_name'] ?></div>
+                            </div>
+                            <div>Rp. <?= number_format($productCart['product_price_per_qty']) ?></div>
+                            <div class="flex items-center">
+                                <input id="cart_id" name="cart_id" class="cart_id" type="text" hidden value="<?= $productCart['cart_id'] ?>">
+                                <button formaction="<?= base_url('/m/cart_up_add');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
+                                    <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+                                    </svg>
+                                </button>
+                                <div class="p-1 lg:p-3"><?= $productCart['cart_qty'] ?></div>
+                                <button formaction="<?= base_url('/m/cart_up_sub');  ?>" type="submit" class="btn btn-xs btn-square lg:btn-sm">
+                                    <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div>Rp. <?= number_format(($productCart['cart_qty'] * $productCart['product_price_per_qty'])) ?></div>
+                            <button formmethod="post" formaction="<?= base_url('/m/cart_del');  ?>" class="btn btn-sm btn-square">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
                                 </svg>
-
                             </button>
-                        </a>
-                    </div>
+                        </div>
+                    </form>
                 <?php }
             } else {
                 ?>
