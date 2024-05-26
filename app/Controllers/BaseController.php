@@ -64,6 +64,7 @@ abstract class BaseController extends Controller
             'people_points' => 0,
             'people_access' => 'm',
         ];
-        session()->set('user_data', $data);
+        helper('custom');
+        set_user($data);
     }
 }

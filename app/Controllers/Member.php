@@ -33,19 +33,20 @@ class Member extends BaseController
     }
     public function cart()
     {
-        try {
-            $productCarts = $this
-                ->cartModel
-                ->join('product', 'cart_product_id = product.product_id')
-                ->select()
-                ->where('cart_people_id', session()->get('user_data')['people_id'])
-                ->findAll();
-            $err = null;
-        } catch (\Throwable $th) {
-            $productCarts = [];
-            $err = $th;
-        }
         if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+            try {
+                $productCarts = $this
+                    ->cartModel
+                    ->join('product', 'cart_product_id = product.product_id')
+                    ->select()
+                    ->where('cart_people_id', session()->get('user_data')['people_id'])
+                    ->findAll();
+                $err = null;
+            } catch (\Throwable $th) {
+                $productCarts = [];
+                $err = $th;
+            }
+
             return view('member/cart', [
                 'title' => 'Cart',
                 'productCarts' => $productCarts,

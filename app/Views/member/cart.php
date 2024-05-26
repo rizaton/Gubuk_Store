@@ -60,7 +60,6 @@
                         </div>
                     </form>
                     <?php $total_price += ($productCart['cart_qty'] * $productCart['product_price_per_qty']); ?>
-
                 <?php }
             } else {
                 ?>
