@@ -24,6 +24,7 @@
 
             <?php
             if ([] != $productCarts) {
+                $total_price = 0;
                 foreach ($productCarts as $productCart) {
             ?>
                     <form method="post">
@@ -58,6 +59,8 @@
                             </button>
                         </div>
                     </form>
+                    <?php $total_price += ($productCart['cart_qty'] * $productCart['product_price_per_qty']); ?>
+
                 <?php }
             } else {
                 ?>
@@ -102,7 +105,7 @@
                     <div class="">
                         <div class="flex justify-between">
                             <div>Subtotal Keranjang</div>
-                            <div>Rp.144000</div>
+                            <div>Rp.<?= number_format($total_price) ?></div>
                         </div>
                         <div class="flex justify-between">
                             <div>Diskon Promo</div>

@@ -223,8 +223,6 @@ class Authentifications extends BaseController
     }
     public function cart_delete_auth()
     {
-        $request = $this->request->getPost('cart_id');
-        dd($request, $this->request->getPost());
         if (!$this->check_member()) {
             return redirect()->to(base_url(session()->get('page')));
         }
