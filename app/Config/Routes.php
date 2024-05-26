@@ -20,25 +20,29 @@ $routes->post('/buy', 'Authentifications::buyNow_auth');
 $routes->post('/login_auth', 'Authentifications::login_auth');
 $routes->post('/forgot_auth', 'Authentifications::forgot_auth');
 $routes->post('/register_auth', 'Authentifications::regist_auth');
+
 //Auth Carts
 $routes->post('/m/cart_add', 'Authentifications::cart_add_auth');
-$routes->post('/m/cart_up', 'Authentifications::cart_update_auth');
-$routes->post('/m/cart_del', 'Authentifications::cart_delete_auth');
+$routes->put('/m/cart_up', 'Authentifications::cart_update_auth');
+$routes->delete('/m/cart_del', 'Authentifications::cart_delete_auth');
 $routes->post('/m/cart_up_add', 'Authentifications::cart_update_add_auth');
 $routes->post('/m/cart_up_sub', 'Authentifications::cart_update_sub_auth');
+
 //Auth Admin Products
 $routes->post('/a/stock_add', 'Authentifications::stock_add_auth');
-$routes->post('/a/stock_del', 'Authentifications::stock_delete_auth');
-$routes->post('/a/stock_up_add', 'Authentifications::stock_update_add_auth');
-$routes->post('/a/stock_up_sub', 'Authentifications::stock_update_sub_auth');
+$routes->delete('/a/stock_del', 'Authentifications::stock_delete_auth');
+$routes->put('/a/stock_up_add', 'Authentifications::stock_update_add_auth');
+$routes->put('/a/stock_up_sub', 'Authentifications::stock_update_sub_auth');
+
 //Auth Admin Promo
 $routes->post('/a/promo_add', 'Authentifications::promo_add_auth');
-$routes->post('/a/promo_up', 'Authentifications::promo_update_auth');
-$routes->post('/a/promo_del', 'Authentifications::promo_delete_auth');
+$routes->put('/a/promo_up', 'Authentifications::promo_update_auth');
+$routes->delete('/a/promo_del', 'Authentifications::promo_delete_auth');
+
 //Admin Member Managements
 $routes->post('/a/member_add', 'Authentifications::member_add_auth');
-$routes->post('/a/member_up', 'Authentifications::member_update_auth');
-$routes->post('/a/member_del', 'Authentifications::member_delete_auth');
+$routes->put('/a/member_up', 'Authentifications::member_update_auth');
+$routes->delete('/a/member_del', 'Authentifications::member_delete_auth');
 
 // ADMIN
 $routes->get('/a/stocks', 'Admin::stocks');

@@ -21,7 +21,12 @@ class Home extends BaseController
     }
     public function products()
     {
-        $data = $this->productsModel->findAll();
+        if (!$this->request->getGet('search_data')) {
+            $search_data = $this->request->getPost('search_data');
+            $data = $this->productsModel->select()->like('product_name', $search_data)->findAll();
+        } else {
+            $data = $this->productsModel->findAll();
+        }
         return view('user/products', [
             'templates' => check_user(),
             'title' => 'Product',

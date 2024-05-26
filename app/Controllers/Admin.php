@@ -49,15 +49,18 @@ class Admin extends BaseController
     public function stocks()
     {
         $data = $this->productModel->findAll();
-        session()->setFlashdata('user_data', ['access' => 'a']);
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
-            return view('admin/stock', [
-                'title' => 'Stock',
-                'stocks' => $data,
-            ]);
-        } else {
-            return redirect()->to(base_url('l_auth'));
-        }
+        $search = "Daging Sapi Rendang";
+        $newData = $this->productModel->select()->like('product_name', $search)->findAll();
+        dd($newData);
+        // session()->setFlashdata('user_data', ['access' => 'a']);
+        // if (session()->getFlashdata('user_data')['access'] == 'a') {
+        //     return view('admin/stock', [
+        //         'title' => 'Stock',
+        //         'stocks' => $data,
+        //     ]);
+        // } else {
+        //     return redirect()->to(base_url('l_auth'));
+        // }
     }
     public function manage_members()
     {

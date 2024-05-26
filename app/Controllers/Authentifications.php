@@ -38,10 +38,10 @@ class Authentifications extends BaseController
     {
         return ($this->userModel->where('people_email', $data)->first()['people_email'] ?? '' == $data) ? true : false;
     }
-    private function check_product($data): bool
-    {
-        return ($this->productModel->where('product_name', $data['product_name'])->first()['product_name'] ?? '' == $data['product_name']) ? true : false;
-    }
+    // private function check_product($data): bool
+    // {
+    //     return ($this->productModel->where('product_name', $data['product_name'])->first()['product_name'] ?? '' == $data['product_name']) ? true : false;
+    // }
     public function index()
     {
         return redirect()->to(base_url('/'));
