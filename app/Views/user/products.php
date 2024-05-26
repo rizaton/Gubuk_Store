@@ -4,19 +4,26 @@
 <?= $this->section('content');  ?>
 <div>
     <div class="search flex items-center justify-center w-full max-w-full pt-10">
-        <form action="#" method="post" class="search flex items-center justify-center">
+        <form action="<?= base_url('/products')  ?>" method="get" class="search flex items-center justify-center">
             <div class="join">
                 <div class="w-96 max-w-screen-sm">
-                    <input class="input input-bordered join-item w-full max-w-full" placeholder="Cari Produk" type="text" />
+                    <?php
+                    if (session()->getFlashdata('search_value') == '') {
+                        echo '<input name="search_data" id="search_data" class="input input-bordered join-item w-full max-w-full" value="" placeholder="Cari Produk" type="text" />';
+                    } else {
+                        echo '<input name="search_data" id="search_data" class="input input-bordered join-item w-full max-w-full" value="' . session()->getFlashdata('search_value') . '" placeholder="Cari Produk" type="text" />';
+                    }
+                    ?>
                 </div>
-                <select class="select select-bordered join-item">
+                <select id="filter_search" name="filter_search" class="select select-bordered join-item">
                     <option disabled selected>Filter</option>
-                    <option>Harga Tertinggi</option>
-                    <option>Harga Terendah</option>
-                    <option>Terlaris</option>
+                    <option value="highest">Harga Tertinggi</option>
+                    <option value="lowest">Harga Terendah</option>
                 </select>
                 <div class="indicator">
-                    <button class="btn btn-primary join-item" type="submit">Cari</button>
+                    <button class="btn btn-primary join-item" type="submit">
+                        Cari
+                    </button>
                 </div>
             </div>
         </form>

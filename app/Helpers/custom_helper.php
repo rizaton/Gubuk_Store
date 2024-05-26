@@ -42,7 +42,7 @@ function set_login(bool $data = null)
     session()->set('login', $data);
     return session()->get('login');
 }
-function log_status()
+function log_status(): bool
 {
     return session()->get('login');
 }

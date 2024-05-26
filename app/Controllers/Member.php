@@ -40,13 +40,16 @@ class Member extends BaseController
                 ->select()
                 ->where('cart_people_id', session()->get('user_data')['people_id'])
                 ->findAll();
+            $err = null;
         } catch (\Throwable $th) {
-            $productCarts = [$th];
+            $productCarts = [];
+            $err = $th;
         }
         if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
             return view('member/cart', [
                 'title' => 'Cart',
-                'productCarts' => $productCarts
+                'productCarts' => $productCarts,
+                'err' => $err,
             ]);
         } else {
             return redirect()->to(base_url('l_auth'));
