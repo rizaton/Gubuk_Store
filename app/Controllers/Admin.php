@@ -21,71 +21,68 @@ class Admin extends BaseController
     }
     public function index()
     {
-        session()->setFlashdata('user_data', ['access' => 'a']);
-        if (!(session()->getFlashdata('user_data')['access'] == 'a')) {
-            return redirect()->to(base_url('l_auth'));
+        if (!(user_access() == 'a')) {
+            return redirect()->to(base_url('/login'));
         }
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
-            return view('admin/index', [
-                'title' => 'Dashboard',
-                'data' => ''
-            ]);
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
     public function dashboard()
     {
-        session()->setFlashdata('user_data', ['access' => 'a']);
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
+        if (user_access() == 'a') {
             return view('admin/index', [
                 'title' => 'Dashboard',
                 'data' => ''
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
     public function stocks()
     {
-        $data = $this->productModel->findAll();
-        $search = "Daging Sapi Rendang";
-        $newData = $this->productModel->select()->like('product_name', $search)->findAll();
-        dd($newData);
-        // session()->setFlashdata('user_data', ['access' => 'a']);
-        // if (session()->getFlashdata('user_data')['access'] == 'a') {
-        //     return view('admin/stock', [
-        //         'title' => 'Stock',
-        //         'stocks' => $data,
-        //     ]);
-        // } else {
-        //     return redirect()->to(base_url('l_auth'));
-        // }
+        if (user_access() == 'a') {
+            if ($this->request->getGet('search_data') != null) { // name="search_data" id="search_data"
+                $search_data = $this->request->getGet('search_data');
+                $data = $this->productModel->select()->like('product_name', $search_data)->findAll();
+                session()->setFlashdata('search_value', $search_data);
+            } else {
+                $data = $this->productModel->findAll();
+                session()->setFlashdata('search_value', '');
+            }
+            return view('admin/stock', [
+                'title' => 'Stock',
+                'stocks' => $data,
+            ]);
+        } else {
+            return redirect()->to(base_url('/login'));
+        }
     }
     public function manage_members()
     {
         $data = [];
-        session()->setFlashdata('user_data', ['access' => 'a']);
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
+        if (user_access() == 'a') {
             return view('admin/members_management', [
                 'title' => 'Manage Members',
                 'data' => $data
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
     public function promos()
     {
         $data = [];
         session()->setFlashdata('user_data', ['access' => 'a']);
-        if (session()->getFlashdata('user_data')['access'] == 'a') {
+        if (user_access() == 'a') {
             return view('admin/promos', [
                 'title' => 'Promo Table',
                 'data' => $data
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
 }

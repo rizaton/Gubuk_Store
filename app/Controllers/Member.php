@@ -28,12 +28,12 @@ class Member extends BaseController
                 'title' => 'Points',
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
     public function cart()
     {
-        if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
+        if (session()->get('user_data')['people_access'] == 'm') {
             try {
                 $productCarts = $this
                     ->cartModel
@@ -53,7 +53,7 @@ class Member extends BaseController
                 'err' => $err,
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
     public function payments()
@@ -64,7 +64,7 @@ class Member extends BaseController
                 'title' => 'Payment',
             ]);
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
     }
 }

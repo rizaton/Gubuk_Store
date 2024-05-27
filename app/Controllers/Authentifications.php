@@ -168,7 +168,7 @@ class Authentifications extends BaseController
         }
         if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
         $cart_id = (string) $this
             ->request
@@ -198,7 +198,7 @@ class Authentifications extends BaseController
         }
         if (session()->get('user_data')['people_access'] == 'm' || session()->get('user_data')['people_access'] == 'a') {
         } else {
-            return redirect()->to(base_url('l_auth'));
+            return redirect()->to(base_url('/login'));
         }
         $cart_id = (string) $this
             ->request
