@@ -21,7 +21,6 @@ class Home extends BaseController
     }
     public function products()
     {
-
         if ($this->request->getGet('search_data') != null) {
             $search_data = $this->request->getGet('search_data');
             $data = $this->productsModel->select()->like('product_name', $search_data)->findAll();

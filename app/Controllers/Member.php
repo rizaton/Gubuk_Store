@@ -46,7 +46,6 @@ class Member extends BaseController
                 $productCarts = [];
                 $err = $th;
             }
-
             return view('member/cart', [
                 'title' => 'Cart',
                 'productCarts' => $productCarts,

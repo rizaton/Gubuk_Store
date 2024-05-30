@@ -11,6 +11,7 @@ class Admin extends BaseController
     private $cartModel;
     private $userModel;
     private $productModel;
+    private $stockModel;
     protected $helpers = ['url', 'form'];
 
     public function __construct()
@@ -18,6 +19,7 @@ class Admin extends BaseController
         $this->cartModel = new \App\Models\CartModel();
         $this->userModel = new \App\Models\PeopleModel();
         $this->productModel = new \App\Models\ProductsModel();
+        $this->stockModel = new \App\Models\StockModel();
     }
     public function index()
     {
@@ -44,6 +46,32 @@ class Admin extends BaseController
     public function stocks()
     {
         if (user_access() == 'a') {
+            try {
+                $stockProducts = $this
+                    ->stockModel
+                    ->join('product', 'stock_product_id = product.product_id')
+                    ->select()
+                    ->findAll();
+
+                $activeStocks = $this
+                    ->stockModel
+                    ->join('product', 'stock_product_id = product.product_id')
+                    ->select()
+                    ->where('stock_active', 'a')
+                    ->findAll();
+
+                $inactiveStocks = $this
+                    ->stockModel
+                    ->join('product', 'stock_product_id = product.product_id')
+                    ->select()
+                    ->where('stock_active', 'i')
+                    ->findAll();
+
+                $err = null;
+            } catch (\Throwable $th) {
+                $stockProducts = [];
+                $err = $th;
+            }
             if ($this->request->getGet('search_data') != null) { // name="search_data" id="search_data"
                 $search_data = $this->request->getGet('search_data');
                 $data = $this->productModel->select()->like('product_name', $search_data)->findAll();
@@ -55,6 +83,8 @@ class Admin extends BaseController
             return view('admin/stock', [
                 'title' => 'Stock',
                 'stocks' => $data,
+                'which' => ['Active' => 'checked'],
+                'error' => $err,
             ]);
         } else {
             return redirect()->to(base_url('/login'));
