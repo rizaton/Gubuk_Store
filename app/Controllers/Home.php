@@ -11,7 +11,6 @@ class Home extends BaseController
     {
         $this->productsModel = new \App\Models\ProductsModel;
     }
-    // goto view
     public function index()
     {
         if (user_access() == 'a') {
@@ -24,6 +23,9 @@ class Home extends BaseController
     }
     public function products()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        }
         if ($this->request->getGet('search_data') != null) {
             $search_data = $this->request->getGet('search_data');
             $data = $this->productsModel->select()->like('product_name', $search_data)->findAll();
@@ -40,6 +42,9 @@ class Home extends BaseController
     }
     public function about()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        }
         return view('user/about', [
             'templates' => check_user(),
             'title' => 'Tentang Kami',
@@ -47,6 +52,9 @@ class Home extends BaseController
     }
     public function Promo()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        }
         return view('user/promo', [
             'templates' => check_user(),
             'title' => 'Tentang Kami',
@@ -54,18 +62,33 @@ class Home extends BaseController
     }
     public function login()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        } else if (user_access() == 'm') {
+            return redirect()->to(base_url('/'));
+        }
         return view('user/login', [
             'title' => 'Login',
         ]);
     }
     public function register()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        } else if (user_access() == 'm') {
+            return redirect()->to(base_url('/'));
+        }
         return view('user/register', [
             'title' => 'Daftar',
         ]);
     }
     public function forgot_password()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        } else if (user_access() == 'm') {
+            return redirect()->to(base_url('/'));
+        }
         return view('user/forgot_password', [
             'title' => 'Verifikasi Akun',
         ]);
