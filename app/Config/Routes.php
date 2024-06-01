@@ -28,11 +28,14 @@ $routes->delete('/m/cart_del', 'Authentifications::cart_delete_auth');
 $routes->post('/m/cart_up_add', 'Authentifications::cart_update_add_auth');
 $routes->post('/m/cart_up_sub', 'Authentifications::cart_update_sub_auth');
 
-//Auth Admin Products
+//Auth Admin Stocks
 $routes->post('/a/stock_add', 'Authentifications::stock_add_auth');
 $routes->delete('/a/stock_del', 'Authentifications::stock_delete_auth');
 $routes->put('/a/stock_up_add', 'Authentifications::stock_update_add_auth');
 $routes->put('/a/stock_up_sub', 'Authentifications::stock_update_sub_auth');
+
+//Auth Admin Stock Toggle
+$routes->post('/a/stock/toggle', 'Authentifications::stock_toggle');
 
 //Auth Admin Promo
 $routes->post('/a/promo_add', 'Authentifications::promo_add_auth');

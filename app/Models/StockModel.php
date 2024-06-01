@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class StockModel extends Model
 {
-    protected $table            = 'stocks';
-    protected $primaryKey       = 'id';
+    protected $table            = 'stock';
+    protected $primaryKey       = 'stock_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;

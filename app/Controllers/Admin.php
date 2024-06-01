@@ -47,43 +47,81 @@ class Admin extends BaseController
     {
         if (user_access() == 'a') {
             try {
-                $stockProducts = $this
+                $allStocks = $this
                     ->stockModel
                     ->join('product', 'stock_product_id = product.product_id')
                     ->select()
                     ->findAll();
-
                 $activeStocks = $this
                     ->stockModel
                     ->join('product', 'stock_product_id = product.product_id')
                     ->select()
                     ->where('stock_active', 'a')
                     ->findAll();
-
                 $inactiveStocks = $this
                     ->stockModel
                     ->join('product', 'stock_product_id = product.product_id')
                     ->select()
                     ->where('stock_active', 'i')
                     ->findAll();
-
                 $err = null;
             } catch (\Throwable $th) {
-                $stockProducts = [];
+                $allStocks = [];
+                $activeStocks = [];
+                $inactiveStocks = [];
                 $err = $th;
             }
-            if ($this->request->getGet('search_data') != null) { // name="search_data" id="search_data"
-                $search_data = $this->request->getGet('search_data');
-                $data = $this->productModel->select()->like('product_name', $search_data)->findAll();
-                session()->setFlashdata('search_value', $search_data);
-            } else {
-                $data = $this->productModel->findAll();
-                session()->setFlashdata('search_value', '');
+            if ($this->request->getGet('search_data_all') != null) { // name="search_data" id="search_data"
+                $search_data = $this->request->getGet('search_data_all');
+                try {
+                    $allStocks = $this
+                        ->stockModel
+                        ->join('product', 'stock_product_id = product.product_id')
+                        ->select()
+                        ->like('product_name', $search_data)
+                        ->findAll();
+                } catch (\Throwable $th) {
+                    $allStocks = [];
+                }
+                $err = null;
+                session()->setFlashdata('search', ['all', $search_data]);
+            } else if ($this->request->getGet('search_data_active') != null) {
+                $search_data = $this->request->getGet('search_data_active');
+                try {
+                    $activeStocks = $this
+                        ->stockModel
+                        ->join('product', 'stock_product_id = product.product_id')
+                        ->select()
+                        ->where('stock_active', 'a')
+                        ->like('product_name', $search_data)
+                        ->findAll();
+                } catch (\Throwable $th) {
+                    $activeStocks = [];
+                }
+                $err = null;
+                session()->setFlashdata('search', ['active', $search_data]);
+            } else if ($this->request->getGet('search_data_inactive') != null) {
+                $search_data = $this->request->getGet('search_data_inactive');
+                try {
+                    $inactiveStocks = $this
+                        ->stockModel
+                        ->join('product', 'stock_product_id = product.product_id')
+                        ->select()
+                        ->where('stock_active', 'i')
+                        ->like('product_name', $search_data)
+                        ->findAll();
+                } catch (\Throwable $th) {
+                    $inactiveStocks = [];
+                }
+                $err = null;
+                session()->setFlashdata('search', ['inactive', $search_data]);
             }
             return view('admin/stock', [
                 'title' => 'Stock',
-                'stocks' => $data,
-                'which' => ['Active' => 'checked'],
+                'stocks' => $allStocks,
+                'allStocks' => $allStocks,
+                'activeStocks' => $activeStocks,
+                'inactiveStocks' => $inactiveStocks,
                 'error' => $err,
             ]);
         } else {
@@ -92,11 +130,23 @@ class Admin extends BaseController
     }
     public function manage_members()
     {
-        $data = [];
         if (user_access() == 'a') {
+            $data = $this->userModel->findAll();
+            $admin_data = $this
+                ->userModel
+                ->select()
+                ->where('people_access', 'a')
+                ->findAll();
+            $member_data = $this
+                ->userModel
+                ->select()
+                ->where('people_access', 'm')
+                ->findAll();
             return view('admin/members_management', [
                 'title' => 'Manage Members',
-                'data' => $data
+                'datas' => $data,
+                'admin_data' => $admin_data,
+                'member_data' => $member_data,
             ]);
         } else {
             return redirect()->to(base_url('/login'));

@@ -17,27 +17,24 @@
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
-                                </th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
+                                <th class="text-center">ID User</th>
+                                <th class="text-center">Nama User</th>
+                                <th class="text-center">Nomor Telepon</th>
+                                <th class="text-center">Alamat Email</th>
+                                <th class="text-center">Kota</th>
+                                <th class="text-center">Point</th>
+                                <th class="text-center">Akses User</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($data as $all) {
+                            foreach ($datas as $data) {
                             ?>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
+                                <th class="text-center">
+                                    ID-<?= $data['people_id']  ?>
                                 </th>
-                                <td>
+                                <td class="text-center">
                                     <div class="flex items-center gap-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
@@ -45,36 +42,43 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="font-bold">Hart Hagerty</div>
-                                            <div class="text-sm opacity-50">United States</div>
+                                            <div class="font-bold"><?= $data['people_name']  ?></div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                <td class="text-center">
+                                    <?= $data['people_phone']  ?>
                                 </td>
-                                <td>Purple</td>
-                                <th>
-                                    <button class="btn btn-ghost btn-xsaction=" <?php echo base_url('c_add' . $all['all_id']); ?>"">Edit</button>
+                                <td class="text-center">
+                                    <?= $data['people_email']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_city']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_points']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php
+                                    if ($data['people_access'] == 'a') {
+                                        echo 'Admin';
+                                    } else if ($data['people_access'] == 'm') {
+                                        echo 'Member';
+                                    } else {
+                                        echo 'Goib';
+                                    }
+                                    ?>
+                                </td>
+                                <th class="text-center">
+                                    <form method="post">
+                                        <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                    </form>
                                 </th>
                                 </tr>
                             <?php
                             }
                             ?>
                         </tbody>
-                        <!-- foot -->
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-
                     </table>
                 </div>
             </div>
@@ -92,27 +96,24 @@
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
-                                </th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
+                                <th class="text-center">ID User</th>
+                                <th class="text-center">Nama User</th>
+                                <th class="text-center">Nomor Telepon</th>
+                                <th class="text-center">Alamat Email</th>
+                                <th class="text-center">Kota</th>
+                                <th class="text-center">Point</th>
+                                <th class="text-center">Akses User</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($data as $admin) {
+                            foreach ($admin_data as $data) {
                             ?>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
+                                <th class="text-center">
+                                    ID-<?= $data['people_id']  ?>
                                 </th>
-                                <td>
+                                <td class="text-center">
                                     <div class="flex items-center gap-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
@@ -120,36 +121,43 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="font-bold">Hart Hagerty</div>
-                                            <div class="text-sm opacity-50">United States</div>
+                                            <div class="font-bold"><?= $data['people_name']  ?></div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                <td class="text-center">
+                                    <?= $data['people_phone']  ?>
                                 </td>
-                                <td>Purple</td>
-                                <th>
-                                    <button class="btn btn-ghost btn-xsaction=" <?php echo base_url('c_add' . $admin['all_id']); ?>"">Edit</button>
+                                <td class="text-center">
+                                    <?= $data['people_email']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_city']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_points']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php
+                                    if ($data['people_access'] == 'a') {
+                                        echo 'Admin';
+                                    } else if ($data['people_access'] == 'm') {
+                                        echo 'Member';
+                                    } else {
+                                        echo 'Goib';
+                                    }
+                                    ?>
+                                </td>
+                                <th class="text-center">
+                                    <form method="post">
+                                        <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                    </form>
                                 </th>
                                 </tr>
                             <?php
                             }
                             ?>
                         </tbody>
-                        <!-- foot -->
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-
                     </table>
                 </div>
             </div>
@@ -167,27 +175,24 @@
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
-                                </th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
+                                <th class="text-center">ID User</th>
+                                <th class="text-center">Nama User</th>
+                                <th class="text-center">Nomor Telepon</th>
+                                <th class="text-center">Alamat Email</th>
+                                <th class="text-center">Kota</th>
+                                <th class="text-center">Point</th>
+                                <th class="text-center">Akses User</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($data as $member) {
+                            foreach ($member_data as $data) {
                             ?>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" class="checkbox" />
-                                    </label>
+                                <th class="text-center">
+                                    ID-<?= $data['people_id']  ?>
                                 </th>
-                                <td>
+                                <td class="text-center">
                                     <div class="flex items-center gap-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
@@ -195,36 +200,43 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="font-bold">Hart Hagerty</div>
-                                            <div class="text-sm opacity-50">United States</div>
+                                            <div class="font-bold"><?= $data['people_name']  ?></div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                <td class="text-center">
+                                    <?= $data['people_phone']  ?>
                                 </td>
-                                <td>Purple</td>
-                                <th>
-                                    <button class="btn btn-ghost btn-xsaction=" <?php echo base_url('c_add' . $member['all_id']); ?>"">Edit</button>
+                                <td class="text-center">
+                                    <?= $data['people_email']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_city']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?= $data['people_points']  ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php
+                                    if ($data['people_access'] == 'a') {
+                                        echo 'Admin';
+                                    } else if ($data['people_access'] == 'm') {
+                                        echo 'Member';
+                                    } else {
+                                        echo 'Goib';
+                                    }
+                                    ?>
+                                </td>
+                                <th class="text-center">
+                                    <form method="post">
+                                        <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                    </form>
                                 </th>
                                 </tr>
                             <?php
                             }
                             ?>
                         </tbody>
-                        <!-- foot -->
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-
                     </table>
                 </div>
             </div>

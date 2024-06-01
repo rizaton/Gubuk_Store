@@ -12,6 +12,7 @@ class Authentifications extends BaseController
     private $cartModel;
     private $userModel;
     private $productModel;
+    private $stockModel;
     protected $helpers = ['url', 'form'];
 
     public function __construct()
@@ -19,6 +20,7 @@ class Authentifications extends BaseController
         $this->cartModel = new \App\Models\CartModel();
         $this->userModel = new \App\Models\PeopleModel();
         $this->productModel = new \App\Models\ProductsModel();
+        $this->stockModel = new \App\Models\StockModel();
     }
     private function check_admin(): bool
     {
@@ -210,7 +212,6 @@ class Authentifications extends BaseController
             ->cartModel
             ->where('cart_id', $cart_id)
             ->first()['cart_qty'];
-
         $new_cart_data = $cart_data['0'];
         $new_cart_data['cart_qty'] = (string) ($cart_qty - 1);
         unset($new_cart_data['cart_id']);
@@ -237,6 +238,36 @@ class Authentifications extends BaseController
     }
     //Admin
     //STOCK
+    public function stock_toggle()
+    {
+        if (!$this->check_admin()) {
+            return redirect()->to(base_url('/login'));
+        }
+        $stock_id = $this->request->getPost('stock_id');
+        $stock_status = $this->request->getPost('stock_status');
+        try {
+            $stock_data = $this->stockModel->find($stock_id);
+            unset($stock_data['stock_id']);
+            if ($stock_status == 'i') {
+                $stock_data['stock_active'] = 'a';
+                $this
+                    ->stockModel
+                    ->where('stock_id', $stock_id)
+                    ->set($stock_data)
+                    ->update();
+            } else if ($stock_status == 'a') {
+                $stock_data['stock_active'] = 'i';
+                $this
+                    ->stockModel
+                    ->where('stock_id', $stock_id)
+                    ->set($stock_data)
+                    ->update();
+            }
+        } catch (\Throwable $th) {
+            session()->setFlashdata('err', $th);
+        }
+        return redirect()->to(base_url('/a/stocks'));
+    }
     public function stock_add_auth()
     {
         $validation = new \App\Validation\ProductValidate;
