@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserManagementModel extends Model
+class PromoModel extends Model
 {
-    protected $table            = 'usermanagements';
+    protected $table            = 'promos';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -43,21 +43,4 @@ class UserManagementModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function createData($whereData)
-    {
-        return $this->insert($whereData);
-    }
-    public function readData()
-    {
-        return $this->findAll();
-    }
-    public function updateData($whereData, $data)
-    {
-        return $this->where($whereData)->update($data);
-    }
-    public function deleteData($whereData)
-    {
-        return $this->delete($whereData);
-    }
 }
