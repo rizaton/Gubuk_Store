@@ -14,6 +14,9 @@ class Home extends BaseController
     // goto view
     public function index()
     {
+        if (user_access() == 'a') {
+            return redirect()->to(base_url('/a/dashboard'));
+        }
         return view('user/landing', [
             'templates' => check_user(),
             'title' => 'Beranda',

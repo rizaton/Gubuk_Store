@@ -3,4 +3,4 @@
 <div class="content">
     <?= $this->renderSection('content');  ?>
 </div>
-<?= $this->include('partisans/footer');  ?>
+<?= $this->include('partisans/footer_admin');  ?>

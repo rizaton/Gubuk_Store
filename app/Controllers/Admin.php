@@ -105,7 +105,6 @@ class Admin extends BaseController
     public function promos()
     {
         $data = [];
-        session()->setFlashdata('user_data', ['access' => 'a']);
         if (user_access() == 'a') {
             return view('admin/promos', [
                 'title' => 'Promo Table',
