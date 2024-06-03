@@ -4,27 +4,26 @@
 <div class="file-content">
     <div class="bg-base-200 p-5">
         <div class="p-5 bg-base-100 border-2 border-gray-700 rounded-xl">
-
             <div role="tablist" class="tabs tabs-bordered"> <!-- Tab List -->
                 <?php
                 if (
-                    (session()->setFlashdata('search_data') != null) && (session()->getFlashdata('search_value') == 'all')
+                    (session()->getFlashdata('search_data') != null) && (session()->getFlashdata('search_data')[0] == 'all')
                 ) {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="All" checked />';
-                } else if (session()->setFlashdata('search_data') != null) {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="All" />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Semua" checked />';
+                } else if (session()->getFlashdata('search_data_all') != null) {
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Semua" />';
                 } else {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="All" checked />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Semua" checked />';
                 }
                 ?>
                 <div role="tabpanel" class="tab-content">
                     <form action="<?= base_url('/a/stocks') ?>" method="get">
                         <label class="input input-bordered flex items-center gap-2 mt-10">
                             <?php
-                            if (session()->getFlashdata('search_data') == '') {
+                            if (session()->getFlashdata('search_data')[1] == '') {
                                 echo '<input name="search_data_all" id="search_data" type="text" class="grow" value="" placeholder="Search" />';
                             } else {
-                                echo '<input name="search_data_all" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data') . '" placeholder="Search" />';
+                                echo '<input name="search_data_all" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data')[1] . '" placeholder="Search" />';
                             }
                             ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
@@ -33,17 +32,16 @@
                         </label>
                     </form>
                     <div class="overflow-x-auto mt-5 max-h-[55vh]"> <!-- Table -->
-
                         <table class="table table-pin-cols table-pin-rows">
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th class="text-center">Product</th>
-                                    <th class="text-center">Qty</th>
-                                    <th class="text-center">Min qty</th>
-                                    <th class="text-center">Max qty</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Nama Produk</th>
+                                    <th class="text-center">Kuantitas</th>
+                                    <th class="text-center">Kuantitas Minimal</th>
+                                    <th class="text-center">Kuantitas Maksimal</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +85,7 @@
                                             <form method="post">
                                                 <input id="stock_id" name="stock_id" class="stock_id" type="text" hidden value="<?= $stock['stock_id'] ?>">
                                                 <input id="stock_status" name="stock_status" class="stock_status" type="text" hidden value="<?= $stock['stock_active'] ?>">
-                                                <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
+                                                <button formmethod="get" formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
                                                     Edit
                                                 </button>
                                                 <button formaction="<?= base_url('/a/stock/toggle'); ?>" class="btn btn-primary btn-ghost">
@@ -125,21 +123,21 @@
 
                 <?php
                 if (
-                    (session()->setFlashdata('search_data') != null) && (session()->getFlashdata('search_value') == 'active')
+                    (session()->getFlashData('search_data') != null) && (session()->getFlashdata('search_data')[0] == 'active')
                 ) {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Active" checked />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Aktif" checked />';
                 } else {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Active" />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Aktif" />';
                 }
                 ?>
                 <div role="tabpanel" class="tab-content">
                     <form action="<?= base_url('/a/stocks')  ?>" method="get">
                         <label class="input input-bordered flex items-center gap-2 mt-10">
                             <?php
-                            if (session()->getFlashdata('search_data') == '') {
+                            if (session()->getFlashdata('search_data')[1] == '') {
                                 echo '<input name="search_data_active" id="search_data" type="text" class="grow" value="" placeholder="Search" />';
                             } else {
-                                echo '<input name="search_data_active" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data') . '" placeholder="Search" />';
+                                echo '<input name="search_data_active" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data')[1] . '" placeholder="Search" />';
                             }
                             ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
@@ -153,12 +151,12 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th class="text-center">Product</th>
-                                    <th class="text-center">Qty</th>
-                                    <th class="text-center">Min qty</th>
-                                    <th class="text-center">Max qty</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Nama Produk</th>
+                                    <th class="text-center">Kuantitas</th>
+                                    <th class="text-center">Kuantitas Minimal</th>
+                                    <th class="text-center">Kuantitas Maksimal</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -238,21 +236,21 @@
                 </div>
                 <?php
                 if (
-                    (session()->setFlashdata('search_data') != null) && (session()->getFlashdata('search_value') == 'inactive')
+                    (session()->getFlashdata('search_data') != null) && (session()->getFlashdata('search_data')[0] == 'inactive')
                 ) {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Inactive" checked />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Nonaktif" checked />';
                 } else {
-                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Inactive" />';
+                    echo '<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Nonaktif" />';
                 }
                 ?>
                 <div role="tabpanel" class="tab-content">
                     <form action="<?= base_url('/a/stocks')  ?>" method="get">
                         <label class="input input-bordered flex items-center gap-2 mt-10">
                             <?php
-                            if (session()->getFlashdata('search_data') == '') {
+                            if (session()->getFlashdata('search_data')[1] == '') {
                                 echo '<input name="search_data_inactive" id="search_data" type="text" class="grow" value="" placeholder="Search" />';
                             } else {
-                                echo '<input name="search_data_inactive" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data') . '" placeholder="Search" />';
+                                echo '<input name="search_data_inactive" id="search_data" type="text" class="grow" value="' . session()->getFlashdata('search_data')[1] . '" placeholder="Search" />';
                             }
                             ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
@@ -265,12 +263,12 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th class="text-center">Product</th>
-                                    <th class="text-center">Qty</th>
-                                    <th class="text-center">Min qty</th>
-                                    <th class="text-center">Max qty</th>
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Nama Produk</th>
+                                    <th class="text-center">Kuantitas</th>
+                                    <th class="text-center">Kuantitas Minimal</th>
+                                    <th class="text-center">Kuantitas Maksimal</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

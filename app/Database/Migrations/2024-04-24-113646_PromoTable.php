@@ -31,6 +31,14 @@ class PromoTable extends Migration
             'promo_price' => [
                 'type' => 'INT',
                 'constraint' => 3
+            ],
+            'promo_code' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
+            ],
+            'promo_limit' => [
+                'type' => 'INT',
+                'constraint' => 3
             ]
         ]);
         $this->forge->addPrimaryKey('promo_id');

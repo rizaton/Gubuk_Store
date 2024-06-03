@@ -12,6 +12,7 @@ class Admin extends BaseController
     private $userModel;
     private $productModel;
     private $stockModel;
+    private $promoModel;
     protected $helpers = ['url', 'form'];
 
     public function __construct()
@@ -20,6 +21,7 @@ class Admin extends BaseController
         $this->userModel = new \App\Models\PeopleModel();
         $this->productModel = new \App\Models\ProductsModel();
         $this->stockModel = new \App\Models\StockModel();
+        $this->promoModel = new \App\Models\PromoModel();
     }
     public function index()
     {
@@ -84,7 +86,7 @@ class Admin extends BaseController
                     $allStocks = [];
                 }
                 $err = null;
-                session()->setFlashdata('search', ['all', $search_data]);
+                session()->setFlashdata('search_data', ['all', $search_data]);
             } else if ($this->request->getGet('search_data_active') != null) {
                 $search_data = $this->request->getGet('search_data_active');
                 try {
@@ -99,7 +101,7 @@ class Admin extends BaseController
                     $activeStocks = [];
                 }
                 $err = null;
-                session()->setFlashdata('search', ['active', $search_data]);
+                session()->setFlashdata('search_data', ['active', $search_data]);
             } else if ($this->request->getGet('search_data_inactive') != null) {
                 $search_data = $this->request->getGet('search_data_inactive');
                 try {
@@ -114,7 +116,9 @@ class Admin extends BaseController
                     $inactiveStocks = [];
                 }
                 $err = null;
-                session()->setFlashdata('search', ['inactive', $search_data]);
+                session()->setFlashdata('search_data', ['inactive', $search_data]);
+            } else {
+                session()->setFlashdata('search_data', [null, '']);
             }
             return view('admin/stock', [
                 'title' => 'Stock',
@@ -154,14 +158,52 @@ class Admin extends BaseController
     }
     public function promos()
     {
-        $data = [];
+        $data = $this->promoModel->findAll();
         if (user_access() == 'a') {
             return view('admin/promos', [
                 'title' => 'Promo Table',
-                'data' => $data
+                'datas' => $data
             ]);
         } else {
             return redirect()->to(base_url('/login'));
         }
+    }
+    public function stock_edit()
+    {
+        $data_stock = $this->request->getGet('stock_id');
+        $data_edit = $this
+            ->stockModel
+            ->join('product', 'stock_product_id = product.product_id')
+            ->select()
+            ->where('stock_id', $data_stock)
+            ->first();
+        // dd($data_edit);
+        return view('admin/edit_product', [
+            'title' => 'Edit',
+            'data_edit' => $data_edit,
+        ]);
+    }
+    public function member_edit()
+    {
+        $data_member = $this->request->getGet('member_id');
+        $data_edit = $this
+            ->stockModel
+            ->join('product', 'stock_product_id = product.product_id')
+            ->select()
+            ->where('stock_id', $data_member)
+            ->first();
+
+        return view('admin/edit_member', [
+            'title' => 'Edit',
+            'data_edit' => $data_edit,
+        ]);
+    }
+    public function promo_edit()
+    {
+        $data_promo = $this->request->getGet('promo_id');
+        return view('admin/edit_promo', [
+            'title' => 'Edit',
+            'data_edit' => [],
+        ]);
     }
 }

@@ -53,6 +53,15 @@ $routes->get('/a/promos', 'Admin::promos');
 $routes->get('/a/dashboard', 'Admin::dashboard');
 $routes->get('/a/members', 'Admin::manage_members');
 
+// Edit
+$routes->get('/a/stock/edit', 'Admin::stock_edit');
+$routes->put('/a/stock/edit/confirm', 'Authentifications::stock_edit_auth');
+
+$routes->get('/a/member/edit', 'Admin::member_edit');
+$routes->put('/a/member/edit/confirm', 'Authentifications::stock_edit_auth');
+
+
+
 // MEMBER
 $routes->get('/m/cart', 'Member::cart');
 $routes->get('/m/points', 'Member::points');

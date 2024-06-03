@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Config\App;
+
 helper('custom');
 
 class Home extends BaseController

@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class PromoModel extends Model
 {
-    protected $table            = 'promos';
-    protected $primaryKey       = 'id';
+    protected $table            = 'promo';
+    protected $primaryKey       = 'promo_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;

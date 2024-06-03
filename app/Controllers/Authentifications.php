@@ -182,7 +182,6 @@ class Authentifications extends BaseController
             ->cartModel
             ->where('cart_id', $cart_id)
             ->first()['cart_qty'];
-
         $new_cart_data = $cart_data['0'];
         $new_cart_data['cart_qty'] = (string) ($cart_qty + 1);
         unset($new_cart_data['cart_id']);
@@ -458,5 +457,33 @@ class Authentifications extends BaseController
     public function pay_auth()
     {
         return view('');
+    }
+    public function stock_edit_auth()
+    {
+        $data_stock = $this->request->getPost('stock_id');
+        dd($data_stock);
+        $this->stockModel->where()->first();
+        return view('admin/edit_product', [
+            'title' => 'Edit',
+            'data_edit' => [],
+        ]);
+    }
+    public function member_edit_auth()
+    {
+        $data_stock = $this->request->getPost('stock_id');
+        dd($data_stock);
+        return view('admin/edit_member', [
+            'title' => 'Edit',
+            'data_edit' => [],
+        ]);
+    }
+    public function promo_edit_auth()
+    {
+        $data_stock = $this->request->getPost('stock_id');
+        dd($data_stock);
+        return view('admin/edit_promo', [
+            'title' => 'Edit',
+            'data_edit' => [],
+        ]);
     }
 }
