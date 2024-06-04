@@ -71,8 +71,9 @@
                                         ?>
                                     </td>
                                     <td class="text-center">
-                                        <form method="post">
-                                            <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                        <form method="get">
+                                            <input id="people_id" name="people_id" class="stock_status" type="text" hidden value="<?= $data['people_id'] ?>">
+                                            <button formaction="<?= base_url('/a/member/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -151,8 +152,9 @@
                                         ?>
                                     </td>
                                     <th class="text-center">
-                                        <form method="post">
-                                            <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                        <form method="get">
+                                            <input id="people_id" name="people_id" class="stock_status" type="text" hidden value="<?= $data['people_id'] ?>">
+                                            <button formaction="<?= base_url('/a/member/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
                                         </form>
                                     </th>
                                 </tr>
@@ -231,8 +233,9 @@
                                         ?>
                                     </td>
                                     <th class="text-center">
-                                        <form method="post">
-                                            <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
+                                        <form method="get">
+                                            <input id="people_id" name="people_id" class="stock_status" type="text" hidden value="<?= $data['people_id'] ?>">
+                                            <button formaction="<?= base_url('/a/member/edit'); ?>" class="btn btn-primary btn-ghost">Edit</button>
                                         </form>
                                     </th>
                                 </tr>

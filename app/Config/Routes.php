@@ -61,7 +61,6 @@ $routes->get('/a/member/edit', 'Admin::member_edit');
 $routes->put('/a/member/edit/confirm', 'Authentifications::stock_edit_auth');
 
 
-
 // MEMBER
 $routes->get('/m/cart', 'Member::cart');
 $routes->get('/m/points', 'Member::points');

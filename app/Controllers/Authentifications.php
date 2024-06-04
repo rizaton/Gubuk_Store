@@ -278,179 +278,15 @@ class Authentifications extends BaseController
             return redirect()->to(base_url('a/stock'));
         }
         $data = [
-            'product_name' => $this->request->getPost('name'),
-            'product_qty' => $this->request->getPost('qty'),
-            'product_min_qty' => $this->request->getPost('min_qty'),
-            'product_max_qty' => $this->request->getPost('max_qty'),
-            'product_price_per_qty' => $this->request->getPost('price'),
+            'product_name' => $this->request->getPost('product_name'),
+            'product_qty' => $this->request->getPost('product_qty'),
+            'product_min_qty' => $this->request->getPost('product_min_qty'),
+            'product_name' => $this->request->getPost('product_max_qty'),
+            'product_name' => $this->request->getPost('product_price_per_qty'),
+            'imageUrl' => $this->request->getPost('imageUrl'),
         ];
-        $stock_model = new \App\Models\ProductsModel;
-        $stock_model = $stock_model->insert($data);
+        $stock_model = $this->productModel->insert($data);
         return redirect()->to(base_url('/a/stocks'));
-    }
-    public function stock_update_auth()
-    {
-        $validation = new \App\Validation\ProductValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->productValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/stock'));
-        }
-        $data = [
-            'id' => $this->request->getPost('id'),
-            'name' => $this->request->getPost('name'),
-            'qty' => $this->request->getPost('qty'),
-            'min_qty' => $this->request->getPost('min_qty'),
-            'max_qty' => $this->request->getPost('max_qty'),
-            'price' => $this->request->getPost('price'),
-        ];
-        $stock_model = new \App\Models\ProductsModel();
-        $stock_model = $stock_model->update(['id' => $data['id']], $data);
-        return redirect()->to(base_url('/a/stocks'));
-    }
-    public function stock_delete_auth()
-    {
-        $validation = new \App\Validation\ProductValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->productValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/stock'));
-        }
-        $data = [
-            'id' => $this->request->getPost('id'),
-        ];
-        $stock_model = new \App\Models\ProductsModel();
-        $stock_model = $stock_model->delete(['key' => $data]);
-        return redirect()->to(base_url('/a/stocks'));
-    }
-
-    //MEMBER MANAGEMENT
-    public function member_add_auth()
-    {
-        $validation = new \App\Validation\MembersValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/members'));
-        }
-        $data = [
-            'id' => $this->request->getPost('id'),
-            'name' => $this->request->getPost('name'),
-            'phone' => $this->request->getPost('phone'),
-            'city' => $this->request->getPost('city'),
-            'province' => $this->request->getPost('province'),
-            'points' => $this->request->getPost('points'),
-            'access' => $this->request->getPost('access'),
-        ];
-        $user_model = new \App\Models\UserManagementModel();
-        $user_model = $user_model->insert(['key' => $data]);
-        return view('');
-    }
-    public function member_update_auth()
-    {
-        $validation = new \App\Validation\MembersValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/members'));
-        }
-        $data = [
-            'id' => $this->request->getPost('id'),
-            'name' => $this->request->getPost('name'),
-            'phone' => $this->request->getPost('phone'),
-            'city' => $this->request->getPost('city'),
-            'province' => $this->request->getPost('province'),
-            'points' => $this->request->getPost('points'),
-            'access' => $this->request->getPost('access'),
-        ];
-        $user_model = new \App\Models\UserManagementModel();
-        $user_model = $user_model->update(['id' => $data['id']], $data);
-        return redirect()->to(base_url('/a/members'));
-    }
-    public function member_delete_auth()
-    {
-        $validation = new \App\Validation\MembersValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->membersValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/members'));
-        }
-        $data = [
-            'id' => $this->request->getPost('id'),
-        ];
-        $user_model = new \App\Models\UserManagementModel();
-        $user_model = $user_model->delete($data);
-        return view('');
-    }
-
-    //PROMO
-    public function promo_add_auth()
-    {
-        $validation = new \App\Validation\PromoValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/promo'));
-        }
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'sold' => $this->request->getPost('sold'),
-            'active' => $this->request->getPost('active'),
-            'price' => $this->request->getPost('price'),
-        ];
-        $promo_model = new \App\Models\PromoModel;
-        $promo_model = $promo_model->insert($data);
-        return view('');
-    }
-    public function promo_update_auth()
-    {
-        $validation = new \App\Validation\PromoValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/promo'));
-        }
-        $data = [
-            'id' => $this->request->getPost('promo_id'),
-            'name' => $this->request->getPost('name'),
-            'sold' => $this->request->getPost('sold'),
-            'active' => $this->request->getPost('active'),
-            'price' => $this->request->getPost('price'),
-        ];
-        $promo_model = new \App\Models\PromoModel;
-        $promo_model = $promo_model->update(['id' => $data['id']], $data);
-        return view('');
-    }
-    public function promo_delete_auth()
-    {
-        $validation = new \App\Validation\PromoValidate;
-        if (!$this->check_admin()) {
-            return redirect()->to(base_url(session()->get('page')));
-        }
-        if (!$this->validate($validation->promoValidate())) {
-            session()->setFlashdata('data_form', ['validation' => validation_list_errors(), 'message' => null]);
-            return redirect()->to(base_url('a/promo'));
-        }
-        $data = [
-            'id' => $this->request->getPost('promo_id'),
-        ];
-        $promo_model = new \App\Models\PromoModel;
-        $promo_model = $promo_model->delete($data);
-        return view('');
     }
 
     //Payment
@@ -460,22 +296,37 @@ class Authentifications extends BaseController
     }
     public function stock_edit_auth()
     {
-        $data_stock = $this->request->getPost('stock_id');
-        dd($data_stock);
-        $this->stockModel->where()->first();
-        return view('admin/edit_product', [
-            'title' => 'Edit',
-            'data_edit' => [],
-        ]);
+        $data_request = [
+            'stock_id' => $this->request->getPost('stock_id'),
+            'product_id' => $this->request->getPost('product_id'),
+            'product_name' => $this->request->getPost('product_name'),
+            'product_qty' => $this->request->getPost('product_qty'),
+            'product_min_qty' => $this->request->getPost('product_min_qty'),
+            'product_name' => $this->request->getPost('product_max_qty'),
+            'product_name' => $this->request->getPost('product_price_per_qty'),
+            'imageUrl' => $this->request->getPost('imageUrl'),
+        ];
+        isset($data_request['stock_id']);
+        $this
+            ->productModel
+            ->where('product_id', $data_request['product_id'])
+            ->set($data_request)
+            ->update();
+        return redirect()->to(base_url('a/stocks'));
     }
     public function member_edit_auth()
     {
         $data_stock = $this->request->getPost('stock_id');
-        dd($data_stock);
-        return view('admin/edit_member', [
-            'title' => 'Edit',
-            'data_edit' => [],
-        ]);
+        $data_request = [
+            'people_id' => $this->request->getPost('people_id'),
+            'people_name' => $this->request->getPost('people_name'),
+            'people_email' => $this->request->getPost('people_email'),
+            'people_phone' => $this->request->getPost('people_phone'),
+            'people_city' => $this->request->getPost('people_city'),
+            'people_access' => $this->request->getPost('people_access'),
+        ];
+        // dd($data_stock); 
+        return redirect()->to(base_url('/a/members'));
     }
     public function promo_edit_auth()
     {

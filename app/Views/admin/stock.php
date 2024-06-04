@@ -199,7 +199,7 @@
                                             <form method="post">
                                                 <input id="stock_id" name="stock_id" class="stock_id" type="text" hidden value="<?= $stock['stock_id'] ?>">
                                                 <input id="stock_status" name="stock_status" class="stock_status" type="text" hidden value="<?= $stock['stock_active'] ?>">
-                                                <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
+                                                <button formmethod="get" formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
                                                     Edit
                                                 </button>
                                                 <button formaction="<?= base_url('/a/stock/toggle'); ?>" class="btn btn-primary btn-ghost">
@@ -312,7 +312,7 @@
                                             <form method="post">
                                                 <input id="stock_id" name="stock_id" class="stock_id" type="text" hidden value="<?= $stock['stock_id'] ?>">
                                                 <input id="stock_status" name="stock_status" class="stock_status" type="text" hidden value="<?= $stock['stock_active'] ?>">
-                                                <button formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
+                                                <button formmethod="get" formaction="<?= base_url('/a/stock/edit'); ?>" class="btn btn-primary btn-ghost">
                                                     Edit
                                                 </button>
                                                 <button formaction="<?= base_url('/a/stock/toggle'); ?>" class="btn btn-primary btn-ghost">

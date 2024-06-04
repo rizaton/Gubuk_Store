@@ -36,10 +36,16 @@ class Admin extends BaseController
     }
     public function dashboard()
     {
+        $promos = $this
+            ->promoModel
+            ->select()
+            ->where('promo_active', 'a')
+            ->findAll();
         if (user_access() == 'a') {
             return view('admin/index', [
                 'title' => 'Dashboard',
-                'data' => ''
+                'data' => '',
+                'promos' => $promos
             ]);
         } else {
             return redirect()->to(base_url('/login'));
@@ -177,7 +183,6 @@ class Admin extends BaseController
             ->select()
             ->where('stock_id', $data_stock)
             ->first();
-        // dd($data_edit);
         return view('admin/edit_product', [
             'title' => 'Edit',
             'data_edit' => $data_edit,
@@ -185,13 +190,13 @@ class Admin extends BaseController
     }
     public function member_edit()
     {
-        $data_member = $this->request->getGet('member_id');
+        $data_member = $this->request->getGet('people_id');
         $data_edit = $this
-            ->stockModel
-            ->join('product', 'stock_product_id = product.product_id')
+            ->userModel
             ->select()
-            ->where('stock_id', $data_member)
+            ->where('people_id', $data_member)
             ->first();
+        // dd($data_edit);
 
         return view('admin/edit_member', [
             'title' => 'Edit',
