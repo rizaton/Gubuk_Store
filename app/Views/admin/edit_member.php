@@ -24,16 +24,13 @@
         Kota :
         <input value="<?php echo $data_edit['people_city'] ?>" id="people_city" name="people_city" type="text" class="grow" placeholder="Kota" />
       </label>
-      <label class="input input-bordered flex items-center gap-2">
+      <label class="flex items-center gap-2">
         Akses :
-        <input value="<?php
-                      if ($data_edit['people_access'] == 'a') {
-                        echo 'Admin';
-                      } else if ($data_edit['people_access'] == 'm') {
-                        echo 'Member';
-                      } else {
-                        echo 'Goib';
-                      } ?>" id="people_access" name="people_access" type="text" class="grow" placeholder="Akses" />
+        <input type="radio" name="radio-1" class="radio" checked />
+        Admin
+        <input type="radio" name="radio-1" class="radio" />
+        User
+
       </label>
       <div class="flex justify-end gap-5">
         <button formaction="<?= base_url('/a/member/edit/confirm');  ?>" class="btn btn-primary" type="submit">Simpan</button>
