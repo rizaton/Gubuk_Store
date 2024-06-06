@@ -41,11 +41,21 @@ class Admin extends BaseController
             ->select()
             ->where('promo_active', 'a')
             ->findAll();
+        $total_member = count($this
+            ->userModel
+            ->select('people_id')
+            ->findAll());
+        $total_stock = count($this
+            ->productModel
+            ->select('product_id')
+            ->findAll());
         if (user_access() == 'a') {
             return view('admin/index', [
                 'title' => 'Dashboard',
                 'data' => '',
-                'promos' => $promos
+                'promos' => $promos,
+                'total_member' => $total_member,
+                'total_stock' => $total_stock,
             ]);
         } else {
             return redirect()->to(base_url('/login'));

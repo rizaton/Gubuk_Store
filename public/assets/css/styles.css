@@ -1830,15 +1830,6 @@ input.tab:checked + .tab-content,
   border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity)));
 }
 
-.badge-ghost {
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
-  --tw-text-opacity: 1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
-}
-
 .btm-nav > *:where(.active) {
   border-top-width: 2px;
   --tw-bg-opacity: 1;
@@ -3343,6 +3334,10 @@ input.tab:checked + .tab-content,
   z-index: 1;
 }
 
+.m-96 {
+  margin: 24rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -3874,10 +3869,6 @@ input.tab:checked + .tab-content,
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.opacity-50 {
-  opacity: 0.5;
 }
 
 .opacity-70 {

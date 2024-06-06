@@ -6,25 +6,25 @@
         <div class="stats shadow">
 
             <div class="stat">
-                <div class="stat-figure text-secondary">
+                <div class="stat-figure text-secondary"> <!-- ICON STOK -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <div class="stat-title">Stock Warning</div>
-                <div class="stat-value">31K</div>
-                <div class="stat-desc">Jan 1st - Feb 1st</div>
+                <div class="stat-title">Total Stok</div>
+                <div class="stat-value"><?= $total_stock;  ?></div>
+                <!-- <div class="stat-desc">Jan 1st - Feb 1st</div> -->
             </div>
 
             <div class="stat">
-                <div class="stat-figure text-secondary">
+                <div class="stat-figure text-secondary"> <!-- ICON ORANG-->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                     </svg>
                 </div>
                 <div class="stat-title">Total Member</div>
-                <div class="stat-value">4,200</div>
-                <div class="stat-desc">↗︎ 400 (22%)</div>
+                <div class="stat-value"><?= $total_member;  ?></div>
+                <!-- <div class="stat-desc">↗︎ 400 (22%)</div> -->
             </div>
 
             <div class="stat">
@@ -40,7 +40,7 @@
 
         </div>
     </div>
-    <div class="p-5">
+    <div class="m-96 p-5 bg-base-100 border-2 border-gray-700 rounded-xl">
         <div class="py-5">
             <h1 class=" text-lg font-semibold">Promo Aktif</h1>
         </div>
