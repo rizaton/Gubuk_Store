@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="m-auto">
-            <img src="<?= base_url() ?>assets/img/about-image-1.jpg" class="w-[500px]" />
+            <img src="<?= base_url() ?>assets/img/about1.webp" class="w-[500px]" />
         </div>
         <div class="p-10">
             <div class="text-5xl font-bold">Visi Kami</div>
@@ -43,7 +43,7 @@
             </ul>
         </div>
         <div class="m-auto">
-            <img src="<?= base_url() ?>assets/img/about-image-2.jpg" class="w-[500px]" />
+            <img src="<?= base_url() ?>assets/img/about2.webp" class="w-[500px] mb-10" />
 
         </div>
 
