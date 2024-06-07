@@ -59,7 +59,7 @@ class Home extends BaseController
         }
         return view('user/promo', [
             'templates' => check_user(),
-            'title' => 'Tentang Kami',
+            'title' => 'Promo',
         ]);
     }
     public function login()

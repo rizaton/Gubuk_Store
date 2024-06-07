@@ -61,7 +61,8 @@
                                         ?>
                                     </td>
                                     <td class="text-center">
-                                        <button class="btn btn-ghost btn-xs" action="<?= base_url(); ?>">Edit</button>
+                                        <input id="promo_id" name="promo_id" class="promo_id" type="text" hidden value="<?= $data['promo_id']; ?>">
+                                        <button class="btn btn-ghost btn-xs" action="<?= base_url('/a/stock/edit'); ?>">Edit</button>
                                     </td>
                                 </tr>
                             <?php

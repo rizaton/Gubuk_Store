@@ -124,7 +124,7 @@
                                     BELANJAYATIAPHARI
                                 </td>
                                 <td class="text-center">
-                                    15,000
+                                    1,500
                                 </td>
                                 <td class="text-center">
                                     Rp. 150,000.00

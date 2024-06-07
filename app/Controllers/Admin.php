@@ -216,9 +216,15 @@ class Admin extends BaseController
     public function promo_edit()
     {
         $data_promo = $this->request->getGet('promo_id');
+        $data_edit = $this
+            ->promoModel
+            ->select()
+            ->where('promo_id', $data_promo)
+            ->first();
+        // dd($data_edit);
         return view('admin/edit_promo', [
             'title' => 'Edit',
-            'data_edit' => [],
+            'data_edit' => $data_edit,
         ]);
     }
 }

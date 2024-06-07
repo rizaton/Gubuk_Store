@@ -10,19 +10,30 @@
     <div class="flex flex-col gap-5">
       <label class="input input-bordered flex items-center gap-2">
         Nama Promo :
-        <input type="text" class="grow" placeholder="Daisy" />
+        <input type="text" class="grow" value="<?= ''  ?>" />
+      </label>
+      <label class="input input-bordered flex items-center gap-2">
+        Kode Promo :
+        <input type="text" class="grow" value="Testing" />
+      </label>
+      <label class="input input-bordered flex items-center gap-2">
+        Promo Potongan :
+        <input type="text" class="grow" value="Testing" />
       </label>
       <label class="input input-bordered flex items-center gap-2">
         Promo Terjual :
-        <input type="text" class="grow" placeholder="Daisy" />
+        <input type="text" class="grow" value="Testing" />
       </label>
       <label class="input input-bordered flex items-center gap-2">
-        Promo Aktif :
-        <input type="text" class="grow" placeholder="daisy@site.com" />
+        Promo Batasan :
+        <input type="text" class="grow" value="Testing" />
       </label>
-      <label class="input input-bordered flex items-center gap-2">
-        Promo Harga :
-        <input type="text" class="grow" placeholder="Daisy" />
+      <label class="flex items-center gap-2">
+        Status :
+        <input type="radio" name="radio-1" class="radio" checked />
+        Aktif
+        <input type="radio" name="radio-1" class="radio" />
+        Tidak Aktif
       </label>
       <div class="flex justify-end gap-5">
         <button class="btn btn-primary" type="submit">Simpan</button>

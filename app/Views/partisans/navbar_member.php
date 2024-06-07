@@ -54,13 +54,12 @@
         </div>
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
+        <!-- <li>
           <a class="justify-between">
             Profile
-            <span class="badge">New</span>
           </a>
-        </li>
-        <li><a>Settings</a></li>
+        </li> -->
+        <!-- <li><a>Settings</a></li> -->
         <li>
           <a href="<?php
                     session()->set('user_data', '');

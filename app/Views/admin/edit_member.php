@@ -30,7 +30,6 @@
         Admin
         <input type="radio" name="radio-1" class="radio" />
         User
-
       </label>
       <div class="flex justify-end gap-5">
         <button formaction="<?= base_url('/a/member/edit/confirm');  ?>" class="btn btn-primary" type="submit">Simpan</button>

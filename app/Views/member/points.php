@@ -3,7 +3,7 @@
 <?= $this->section('content');  ?>
 <div class="p-5">
     <div class="p-5 bg-base-100 border-2 border-gray-700 rounded-xl">
-        <h1 class=" text-lg font-semibold">Daftar Transaksi</h1>
+        <h1 class=" text-lg font-semibold">Total Point: 1,500</h1>
         <div class="overflow-x-auto mt-5 max-h-[55vh]">
             <table class="table">
                 <!-- head -->
