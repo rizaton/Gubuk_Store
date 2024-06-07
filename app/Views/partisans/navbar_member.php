@@ -39,7 +39,10 @@
           <span class="font-bold text-lg"><?= session()->get('user_cart')['cart_many']  ?> Items</span>
           <span class="text-info">Rp.<?= number_format(session()->get('user_cart')['cart_sum'])  ?></span>
           <div class="card-actions">
-            <a role="button" href=<?= base_url("/m/cart") ?> class="btn btn-primary">View Cart</a>
+            <a role="button" href=<?= base_url("/m/points") ?> class="btn btn-primary">Points</a>
+          </div>
+          <div class="card-actions">
+            <a role="button" href=<?= base_url("/m/cart") ?> class="btn btn-primary">Lihat Keranjang</a>
           </div>
         </div>
       </div>

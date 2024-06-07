@@ -22,8 +22,11 @@ class Member extends BaseController
 
     public function points()
     {
-        session()->setFlashdata('user_data', ['access' => 'm']);
-        if (session()->getFlashdata('user_data')['access'] == 'm' || session()->getFlashdata('user_data')['access'] == 'a') {
+
+        if (session()->get('user_data')['people_access'] == 'm') {
+            if (user_access() == 'a') {
+                return redirect()->to(base_url('/a/dashboard'));
+            }
             return view('member/points', [
                 'title' => 'Points',
             ]);
@@ -34,6 +37,9 @@ class Member extends BaseController
     public function cart()
     {
         if (session()->get('user_data')['people_access'] == 'm') {
+            if (user_access() == 'a') {
+                return redirect()->to(base_url('/a/dashboard'));
+            }
             try {
                 $productCarts = $this
                     ->cartModel
