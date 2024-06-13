@@ -2,18 +2,37 @@
 <?= $this->extend('templates/main_' . $templates);  ?>
 
 <?= $this->section('content');  ?>
-<div class="pt-14">
-    <div class="hero min-h-[80vh]" style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
-        <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content text-left text-neutral-content bg-green-800">
-            <div class="max-w-2xl p-10">
-                <h1 class="mb-5 text-5xl font-bold">Promo</h1>
-                <p class="text-wrap">Nikmati diskon hemat 25% selama masa pembukaan di Gubuk Store dengan kode promo BELANJAHEMAT25! Hanya dengan belanja minimal Rp150.000, Anda bisa mendapatkan potongan harga yang fantastis. Jangan lewatkan kesempatan ini untuk berbelanja sembako berkualitas dengan harga lebih terjangkau. Ayo, manfaatkan promo ini sekarang dan rasakan hematnya belanja di Gubuk Store!</p>
-                <p class="mt-3">Belanja Hemat 25% selama pembukaan - BELANJAHEMAT25
-                </p>
-                <p class="mb-5">
-                    (Min. Belanja Rp.150,000.00)
-                </p>
+<div class="pt-14 mx-16">
+    <div class="font-semibold text-2xl">Promo</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-10 my-10">
+        <div class="card max-w-96 bg-base-300 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title text-3xl">BELANJAHEMAT25</h2>
+                <p class="text-slate-400">Belanja Hemat 25% selama pembukaan</p>
+                <p class="text-xs text-red-500">Min. Belanja Rp.150,000.00</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="card max-w-96 bg-base-300 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title">BELANJAHEMAT25</h2>
+                <p>Belanja Hemat 25% selama pembukaan</p>
+                <p class="text-sm text-red-500">Min. Belanja Rp.150,000.00</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="card max-w-96 bg-base-300 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title">BELANJAHEMAT25</h2>
+                <p>Belanja Hemat 25% selama pembukaan</p>
+                <p class="text-sm text-red-500">Min. Belanja Rp.150,000.00</p>
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                </div>
             </div>
         </div>
     </div>
