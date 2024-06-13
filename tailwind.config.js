@@ -17,6 +17,7 @@ module.exports = {
   },
   daisyui: {
     themes: [
+      // "dim",
       {
         nord: {
           ...require("daisyui/src/theming/themes")["nord"],
