@@ -16,7 +16,17 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: ["light"],
+    themes: [
+      {
+        nord: {
+          ...require("daisyui/src/theming/themes")["nord"],
+          "base-100": "#1D232A",
+          "base-200": "#191E24",
+          "base-300": "#15191E",
+          "base-content": "#e5e7eb",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };

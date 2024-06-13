@@ -46,7 +46,8 @@
       <div class="flex justify-end gap-5">
         <button formmethod="post" class="btn btn-primary" formaction="<?= base_url('/a/promo/edit/confirm');  ?>" type="submit">Simpan</button>
         <button formmethod="get" class="btn btn-neutral" formaction="<?= base_url("/a/promos") ?>">Batal</button>
-        <button formmethod="post" class="btn btn-error" formaction="<?= base_url("/a/promos/edit/delete") ?>">Hapus</button>
+        <button formmethod="post" class="btn btn-error error" formaction="<?= base_url("/a/promos/edit/delete") ?>">Hapus</button>
+        <button class="btn btn-error">Error</button>
       </div>
     </div>
   </form>
