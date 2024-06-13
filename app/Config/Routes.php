@@ -55,13 +55,13 @@ $routes->get('/a/members', 'Admin::manage_members');
 
 // Edit
 $routes->get('/a/stock/edit', 'Admin::stock_edit');
-$routes->put('/a/stock/edit/confirm', 'Authentifications::stock_edit_auth');
+$routes->post('/a/stock/edit/confirm', 'Authentifications::stock_edit_auth');
 
 $routes->get('/a/member/edit', 'Admin::member_edit');
-$routes->put('/a/member/edit/confirm', 'Authentifications::member_edit_auth');
+$routes->post('/a/member/edit/confirm', 'Authentifications::member_edit_auth');
 
 $routes->get('/a/promo/edit', 'Admin::promo_edit');
-$routes->put('/a/promo/edit/confirm', 'Authentifications::promo_edit_auth');
+$routes->post('/a/promo/edit/confirm', 'Authentifications::promo_edit_auth');
 
 
 // MEMBER

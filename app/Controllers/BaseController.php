@@ -62,6 +62,7 @@ abstract class BaseController extends Controller
             'people_email' => 'tonyafriza@gmail.com',
             'people_password' => password_hash('asdasdasd', PASSWORD_DEFAULT),
             'people_points' => 0,
+            // 'people_access' => 'm',
             'people_access' => 'a',
         ];
         helper('custom');

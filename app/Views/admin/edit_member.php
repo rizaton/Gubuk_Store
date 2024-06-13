@@ -8,6 +8,7 @@
 
   <form method="post">
     <div class="flex flex-col gap-5">
+      <input id="people_id" name="people_id" class="stock_status" type="text" hidden value="<?= $data_edit['people_id'] ?>">
       <label class="input input-bordered flex items-center gap-2">
         Nama :
         <input value="<?php echo $data_edit['people_name'] ?>" id="people_name" name="people_name" type="text" class="grow" placeholder="Nama User" />
@@ -26,10 +27,18 @@
       </label>
       <label class="flex items-center gap-2">
         Akses :
-        <input type="radio" name="radio-1" class="radio" checked />
+        <?php if ($data_edit['people_access'] == "a") {
+          echo '<input value="a" type="radio" name="people_access" class="radio" checked />';
+        } else {
+          echo '<input value="a" type="radio" name="people_access" class="radio" />';
+        } ?>
         Admin
-        <input type="radio" name="radio-1" class="radio" />
-        User
+        <?php if ($data_edit['people_access'] == "m") {
+          echo '<input value="m" type="radio" name="people_access" class="radio" checked />';
+        } else {
+          echo '<input value="m" type="radio" name="people_access" class="radio" />';
+        } ?>
+        Member
       </label>
       <div class="flex justify-end gap-5">
         <button formaction="<?= base_url('/a/member/edit/confirm');  ?>" class="btn btn-primary" type="submit">Simpan</button>

@@ -174,11 +174,23 @@ class Admin extends BaseController
     }
     public function promos()
     {
-        $data = $this->promoModel->findAll();
+        $all = $this->promoModel->findAll();
+        $active = $this->promoModel
+            ->select()
+            ->where('promo_active', 'a')
+            ->findAll();
+
+        $inactive = $this->promoModel
+            ->select()
+            ->where('promo_active', 'i')
+            ->findAll();
+
         if (user_access() == 'a') {
             return view('admin/promos', [
                 'title' => 'Promo Table',
-                'datas' => $data
+                'all' => $all,
+                'active' => $active,
+                'inactive' => $inactive,
             ]);
         } else {
             return redirect()->to(base_url('/login'));
@@ -194,7 +206,7 @@ class Admin extends BaseController
             ->where('stock_id', $data_stock)
             ->first();
         return view('admin/edit_product', [
-            'title' => 'Edit',
+            'title' => 'Edit Produk',
             'data_edit' => $data_edit,
         ]);
     }
@@ -209,7 +221,7 @@ class Admin extends BaseController
         // dd($data_edit);
 
         return view('admin/edit_member', [
-            'title' => 'Edit',
+            'title' => 'Edit User',
             'data_edit' => $data_edit,
         ]);
     }
@@ -223,7 +235,7 @@ class Admin extends BaseController
             ->first();
         // dd($data_edit);
         return view('admin/edit_promo', [
-            'title' => 'Edit',
+            'title' => 'Edit Promo',
             'data_edit' => $data_edit,
         ]);
     }

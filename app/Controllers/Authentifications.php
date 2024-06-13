@@ -316,7 +316,7 @@ class Authentifications extends BaseController
     }
     public function member_edit_auth()
     {
-        $data_stock = $this->request->getPost('stock_id');
+        $data_member = $this->request->getPost('stock_id');
         $data_request = [
             'people_id' => $this->request->getPost('people_id'),
             'people_name' => $this->request->getPost('people_name'),
@@ -325,7 +325,12 @@ class Authentifications extends BaseController
             'people_city' => $this->request->getPost('people_city'),
             'people_access' => $this->request->getPost('people_access'),
         ];
-        // dd($data_stock); 
+        dd($data_request);
+        $this
+            ->userModel
+            ->where('people_id', $data_request['people_id'])
+            ->set($data_request)
+            ->update();
         return redirect()->to(base_url('/a/members'));
     }
     public function promo_edit_auth()
